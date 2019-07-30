@@ -1,0 +1,8 @@
+app_key: Cpli1VRuzbH2weyQ60h8ukaSqS6svQ6v
+yaml_parser: symfony
+locales:
+  en:
+    full: en_US
+    name: English
+    url: 'https://ghosttownfinder.dev/'
+timezone: America/Denver
