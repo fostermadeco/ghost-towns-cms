@@ -12,9 +12,9 @@ sections:
       county:
         type: text
         display: County
-      when_to_visit:
-        type: text
-        display: 'When to visit'
+      landmark:
+        type: toggle
+        display: Landmark
       images:
         container: main
         folder: /
@@ -22,15 +22,67 @@ sections:
         mode: grid
         type: assets
         display: Images
+      website:
+        type: text
+        display: Website
+      latitude:
+        type: text
+        display: Latitude
+      longitude:
+        type: text
+        display: Longitude
+      google_location_query:
+        type: text
+        display: 'Google Location Query'
+      managed_by:
+        type: text
+        display: 'Managed By'
+      directions:
+        restrict_assets: false
+        type: redactor
+        display: Directions
+      when_to_visit:
+        type: text
+        display: 'When to visit'
+      remote:
+        type: toggle
+        display: Remote
+      access:
+        options:
+          easy: 'Easy Access'
+          4wd: '4WD Recommended'
+          atv: 'ATV Recommended'
+        type: select
+        display: Access
       summary_description:
-        settings: Standard
+        settings: Basic
         restrict_assets: false
         type: redactor
         display: 'Summary Description'
+      narrative_description:
+        settings: Standard
+        restrict_assets: false
+        type: redactor
+        display: 'Narrative Description'
       history:
         settings: Standard
         restrict_assets: false
         type: redactor
         display: History
+      legacy:
+        restrict_assets: false
+        type: redactor
+        display: Legacy
+      related_towns:
+        collection:
+          - towns
+        type: collection
+        display: 'Related towns'
+        mode: panes
+      objectID:
+        type: text
+        instructions: 'From Algolia'
+        display: ObjectID
 taxonomies: true
 title: Town
+hide: true

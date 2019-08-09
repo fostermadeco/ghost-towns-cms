@@ -4,7 +4,8 @@ collections:
 taxonomies:
   tags: '/blog/tags/{slug}'
 routes:
-  /blog/tags: blog/taxonomies
+  /towns: towns
+  /towns/{slug}: town
   /search: search
   /users: user/index
   /users/{username}: user/profile

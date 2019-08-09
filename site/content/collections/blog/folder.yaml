@@ -1,3 +1,4 @@
 order: date
-fieldset: post
+fieldset: long_form
 template: blog/post
+title: Blog

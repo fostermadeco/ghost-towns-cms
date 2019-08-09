@@ -1,0 +1,21 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Name
+        type: text
+        localizable: true
+      description:
+        restrict_assets: false
+        type: redactor
+        display: Description
+      towns:
+        collection:
+          - towns
+        type: collection
+        display: Towns
+        mode: panes
+taxonomies: false
+title: Guides
+hide: true
