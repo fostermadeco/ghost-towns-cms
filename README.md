@@ -47,7 +47,7 @@ Uses BrowserSync to refresh assets and reload browser:
 npm run watch
 ```
 
-View the site at [http://localhost:3000/](http://localhost:3000/) or the proxy as set in `webpack.mix.js`, e.g. [http://ghosttownfinder:3000](http://ghosttownfinder:3000)
+View the site at [http://localhost:3000/](http://localhost:3000/) or the proxy as set in `webpack.mix.js`, e.g. [http://ghosttownfinder.dev:3000](http://ghosttownfinder.dev:3000)
 
 **Production Task:**
 ```
