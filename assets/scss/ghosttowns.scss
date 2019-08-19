@@ -1,0 +1,71 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Faustina:400,400i,600,700|Open+Sans:400,400i,700&display=swap');
+@font-face {
+    font-family: 'Taberna';
+    src: url('/assets/fonts/Taberna-Serif-Regular.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+$fa-font-path: "/assets/fonts/@fortawesome/fontawesome-free";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+@import "~flexslider/flexslider.css";
+
+/* Mixins */
+@import 'mixins/media-queries';
+
+/* CLEARING */
+.cleared:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
+.cleared {display:inline-block;}
+/* Hides from IE-mac \*/
+* html .cleared {height:1%;}
+.cleared {display:block;}
+/* End hide from IE-mac */
+/* END CLEARING */
+
+body {
+	visibility:visible !important;
+    background-color: theme('colors.white');
+    color: theme('colors.black');
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: theme('fontFamily.serif');
+}
+
+p, a {
+    font-family: theme('fontFamily.sansserif');
+}
+
+// .bg-topo {
+//     display: block;
+//     position: relative;
+//     width: 100%;
+//     height: 100%;
+// }
+// .bg-topo::after {
+//     content: "";
+//     background-image: url('/assets/images/topo-light.png');
+//     background-position: center top;
+//     background-repeat: repeat-x;
+//     opacity: 0.4;
+//     top: 0;
+//     left: 0;
+//     bottom: 0;
+//     right: 0;
+//     position: absolute;
+// }
+
+::placeholder {
+    color: gray;
+}
