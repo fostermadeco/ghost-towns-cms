@@ -1,0 +1,36 @@
+<<<<<<< HEAD
+driver: s3
+key: ""
+secret: ""
+=======
+path: assets/img/towns
+url: /assets/img/towns
+key: AKIAZTNLTVAQAP7A7TJZ
+secret: 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
+>>>>>>> 64b40722ae92d82cf36b0e24de4031c600f7c435
+bucket: fm-ghosttown
+region: us-east-1
+title: Towns
+fieldset: image
+assets:
+<<<<<<< HEAD
+=======
+  2016-07-16-14.23.25.jpg:
+    caption: 'Masonic Lodge, Bannack Montana'
+>>>>>>> 64b40722ae92d82cf36b0e24de4031c600f7c435
+  bannack-_montana_(25064171061)-web.jpg:
+    caption: 'By Mark Holloway from Anaconda, Montana - Bannack, Montana, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=65383545'
+  img/towns/2014-07-28_13_29_54_machine_shop_in_berlin-_nevada_at_berlin-ichthyosaur_state_park-web.jpg:
+    caption: 'Machine shop in Berlin, Nevada at Berlin-Ichthyosaur State Park'
+    attribution: 'By Famartin - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=34571945'
+  img/towns/bodie_ghost_town.jpg:
+    caption: 'House in the ghost town of Bodie, California.'
+    attribution: 'PDPhoto.org [Public domain]'
+  img/towns/3424254886_e1f32a54e0_o.jpg:
+    caption: 'Dickeys Inn at Matildaville, Virginia now Great Falls, Virginia'
+    attribution: 'https://www.flickr.com/photos/dcplcommons/3424254886/in/photostream/'
+<<<<<<< HEAD
+  bannack/2016-07-16-14.23.25.jpg:
+    caption: 'Masonic Lodge, Bannack Montana'
+=======
+>>>>>>> 64b40722ae92d82cf36b0e24de4031c600f7c435
