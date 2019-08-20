@@ -18,6 +18,11 @@
     }
 }
 
+input[type="text"] {
+    @apply border;
+    @apply border-tan;
+}
+
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
@@ -76,6 +81,22 @@ p, a, li {
 // }
 
 ::placeholder {
-    color: gray;
+    color: #999999 !important;
+}
+
+// Algolia places overrides
+.ap-input-icon.ap-icon-pin {
+    cursor: pointer;
+}
+.ap-input-icon.ap-icon-pin svg, 
+.ap-input:hover ~ .ap-input-icon svg, 
+.ap-input:focus ~ .ap-input-icon svg, 
+.ap-input-icon:hover svg {
+    fill: theme('colors.red');
+}
+// fixes for Places with Tailwind https://github.com/algolia/places/issues/811
+.ap-suggestion-icon svg,
+.ap-footer svg {
+    display: inline;
 }
 

@@ -1,13 +1,15 @@
 {
-    "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "modules": false,
-                "forceAllTransforms": true,
-                "useBuiltIns": "usage",
-                "targets": "last 1 version, > 1%"
-            }
-        ]
-    ]
-}
+    "env": {
+      "typecheck": {
+        "presets": ["@babel/preset-flow"]
+      },
+      "test": {
+        "presets": ["@babel/preset-flow", "@babel/preset-env", "@babel/preset-react"],
+        "plugins": ["@babel/plugin-proposal-class-properties"]
+      },
+      "development": {
+        "presets": ["@babel/preset-flow", "@babel/preset-env", "@babel/preset-react"],
+        "plugins": ["@babel/plugin-proposal-class-properties"]
+      }
+    }
+  }

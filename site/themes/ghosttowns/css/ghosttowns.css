@@ -941,6 +941,11 @@ video {
   margin-bottom: 0.5rem;
 }
 
+input[type=text] {
+  border-width: 1px;
+  border-color: #E3DFD7;
+}
+
 .container{
   width: 100%;
 }
@@ -15497,23 +15502,39 @@ p, a, li {
 }
 
 ::-webkit-input-placeholder {
-  color: gray;
+  color: #999999 !important;
 }
 
 ::-moz-placeholder {
-  color: gray;
+  color: #999999 !important;
 }
 
 :-ms-input-placeholder {
-  color: gray;
+  color: #999999 !important;
 }
 
 ::-ms-input-placeholder {
-  color: gray;
+  color: #999999 !important;
 }
 
 ::placeholder {
-  color: gray;
+  color: #999999 !important;
+}
+
+.ap-input-icon.ap-icon-pin {
+  cursor: pointer;
+}
+
+.ap-input-icon.ap-icon-pin svg,
+.ap-input:hover ~ .ap-input-icon svg,
+.ap-input:focus ~ .ap-input-icon svg,
+.ap-input-icon:hover svg {
+  fill: #D55F36;
+}
+
+.ap-suggestion-icon svg,
+.ap-footer svg {
+  display: inline;
 }
 
 @media (min-width: 640px){
