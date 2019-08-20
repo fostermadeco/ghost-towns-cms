@@ -1,9 +1,13 @@
 county: Beaverhead
 landmark: true
 images:
-  - /assets/img/towns/bannack-_montana_(25064171061)-web.jpg
-  - /assets/img/towns/2016-07-16-13.01.05.jpg
-  - /assets/img/towns/2016-07-16-14.23.25.jpg
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-13.21.55.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/bannack-_montana_(25064171061)-web.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-12.53.17.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-13.01.05.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-13.16.56.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-13.16.36.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-14.23.25.jpg'
 website: 'http://stateparks.mt.gov/bannack/'
 latitude: '45.162233'
 longitude: '-112.999537'

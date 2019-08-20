@@ -88,3 +88,4 @@ $RECYCLE.BIN/
 .vagrant
 /vendor/
 ansible/provision.retry
+ssl

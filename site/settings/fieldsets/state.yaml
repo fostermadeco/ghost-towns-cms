@@ -7,7 +7,7 @@ sections:
         display: Abbreviation
       image:
         container: towns
-        folder: img/towns
+        folder: states
         restrict: false
         type: assets
         display: Image

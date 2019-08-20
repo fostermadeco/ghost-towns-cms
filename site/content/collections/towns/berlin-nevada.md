@@ -1,6 +1,7 @@
-states: nevada
 county: Nye
 landmark: false
+images:
+  - 'https://fm-ghosttown.s3.amazonaws.com/berlin/2014-07-28_13_29_54_machine_shop_in_berlin-_nevada_at_berlin-ichthyosaur_state_park-web.jpg'
 website: 'http://parks.nv.gov/parks/berlin-ichthyosaur'
 latitude: '38.882506'
 longitude: '-117.609877'
@@ -16,3 +17,4 @@ history: |
 objectID: '23085200'
 title: Berlin
 id: 5fc3678a-e377-47d8-bf6f-e1ed1ca1596a
+states: nevada

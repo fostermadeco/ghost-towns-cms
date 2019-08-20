@@ -1,8 +1,0 @@
-
-key: ""
-secret: ""
-bucket: fm-ghosttown
-region: us-east-1
-title: 'S3 Test'
-fieldset: image
-driver: s3
