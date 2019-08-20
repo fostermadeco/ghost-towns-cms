@@ -1,3 +1,7 @@
 title: Towns
 fieldset: town
 template: town
+columns:
+  - title
+  - slug
+  - state

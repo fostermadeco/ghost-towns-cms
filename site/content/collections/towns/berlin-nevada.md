@@ -1,5 +1,4 @@
-state:
-  - states/nevada
+states: nevada
 county: Nye
 landmark: false
 website: 'http://parks.nv.gov/parks/berlin-ichthyosaur'

@@ -931,6 +931,16 @@ video {
   height: auto;
 }
 
+.page-body ul {
+  list-style-type: disc;
+  margin-left: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.page-body ul li {
+  margin-bottom: 0.5rem;
+}
+
 .container{
   width: 100%;
 }
@@ -4711,6 +4721,18 @@ video {
 
 .max-w-xxs{
   max-width: 15rem;
+}
+
+.max-w-1\/4{
+  max-width: 25%;
+}
+
+.max-w-1\/2{
+  max-width: 50%;
+}
+
+.max-w-3\/4{
+  max-width: 75%;
 }
 
 .min-h-0{
@@ -15470,7 +15492,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Faustina, serif;
 }
 
-p, a {
+p, a, li {
   font-family: Open Sans, sans-serif;
 }
 
@@ -19247,6 +19269,18 @@ p, a {
 
   .sm\:max-w-xxs{
     max-width: 15rem;
+  }
+
+  .sm\:max-w-1\/4{
+    max-width: 25%;
+  }
+
+  .sm\:max-w-1\/2{
+    max-width: 50%;
+  }
+
+  .sm\:max-w-3\/4{
+    max-width: 75%;
   }
 
   .sm\:min-h-0{
@@ -27861,6 +27895,18 @@ p, a {
     max-width: 15rem;
   }
 
+  .md\:max-w-1\/4{
+    max-width: 25%;
+  }
+
+  .md\:max-w-1\/2{
+    max-width: 50%;
+  }
+
+  .md\:max-w-3\/4{
+    max-width: 75%;
+  }
+
   .md\:min-h-0{
     min-height: 0;
   }
@@ -36473,6 +36519,18 @@ p, a {
     max-width: 15rem;
   }
 
+  .lg\:max-w-1\/4{
+    max-width: 25%;
+  }
+
+  .lg\:max-w-1\/2{
+    max-width: 50%;
+  }
+
+  .lg\:max-w-3\/4{
+    max-width: 75%;
+  }
+
   .lg\:min-h-0{
     min-height: 0;
   }
@@ -45083,6 +45141,18 @@ p, a {
 
   .xl\:max-w-xxs{
     max-width: 15rem;
+  }
+
+  .xl\:max-w-1\/4{
+    max-width: 25%;
+  }
+
+  .xl\:max-w-1\/2{
+    max-width: 50%;
+  }
+
+  .xl\:max-w-3\/4{
+    max-width: 75%;
   }
 
   .xl\:min-h-0{

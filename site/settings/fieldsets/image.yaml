@@ -1,0 +1,13 @@
+sections:
+  main:
+    display: Main
+    fields:
+      caption:
+        type: text
+        display: Caption
+      attribution:
+        type: text
+        display: Attribution
+taxonomies: false
+title: Image
+hide: true

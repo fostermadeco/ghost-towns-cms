@@ -1,7 +1,9 @@
-state:
-  - states/montana
 county: Beaverhead
 landmark: true
+images:
+  - /assets/img/towns/bannack-_montana_(25064171061)-web.jpg
+  - /assets/img/towns/2016-07-16-13.01.05.jpg
+  - /assets/img/towns/2016-07-16-14.23.25.jpg
 website: 'http://stateparks.mt.gov/bannack/'
 latitude: '45.162233'
 longitude: '-112.999537'
@@ -22,3 +24,4 @@ history: |
 objectID: '23117190'
 title: Bannack
 id: 96befc0e-174e-4d16-88d2-56074ff8a4c4
+states: montana

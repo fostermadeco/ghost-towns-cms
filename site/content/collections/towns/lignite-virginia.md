@@ -1,4 +1,4 @@
-state: virginia
+states: virginia
 county: Botetourt
 landmark: false
 latitude: '37.6273498'
