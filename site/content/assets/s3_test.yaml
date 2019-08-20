@@ -1,10 +1,6 @@
-<<<<<<< HEAD
+
 key: ""
 secret: ""
-=======
-key: AKIAZTNLTVAQFYIIHDHI
-secret: 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
->>>>>>> 64b40722ae92d82cf36b0e24de4031c600f7c435
 bucket: fm-ghosttown
 region: us-east-1
 title: 'S3 Test'
