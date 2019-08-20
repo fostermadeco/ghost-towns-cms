@@ -1,4 +1,4 @@
-state: montana
+states: montana
 county: Beaverhead
 landmark: false
 website: 'https://www.glendalemontana.com/'

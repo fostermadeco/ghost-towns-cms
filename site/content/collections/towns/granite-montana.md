@@ -1,4 +1,4 @@
-state: montana
+states: montana
 county: Granite
 landmark: false
 website: 'http://stateparks.mt.gov/granite-ghost-town/'

@@ -2,7 +2,7 @@ sections:
   main:
     display: Main
     fields:
-      state:
+      states:
         type: taxonomy
         display: State
         taxonomy: states
@@ -15,7 +15,7 @@ sections:
         type: toggle
         display: Landmark
       images:
-        container: main
+        container: towns
         folder: /
         restrict: false
         mode: grid

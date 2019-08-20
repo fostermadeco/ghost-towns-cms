@@ -3,12 +3,13 @@ collections:
   things: '/things/{slug}'
 taxonomies:
   tags: '/blog/tags/{slug}'
+  states: '/towns/states/{slug}'
 routes:
   /towns: towns
-  /towns/{slug}: town
+  '/towns/{slug}': town
   /search: search
   /users: user/index
-  /users/{username}: user/profile
+  '/users/{username}': user/profile
   /account: user/account
   /login: auth/login
   /register: auth/register

@@ -9,6 +9,15 @@
 
 @import "tailwindcss/base";
 
+.page-body ul {
+    @apply list-disc;
+    @apply ml-10;
+    @apply mt-2;
+    li {
+        @apply mb-2;
+    }
+}
+
 @import "tailwindcss/components";
 
 @import "tailwindcss/utilities";
@@ -43,7 +52,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
 }
 
-p, a {
+p, a, li {
     font-family: theme('fontFamily.sansserif');
 }
 
@@ -69,3 +78,4 @@ p, a {
 ::placeholder {
     color: gray;
 }
+

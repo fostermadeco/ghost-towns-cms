@@ -5,6 +5,12 @@ sections:
       abbreviation:
         type: text
         display: Abbreviation
+      image:
+        container: towns
+        folder: img/towns
+        restrict: false
+        type: assets
+        display: Image
 taxonomies: false
 title: State
 hide: true

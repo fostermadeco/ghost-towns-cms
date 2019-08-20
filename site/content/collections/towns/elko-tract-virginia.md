@@ -1,5 +1,4 @@
-state:
-  - states/virginia
+states: virginia
 county: Henrico
 landmark: false
 website: 'http://www.abandonedcountry.com/2013/10/28/the-elko-tract-a-lost-city-thats-too-well-known/'

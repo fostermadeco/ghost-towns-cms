@@ -10,10 +10,12 @@
         <div class="flex">
             {{ taxonomy:states show="all" }}
                 <div class="max-w-xxs rounded overflow-hidden bg-white border border-tan mr-6">
-                    <a href="">
-                        <img src="/assets/images/state.png" alt="" class="w-full">
+                    <a href="/explore?query={{ slug }}">
+                        {{ image }}
+                        <img src="{{ glide:value width="193" height="245" fit="crop" }}"  alt="" class="w-full">
+                        {{ /image }}
                         <h6 class="text-lg font-bold mt-3 mb-2 mx-4">{{ title }}</h6>
-                        <p class="mb-4 mx-4 text-sm text-brown">{{ count }} Towns</p>
+                        <p class="mb-4 mx-4 text-sm text-brown">{{ results }} Towns</p>
                     </a>
                 </div>
             {{ /taxonomy:states }}

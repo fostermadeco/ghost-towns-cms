@@ -1,5 +1,4 @@
-state:
-  - states/california
+states: california
 county: Mono
 landmark: true
 website: 'http://www.parks.ca.gov/?page_id=509'
