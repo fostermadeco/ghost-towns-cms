@@ -1,4 +1,4 @@
-state: montana
+state: states/montana
 county: Granite
 landmark: false
 latitude: '46.211666'

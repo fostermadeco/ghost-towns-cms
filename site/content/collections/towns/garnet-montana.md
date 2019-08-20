@@ -1,4 +1,5 @@
-state: montana
+state:
+  - states/montana
 county: Granite
 landmark: true
 website: 'http://garnetghosttown.org/'

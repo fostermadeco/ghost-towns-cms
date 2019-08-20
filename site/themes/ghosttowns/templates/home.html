@@ -8,20 +8,15 @@
         </div>
         <h3 class="mt-8 mb-4 text-red text-xl font-semibold">Ghost Towns to Explore</h3>
         <div class="flex">
-            <div class="max-w-xxs rounded overflow-hidden bg-white border border-tan mr-6">
-                <a href="">
-                    <img src="/assets/images/state.png" alt="" class="w-full">
-                    <h6 class="text-lg font-bold mt-3 mb-2 mx-4">Colorado</h6>
-                    <p class="mb-4 mx-4 text-brown">3 Towns</p>
-                </a>
-            </div>
-            <div class="max-w-xxs rounded overflow-hidden bg-white border border-tan mr-6">
-                <a href="">
-                    <img src="/assets/images/state.png" alt="" class="w-full">
-                    <h6 class="text-lg font-bold mt-3 mb-2 mx-4">Colorado</h6>
-                    <p class="mb-4 mx-4 text-brown">3 Towns</p>
-                </a>
-            </div>
+            {{ taxonomy:states show="all" }}
+                <div class="max-w-xxs rounded overflow-hidden bg-white border border-tan mr-6">
+                    <a href="">
+                        <img src="/assets/images/state.png" alt="" class="w-full">
+                        <h6 class="text-lg font-bold mt-3 mb-2 mx-4">{{ title }}</h6>
+                        <p class="mb-4 mx-4 text-sm text-brown">{{ count }} Towns</p>
+                    </a>
+                </div>
+            {{ /taxonomy:states }}
         </div>
     </div>
 </div>

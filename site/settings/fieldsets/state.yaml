@@ -1,0 +1,10 @@
+sections:
+  main:
+    display: Main
+    fields:
+      abbreviation:
+        type: text
+        display: Abbreviation
+taxonomies: false
+title: State
+hide: true

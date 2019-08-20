@@ -1,4 +1,5 @@
-state: montana
+state:
+  - states/montana
 county: Beaverhead
 landmark: true
 website: 'http://stateparks.mt.gov/bannack/'
