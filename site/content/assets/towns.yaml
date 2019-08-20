@@ -1,0 +1,8 @@
+
+driver: s3
+key: ""
+secret: ""
+bucket: fm-ghosttown
+region: us-east-1
+title: Towns
+fieldset: image
