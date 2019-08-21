@@ -7,26 +7,6 @@
     font-style: normal;
 }
 
-@import "tailwindcss/base";
-
-.page-body ul {
-    @apply list-disc;
-    @apply ml-10;
-    @apply mt-2;
-    li {
-        @apply mb-2;
-    }
-}
-
-input[type="text"] {
-    @apply border;
-    @apply border-tan;
-}
-
-@import "tailwindcss/components";
-
-@import "tailwindcss/utilities";
-
 $fa-font-path: "/assets/fonts/@fortawesome/fontawesome-free";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
@@ -36,17 +16,8 @@ $fa-font-path: "/assets/fonts/@fortawesome/fontawesome-free";
 
 @import "~flexslider/flexslider.css";
 
-/* Mixins */
-@import 'mixins/media-queries';
-
-/* CLEARING */
-.cleared:after {content:"."; display:block; height:0; clear:both; visibility:hidden;}
-.cleared {display:inline-block;}
-/* Hides from IE-mac \*/
-* html .cleared {height:1%;}
-.cleared {display:block;}
-/* End hide from IE-mac */
-/* END CLEARING */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
 
 body {
 	visibility:visible !important;
@@ -60,6 +31,28 @@ h1, h2, h3, h4, h5, h6 {
 p, a, li, span, div {
     font-family: theme('fontFamily.sansserif');
 }
+
+.page-body ul {
+    @apply list-disc;
+    @apply ml-10;
+    @apply mt-2;
+    li {
+        @apply mb-2;
+    }
+}
+input[type="text"] {
+    @apply border;
+    @apply border-tan;
+}
+.badge {
+    @apply uppercase text-xs rounded tracking-widest mr-2;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.badge-blue {
+    @apply bg-blue text-white px-2;
+}
+
 
 .bg-topo {
     display: block;
@@ -112,33 +105,29 @@ p, a, li, span, div {
 }
 
 .mapboxgl-ctrl {
-position: absolute;
-right: 10px;
+    position: absolute;
+    right: 10px;
 }
-
 .mapboxgl-popup-close-button {
-right: 5px;
+    right: 5px;
 }
-
 .mapboxgl-popup {
-z-index: 1;
+    z-index: 1;
 }
 
 .ais-SearchBox-input {
-appearance: none;
-padding: 0.3rem 1.7rem;
-width: 100%;
-position: relative;
-background-color: #fff;
-border: 1px solid theme('colors.gray.400');
-border-radius: 5px;
+    appearance: none;
+    padding: 0.3rem 1.7rem;
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid theme('colors.gray.400');
+    border-radius: 5px;
 }
-
 .ais-SearchBox-form {
-display: block;
-position: relative;
+    display: block;
+    position: relative;
 }
-
 .ais-SearchBox-submit, .ais-SearchBox-reset {
     appearance: none;
     position: absolute;
@@ -175,15 +164,5 @@ position: relative;
     background-color: theme('colors.tan');
 }
 
-.tag-label {
-    @apply bg-blue;
-    @apply text-white;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    @apply px-2;
-    @apply uppercase;
-    @apply text-xs;
-    @apply rounded;
-    @apply tracking-widest;
-    @apply mr-2;
-}
+
+@import "tailwindcss/utilities";

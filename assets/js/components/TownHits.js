@@ -31,8 +31,9 @@ const Hit = ({ hit, onMouseEnter = () => {}, onMouseLeave = () => {} }) => (
             </div>
         </div>
         <div className="flex-row mb-3">
-            {hit.road_condition && <span className="tag-label">{hit.road_condition}</span>}
-            {hit.featured && <span className="tag-label">Landmark</span>}
+            {hit.road_condition && <span className="badge badge-blue">{hit.road_condition}</span>}
+            {hit.featured && <span className="badge badge-blue">Landmark</span>}
+            {hit.managed_by && <span className="badge badge-blue">Managed</span>}
         </div>
     </div>
 );
