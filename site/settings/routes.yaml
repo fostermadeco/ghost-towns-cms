@@ -1,8 +1,5 @@
-collections:
-  blog: '/blog/{year}/{month}/{day}/{slug}'
-  things: '/things/{slug}'
+collections: {  }
 taxonomies:
-  tags: '/blog/tags/{slug}'
   states: '/towns/states/{slug}'
 routes:
   /towns: towns
