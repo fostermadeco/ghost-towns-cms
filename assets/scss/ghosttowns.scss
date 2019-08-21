@@ -57,7 +57,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
 }
 
-p, a, li {
+p, a, li, span, div {
     font-family: theme('fontFamily.sansserif');
 }
 
@@ -172,5 +172,18 @@ position: relative;
 }
 .ais-Highlight-highlighted {
     font-style: normal;
-    background-color: theme('colors.yellow.300');
+    background-color: theme('colors.tan');
+}
+
+.tag-label {
+    @apply bg-blue;
+    @apply text-white;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    @apply px-2;
+    @apply uppercase;
+    @apply text-xs;
+    @apply rounded;
+    @apply tracking-widest;
+    @apply mr-2;
 }

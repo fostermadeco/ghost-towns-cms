@@ -23,6 +23,12 @@ module.exports = {
                 '1/2': '50%',
                 '3/4': '75%',
             },
+            minHeight: {
+                card: '185px',
+            },
+            padding: {
+                '1/2': '.15rem',
+            },
         },
     },
     variants: {},

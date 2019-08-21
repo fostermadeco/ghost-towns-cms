@@ -8,14 +8,10 @@ const StateResults = ({ searchResults }) => {
         return null;
     }
 
-    const { hits, hitsPerPage, nbHits, page } = searchResults;
-    const recordStart = page * hitsPerPage + 1;
-    const recordEnd = hits.length === hitsPerPage ? (page + 1) * hitsPerPage : page * hitsPerPage + hits.length;
-
-    const stats = `<h3>${nbHits} Ghost Towns</h3>`;
+    const { hits, nbHits } = searchResults;
 
     if (hits.length === 0) {
-        return <div className="italic my-2">'There are no results for that search.'</div>;
+        return <div className="italic my-2">There are no results for that search.</div>;
     }
 
     return <h3 className="text-red text-2xl font-semibold mt-3">{nbHits} Ghost Towns</h3>;

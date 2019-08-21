@@ -6,34 +6,34 @@ import CustomPagination from './CustomPagination';
 import HitIcon from './HitIcon';
 import Icon from './Icon';
 import { hitType } from './types';
+import { truncate } from './helpers/strings';
 
 const Hit = ({ hit, onMouseEnter = () => {}, onMouseLeave = () => {} }) => (
-    <div onMouseEnter={() => onMouseEnter(hit)} onMouseLeave={onMouseLeave}>
-        <div className="my-3">
-            <div className="flex content-start items-baseline">
-                <HitIcon className="mr-1" isFeatured={hit.featured} size={15} />
-                <h3>
-                    <a href={`/towns/${hit.slug}`}>
-                        <Highlight hit={hit} attribute="name" /> <span className="text-sm">{hit.state}</span>
-                    </a>
-                </h3>
+    <div
+        className="flex flex-wrap my-3 content-between border rounded border-tan bg-white px-4 py-2 min-h-card"
+        onMouseEnter={() => onMouseEnter(hit)}
+        onMouseLeave={onMouseLeave}
+    >
+        <div className="flex-col flex-grow">
+            <div className="text-orange tracking-widest uppercase mt-2 mb-1 text-xs">
+                <Highlight hit={hit} attribute="county" /> County
             </div>
-            <div className="text-sm mt-1">
-                <span className="text-xs uppercase">County:</span> {hit.county}
+            <h3>
+                <a href={`/towns/${hit.slug}`}>
+                    <span className="font-semibold text-lg">
+                        <Highlight hit={hit} attribute="name" />,
+                    </span>
+                    <span className="text-lg"> {hit.state}</span>
+                </a>
+            </h3>
+            <div className="flex-grow">
+                <p className="text-brown text-xs mt-2">{truncate(hit.structure_description)}</p>
             </div>
-            <div className="text-sm">
-                <span className="text-xs uppercase">Road:</span> {hit.road_condition}
-            </div>
-            <div className="text-sm">
-                <span className="text-xs underline">
-                    <a href={hit.url}>
-                        <Icon name="link" size="xs" /> Website
-                    </a>
-                </span>
-            </div>
-            <p className="text-sm mt-2">{hit.structure_description}</p>
         </div>
-        <hr className="mt-2" />
+        <div className="flex-row mb-3">
+            {hit.road_condition && <span className="tag-label">{hit.road_condition}</span>}
+            {hit.featured && <span className="tag-label">Landmark</span>}
+        </div>
     </div>
 );
 
