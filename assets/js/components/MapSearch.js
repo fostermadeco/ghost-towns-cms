@@ -81,7 +81,7 @@ const MapSearch = () => {
 
     const [popupHit, setPopupHit] = useState(null);
     const [mobileViewMode, setMobileViewMode] = useLocalStorage('mobileViewMode', 'list');
-    const [mapWrapRef, mapWidth] = useElementSize();
+    const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
 
     const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
         setPopupHit(null);
@@ -118,7 +118,7 @@ const MapSearch = () => {
     };
 
     const isMobile = useIsMobile();
-
+    console.log(mapHeight);
     return (
         <InstantSearch
             searchClient={searchClient}
@@ -194,8 +194,8 @@ const MapSearch = () => {
 
                 {(!isMobile || mobileViewMode === 'map') && (
                     <div className="w-full md:w-1/2">
-                        <div className="mx-2 md:ml-5" ref={mapWrapRef}>
-                            <GeoSearchMapbox width={mapWidth} height={500}>
+                        <div className="mx-2 md:ml-5" style={{ height: '100%' }} ref={mapWrapRef}>
+                            <GeoSearchMapbox width={mapWidth} height={mapHeight}>
                                 {({ hits }) => (
                                     <div>
                                         {renderPopup()}

@@ -14,7 +14,11 @@ const StateResults = ({ searchResults }) => {
         return <div className="italic my-2">There are no results for that search.</div>;
     }
 
-    return <h3 className="text-red text-2xl font-semibold mt-3">{nbHits} Ghost Towns</h3>;
+    return (
+        <h3 className="text-red text-2xl font-semibold mt-3">
+            {nbHits} Ghost Town{hits.length > 1 && 's'}
+        </h3>
+    );
 };
 
 StateResults.propTypes = {
