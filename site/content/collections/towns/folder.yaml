@@ -4,4 +4,4 @@ template: town
 columns:
   - title
   - slug
-  - state
+  - states

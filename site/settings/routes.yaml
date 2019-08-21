@@ -1,9 +1,5 @@
-collections: {  }
-taxonomies:
-  states: '/towns/states/{slug}'
 routes:
   /towns: towns
-  '/towns/{slug}': town
   /search: search
   /users: user/index
   '/users/{username}': user/profile
@@ -20,3 +16,7 @@ routes:
     layout: feed
     template: feeds/things
     content_type: atom
+collections:
+  towns: '/towns/{slug}'
+taxonomies:
+  states: '/towns/states/{slug}'

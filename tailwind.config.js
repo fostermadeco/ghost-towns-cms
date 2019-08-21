@@ -13,15 +13,20 @@ module.exports = {
                 red: '#D55F36',
                 yellow: '#C7A360',
                 blue: '#799AB1',
+                tan: {
+                    '200': '#f4f4f2',
+                    '400': '#E3DFD7',
+                    '500': '#CCC9C2',
+                },
                 tanLight: '#f4f4f2',
-                tan: '#E3DFD7',
                 tanMed: '#CCC9C2',
+                gray: {
+                    '200': '#F2F2F2',
+                    '500': '#CCC9C2',
+                },
             },
             maxWidth: {
                 xxs: '15rem',
-                '1/4': '25%',
-                '1/2': '50%',
-                '3/4': '75%',
             },
             minHeight: {
                 card: '185px',

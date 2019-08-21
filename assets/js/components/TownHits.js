@@ -10,12 +10,12 @@ import { truncate } from './helpers/strings';
 
 const Hit = ({ hit, onMouseEnter = () => {}, onMouseLeave = () => {} }) => (
     <div
-        className="flex flex-wrap my-3 content-between border rounded border-tan bg-white px-4 py-2 min-h-card"
+        className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card"
         onMouseEnter={() => onMouseEnter(hit)}
         onMouseLeave={onMouseLeave}
     >
         <div className="flex-col flex-grow">
-            <div className="text-orange tracking-widest uppercase mt-2 mb-1 text-xs">
+            <div className="tagline">
                 <Highlight hit={hit} attribute="county" /> County
             </div>
             <h3>

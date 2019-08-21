@@ -1,3 +1,71 @@
-{{ collection:towns }}
-{{title}}
-{{ /collection:towns }}
+<div class="bg-dark">
+    <div class="container mx-auto">
+        <div class="py-4">
+            <h3 class="tagline">{{ county }} county</h3>
+            <div class="clearfix">
+                <div class="float-left w-2/5">
+                    <h1 class="text-gray-200 text-3xl font-normal font-sansserif"><strong>{{ title }},</strong> {{ states }}{{ title }}{{ /states }}</h1>
+                    <div class="text-gray-500 text-sm mb-5">{{ latitude }} / {{ longitude }}</div>
+                    <div class="flex">
+                        {{ if landmark }}<div class="badge badge-blue">Landmark</div>{{ /if }}
+                        {{ if managed_by }}<div class="badge badge-blue">Managed</div>{{ /if }}
+                    </div>
+                </div>
+                <div class="float-left w-3/5">
+                    <div class="flex flex-col">
+                        <div class="text-gray-200 text-lg mb-8">
+                            {{ summary_description }}
+                        </div>
+                        <div class="clearfix">
+                            <div class="float-left w-1/3">
+                                <div class="mr-10">
+                                    <img src="{{ theme:img src="time-clock-circle.svg" }}" width="17" />
+                                    <div class="text-gray-200 text-sm mt-2">
+                                        {{ when_to_visit }} 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="float-left w-1/3">
+                                <img src="{{ theme:img src="pin.svg"}}" width="13" />
+                                <div class="text-gray-200 text-sm mt-2">
+                                    37 min drive from Dillon, MT
+                                </div>
+                            </div>
+                            <div class="float-left w-1/3 capitalize">
+                                <img src="{{ theme:img src="adventure-car-convertible.svg"}}" width="25" />
+                                <div class="text-gray-200 text-sm mt-2">
+                                    {{ access }} Access
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="bg-tan-200">
+    <div class="container mx-auto">
+        <div class="w-2/3">
+            <h2 class="text-2xl pt-10 mb-4">History</h2>
+            {{ history }}
+            <h2 class="text-2xl pt-10 mb-4">Description</h2>
+            {{ narrative_description }}
+            <h2 class="text-2xl pt-10 mb-4">Directions</h2>
+            {{ directions }}
+            <div class="pb-3">
+
+                <div 
+                data-react="MapSingle"
+                data-react-props='{"town": {
+                    "name": "{{ title }}",
+                    "_geoloc": {
+                        "lat": {{ latitude }},
+                        "lng": {{ longitude }}
+                    }
+                }}'
+                ></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -27,17 +27,22 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
 }
-
 p, a, li, span, div {
     font-family: theme('fontFamily.sansserif');
 }
-hr {
-    @apply border-tan;
+p {
+    @apply pb-3 leading-relaxed;
 }
-
+hr {
+    @apply border-tan-400;
+}
 input[type="text"],
 input[type="search"] {
-    @apply border border-tan;
+    @apply border border-tan-400;
+}
+
+.tagline {
+    @apply text-orange tracking-widest uppercase mt-2 mb-1 text-xs font-sansserif;
 }
 
 // user content
@@ -77,6 +82,11 @@ input[type="search"] {
 //     right: 0;
 //     position: absolute;
 // }
+
+.bg-dark {
+    background-color: #3A3A3C;
+    // background: linear-gradient(180deg, #3A3A3C 0%, rgba(0, 0, 0, 0) 87.05%);
+}
 
 ::placeholder {
     color: #999999 !important;

@@ -31,7 +31,8 @@ mix.autoload({
     jquery: ['$', 'window.jQuery', 'jQuery'],
 });
 
-mix.copyDirectory('assets/images', 'site/themes/ghosttowns/images');
+// React images references were working only when images was in root
+mix.copyDirectory('images', 'site/themes/ghosttowns/img');
 mix.copyDirectory('assets/fonts', 'site/themes/ghosttowns/fonts');
 
 mix.webpackConfig({
