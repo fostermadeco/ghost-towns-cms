@@ -26,6 +26,7 @@
         "classnames": "^2.2.6",
         "cross-env": "^5.2.0",
         "dotenv": "^8.0.0",
+        "dotenv-webpack": "^1.7.0",
         "flexslider": "^2.7.2",
         "fs": "0.0.1-security",
         "instantsearch.css": "^7.3.1",

@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const tailwindcss = require('tailwindcss');
+const Dotenv = require('dotenv-webpack');
 
 const host = 'ghosttownfinder.dev';
 const vagrantIP = '192.168.202.153';
@@ -32,6 +33,10 @@ mix.autoload({
 
 mix.copyDirectory('assets/images', 'site/themes/ghosttowns/images');
 mix.copyDirectory('assets/fonts', 'site/themes/ghosttowns/fonts');
+
+mix.webpackConfig({
+    plugins: [new Dotenv()],
+});
 
 if (!mix.config.production) {
     mix.browserSync({

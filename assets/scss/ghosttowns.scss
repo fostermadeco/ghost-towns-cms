@@ -61,24 +61,24 @@ p, a, li {
     font-family: theme('fontFamily.sansserif');
 }
 
-// .bg-topo {
-//     display: block;
-//     position: relative;
-//     width: 100%;
-//     height: 100%;
-// }
-// .bg-topo::after {
-//     content: "";
-//     background-image: url('/assets/images/topo-light.png');
-//     background-position: center top;
-//     background-repeat: repeat-x;
-//     opacity: 0.4;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     position: absolute;
-// }
+.bg-topo {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.bg-topo::after {
+    content: "";
+    background-image: url('/assets/images/topo-light.png');
+    background-position: center top;
+    background-repeat: repeat-x;
+    opacity: 0.4;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
 
 ::placeholder {
     color: #999999 !important;
@@ -100,7 +100,77 @@ p, a, li {
 }
 // fixes for Places with Tailwind https://github.com/algolia/places/issues/811
 .ap-suggestion-icon svg,
-.ap-footer svg {
-    display: inline;
+.ap-footer a svg {
+  display: inline;
+  vertical-align: unset;
+}
+.ap-suggestion-icon svg {
+  vertical-align: unset;
+}
+.ap-footer a svg {
+  vertical-align: middle;
 }
 
+.mapboxgl-ctrl {
+position: absolute;
+right: 10px;
+}
+
+.mapboxgl-popup-close-button {
+right: 5px;
+}
+
+.mapboxgl-popup {
+z-index: 1;
+}
+
+.ais-SearchBox-input {
+appearance: none;
+padding: 0.3rem 1.7rem;
+width: 100%;
+position: relative;
+background-color: #fff;
+border: 1px solid theme('colors.gray.400');
+border-radius: 5px;
+}
+
+.ais-SearchBox-form {
+display: block;
+position: relative;
+}
+
+.ais-SearchBox-submit, .ais-SearchBox-reset {
+    appearance: none;
+    position: absolute;
+    z-index: 1;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ais-SearchBox-submitIcon {
+    width: 14px;
+    height: 14px;
+}
+.ais-SearchBox-submitIcon, .ais-SearchBox-resetIcon, .ais-SearchBox-loadingIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    fill: theme('colors.gray.500');
+}
+.ais-SearchBox-submit {
+    left: 0.3rem;
+}
+.ais-SearchBox-submitIcon {
+    left: 50%;
+}
+.ais-SearchBox-reset {
+    right: 0.3rem;
+}
+.ais-SearchBox-resetIcon {
+    right: 20%;
+}
+.ais-Highlight-highlighted {
+    font-style: normal;
+    background-color: theme('colors.yellow.300');
+}
