@@ -6893,8 +6893,8 @@ input[type=search] {
 }
 
 .button-red {
-  background-color: #D55F36;
-  color: #fff;
+  background-color: #fff;
+  color: #716652;
 }
 
 ::-webkit-input-placeholder {
@@ -6969,7 +6969,7 @@ input[type=search] {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  padding: 0.3rem 1.7rem;
+  padding: 0.3rem 1.2rem;
   width: 100%;
   position: relative;
   border-radius: 0.25rem;
