@@ -15521,6 +15521,11 @@ p, a, li {
   color: #999999 !important;
 }
 
+.ap-input {
+  height: 50px;
+  line-height: 50px;
+}
+
 .ap-input-icon.ap-icon-pin {
   cursor: pointer;
 }
@@ -15529,7 +15534,7 @@ p, a, li {
 .ap-input:hover ~ .ap-input-icon svg,
 .ap-input:focus ~ .ap-input-icon svg,
 .ap-input-icon:hover svg {
-  fill: #D55F36;
+  fill: #CA8643;
 }
 
 .ap-suggestion-icon svg,

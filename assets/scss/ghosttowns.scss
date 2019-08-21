@@ -84,6 +84,10 @@ p, a, li {
     color: #999999 !important;
 }
 
+.ap-input {
+    height: 50px;
+    line-height: 50px;
+}
 // Algolia places overrides
 .ap-input-icon.ap-icon-pin {
     cursor: pointer;
@@ -92,7 +96,7 @@ p, a, li {
 .ap-input:hover ~ .ap-input-icon svg, 
 .ap-input:focus ~ .ap-input-icon svg, 
 .ap-input-icon:hover svg {
-    fill: theme('colors.red');
+    fill: theme('colors.orange');
 }
 // fixes for Places with Tailwind https://github.com/algolia/places/issues/811
 .ap-suggestion-icon svg,
