@@ -129,7 +129,7 @@ const MapSearch = () => {
             <Configure {...config} />
             <div className="flex flex-wrap">
                 <div className="w-full md:w-1/2">
-                    <div className="mx-2 mt-2">
+                    <div className="mx-2 mt-3">
                         <SearchBox />
                         <LocationFilters
                             aroundRadius={aroundRadius}

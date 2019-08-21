@@ -6834,6 +6834,16 @@ p, a, li, span, div {
   font-family: Open Sans, sans-serif;
 }
 
+hr {
+  border-color: #E3DFD7;
+}
+
+input[type=text],
+input[type=search] {
+  border-width: 1px;
+  border-color: #E3DFD7;
+}
+
 .page-body ul {
   list-style-type: disc;
   margin-left: 2.5rem;
@@ -6842,11 +6852,6 @@ p, a, li, span, div {
 
 .page-body ul li {
   margin-bottom: 0.5rem;
-}
-
-input[type=text] {
-  border-width: 1px;
-  border-color: #E3DFD7;
 }
 
 .badge {
@@ -6866,24 +6871,30 @@ input[type=text] {
   padding-right: 0.5rem;
 }
 
-.bg-topo {
-  display: block;
-  position: relative;
-  width: 100%;
-  height: 100%;
+.button {
+  border-radius: 5px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
-.bg-topo::after {
-  content: "";
-  background-image: url("/assets/images/topo-light.png");
-  background-position: center top;
-  background-repeat: repeat-x;
-  opacity: 0.4;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
+.button-sm {
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.button-orange {
+  background-color: #CA8643;
+  color: #fff;
+}
+
+.button-red {
+  background-color: #D55F36;
+  color: #fff;
 }
 
 ::-webkit-input-placeholder {
@@ -6949,6 +6960,11 @@ input[type=text] {
   z-index: 1;
 }
 
+.ais-SearchBox-form {
+  display: block;
+  position: relative;
+}
+
 .ais-SearchBox-input {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -6956,17 +6972,14 @@ input[type=text] {
   padding: 0.3rem 1.7rem;
   width: 100%;
   position: relative;
+  border-radius: 0.25rem;
   background-color: #fff;
-  border: 1px solid #cbd5e0;
-  border-radius: 5px;
+  height: 50px;
+  line-height: 50px;
 }
 
-.ais-SearchBox-form {
-  display: block;
-  position: relative;
-}
-
-.ais-SearchBox-submit, .ais-SearchBox-reset {
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -6978,32 +6991,37 @@ input[type=text] {
   transform: translateY(-50%);
 }
 
-.ais-SearchBox-submitIcon {
-  width: 14px;
-  height: 14px;
-}
-
-.ais-SearchBox-submitIcon, .ais-SearchBox-resetIcon, .ais-SearchBox-loadingIcon {
+.ais-SearchBox-submitIcon,
+.ais-SearchBox-resetIcon,
+.ais-SearchBox-loadingIcon {
   position: absolute;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  fill: #a0aec0;
 }
 
 .ais-SearchBox-submit {
-  left: 0.3rem;
+  right: 0;
+  height: 100%;
+  width: 50px;
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+  background-color: #D55F36;
 }
 
 .ais-SearchBox-submitIcon {
+  width: 20px;
+  height: 20px;
   left: 50%;
+  fill: #fff;
 }
 
 .ais-SearchBox-reset {
-  right: 0.3rem;
+  right: 60px;
 }
 
 .ais-SearchBox-resetIcon {
   right: 20%;
+  fill: #716652;
 }
 
 .ais-Highlight-highlighted {

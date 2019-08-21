@@ -4,14 +4,16 @@ import { PropTypes } from 'prop-types';
 import { ButtonSmall } from './StyledComponents';
 
 const RefinementClearButton = ({ refine, items, onClick }) => (
-    <ButtonSmall
+    <button
+        type="button"
+        className="button button-red button-sm"
         onClick={() => {
             refine(items);
             onClick();
         }}
     >
         Clear Filters
-    </ButtonSmall>
+    </button>
 );
 
 RefinementClearButton.propTypes = {

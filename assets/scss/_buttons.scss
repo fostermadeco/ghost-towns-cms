@@ -1,0 +1,13 @@
+.button {
+    border-radius: 5px;
+    @apply py-2 px-3;
+}
+.button-sm {
+    @apply py-1 px-2 text-sm;
+}
+.button-orange {
+    @apply bg-orange text-white;
+}
+.button-red {
+    @apply bg-red text-white;
+}
