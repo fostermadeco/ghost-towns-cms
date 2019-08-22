@@ -7139,8 +7139,8 @@ input[type=search] {
 .glide__slide img {
   height: 500px;
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .glide__slide figcaption {

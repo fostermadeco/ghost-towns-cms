@@ -192,7 +192,7 @@ input[type="search"] {
     img {
         height: 500px;
         width: 100%;
-        object-fit: contain;
+        object-fit: cover;
     }
     figcaption {
         @apply invisible leading-tight mt-1;
