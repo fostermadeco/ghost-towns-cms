@@ -36,6 +36,10 @@ sections:
       managed_by:
         type: text
         display: 'Managed By'
+      proximity:
+        type: text
+        instructions: 'e.g. 37 min drive from Dillon, MT'
+        display: Proximity
       directions:
         restrict_assets: false
         type: redactor

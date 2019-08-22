@@ -19,6 +19,7 @@
         "@fortawesome/fontawesome-svg-core": "^1.2.19",
         "@fortawesome/free-solid-svg-icons": "^5.9.0",
         "@fortawesome/react-fontawesome": "^0.1.4",
+        "@glidejs/glide": "^3.3.0",
         "@rooks/use-timeout": "^3.0.1",
         "algolia-places-react": "^1.4.1",
         "algoliasearch": "^3.33.0",

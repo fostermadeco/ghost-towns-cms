@@ -1,4 +1,3 @@
-states: montana
 county: Granite
 landmark: false
 website: 'http://stateparks.mt.gov/granite-ghost-town/'
@@ -6,8 +5,9 @@ latitude: '46.31689'
 longitude: '-113.24644'
 google_location_query: 'Granite Ghost Town State Park'
 managed_by: 'State of Montana'
+proximity: '4 miles outside of Philipsburg, MT'
 directions: |
-  <p>Granite is located 3.6 miles southeast of Philipsburg. Out of Philipsburg, head south on S. Sansome St./Hwy 10A. Continue through the railroad underpass and take the first left, Granite Road. Continue onto Contract Mill Rd and drive another 1.4 miles. Turn right on the road marked with a white sign reading Granite. Continue on this road for another 1.5 miles. The road from Philipsburg to Granite gains 1,280 feet in elevation. The road is narrow, steep and winding. Be prepared to pull over for oncoming traffic and enjoy the vistas.
+  <p>Granite is located 4 miles southeast of Philipsburg. Out of Philipsburg, head south on S. Sansome St./Hwy 10A. Continue through the railroad underpass and take the first left, Granite Road. Continue onto Contract Mill Rd and drive another 1.4 miles. Turn right on the road marked with a white sign reading Granite. Continue on this road for another 1.5 miles. The road from Philipsburg to Granite gains 1,280 feet in elevation. The road is narrow, steep and winding. Be prepared to pull over for oncoming traffic and enjoy the vistas.
   </p>
 when_to_visit: 'June-September, road closed in the winter.'
 remote: false
@@ -28,3 +28,4 @@ history: |
 objectID: '23117130'
 title: Granite
 id: b6c2ff4f-daa1-40ba-97d1-13caacb33641
+states: montana

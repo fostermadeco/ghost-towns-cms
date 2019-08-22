@@ -14,15 +14,16 @@ $fa-font-path: "/assets/fonts/@fortawesome/fontawesome-free";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/solid";
 
+@import "~@glidejs/glide/src/assets/sass/glide.core";
+// @import "~@glidejs/glide/src/assets/sass/glide.theme";
 @import "~flexslider/flexslider.css";
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 
 body {
-	visibility:visible !important;
-    background-color: theme('colors.white');
-    color: theme('colors.black');
+    visibility:visible !important;
+    @apply bg-white text-black;
 }
 h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
@@ -183,7 +184,54 @@ input[type="search"] {
 }
 .ais-Highlight-highlighted {
     font-style: normal;
-    background-color: theme('colors.tan');
+    @apply bg-tan-200;
+}
+
+// slideshows
+.glide__slide {
+    img {
+        height: 500px;
+        width: 100%;
+        object-fit: contain;
+    }
+    figcaption {
+        @apply invisible leading-tight mt-1;
+    }
+    .glide__slide-caption {
+        @apply text-white;
+    }
+    .glide__slide-attribution {
+        @apply text-gray-500 text-xs italic;
+    }
+}
+.glide__slide.glide__slide--active {
+    figcaption {
+        @apply visible;
+    }
+}
+.glide__arrow {
+    width: 48px;
+    height: 48px;
+    top: 250px;
+    @apply absolute bg-white border border-tan-400 z-10 rounded-full;
+    img {
+        width: 9px;
+        margin-left: 19px;
+    }
+}
+.glide__arrow:hover {
+    @apply bg-tan-400;
+}
+.glide__arrow--right {
+    right: 20px;
+    img {
+    }
+}
+.glide__arrow--left {
+    left: 20px;
+    img {
+        transform: rotate(180deg);
+    }
 }
 
 

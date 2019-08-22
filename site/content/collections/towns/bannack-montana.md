@@ -13,6 +13,7 @@ latitude: '45.162233'
 longitude: '-112.999537'
 google_location_query: 'Bannock State Park'
 managed_by: 'The state of Montana as Bannack State Park'
+proximity: '37 min drive from Dillon, MT'
 directions: |
   <p>Take Exit 59 from I-15. Continue on for 28 miles.
   </p>
