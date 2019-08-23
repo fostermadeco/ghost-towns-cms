@@ -26,6 +26,9 @@ summary_description: |
 history: |
   <p>Founded in 1862 and named after the local Bannock Indians, it was the site of a major gold discovery in 1862, and served as the capital of Montana Territory briefly in 1864, until the capital was moved to Virginia City. Bannack continued as a mining town, though with a dwindling population. The last residents left in the 1970s.
   </p>
+related_towns:
+  - 86849e74-7834-44b6-b704-0c8bf8d8aa40
+  - b6c2ff4f-daa1-40ba-97d1-13caacb33641
 objectID: '23117190'
 title: Bannack
 id: 96befc0e-174e-4d16-88d2-56074ff8a4c4

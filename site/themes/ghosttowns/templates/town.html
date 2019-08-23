@@ -13,7 +13,12 @@
                 {{ assets:images }}
                     <li class="glide__slide">
                         <figure>
-                            <img src="{{ glide:url height="500" }}" alt="{{ alt }}" />
+                            <img 
+                                data-zoomable 
+                                src="{{ glide:url height="500" }}" 
+                                alt="{{ alt }}"  
+                                data-zoom-src="{{ glide:url height="800" }}"
+                            />
                             <figcaption>
                                 <span class="glide__slide-caption">{{ caption }}</span>
                                 <span class="glide__slide-attribution">{{ attribution }}</span>
@@ -26,7 +31,7 @@
         </div>
     </div>
     <div class="container mx-auto">
-        <div class="py-4">
+        <div class="pt-4 pb-8">
             <h3 class="tagline">{{ county }} county</h3>
             <div class="clearfix">
                 <div class="float-left w-2/5">
@@ -78,13 +83,19 @@
 </div>
 <div class="bg-tan-200">
     <div class="container mx-auto">
-        <div class="w-2/3">
+        <div class="w-2/3 pb-4">
+            {{ if history }}
             <h2 class="text-2xl pt-10 mb-4">History</h2>
             {{ history }}
+            {{ /if }}
+            {{ if narrative_description }}
             <h2 class="text-2xl pt-10 mb-4">Description</h2>
             {{ narrative_description }}
+            {{ /if }}
+            {{ if directions }}
             <h2 class="text-2xl pt-10 mb-4">Directions</h2>
             {{ directions }}
+            {{ /if }}
             <div class="pb-3">
                 <div 
                 data-react="MapSingle"
@@ -96,6 +107,30 @@
                     }
                 }}'
                 ></div>
+            </div>
+
+        </div>
+        <div class="px-4 md:px-0 w-full border-t border-tan-400 pb-10">
+            <h3 class="mt-8 header-red-xl">More Ghost Towns to Explore</h3>
+            <div class="clearfix">
+                {{ relate:related_towns }}
+                <div class="w-full mb-8 md:w-1/4 md:float-left">
+                    <div class="md:pr-8">
+                        <a href="/towns/{{ slug }}">
+                            {{ asset:images }}
+                            <img src="{{ glide:url width="500" }}" alt="{{ alt }}" class="rounded w-full object-cover" style="height:200px" />
+                            {{ /asset:images }}
+                            <h5 class="tagline pt-2 mb-0">{{ county }} County</h5>
+                            <h4>
+                                <span class="font-semibold text-lg">
+                                    {{ title }}, 
+                                </span>
+                                <span className="text-lg">{{ states }}{{ title }} {{ /states }}</span>
+                            </h4>
+                        </a>
+                    </div>
+                </div>
+                {{ /relate:related_towns }}
             </div>
         </div>
     </div>

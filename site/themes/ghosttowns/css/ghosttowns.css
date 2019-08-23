@@ -6937,6 +6937,14 @@ input[type=search] {
   font-family: Open Sans, sans-serif;
 }
 
+.header-red-xl {
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+  color: #D55F36;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
 .page-body ul {
   list-style-type: disc;
   margin-left: 2.5rem;
@@ -7167,11 +7175,11 @@ input[type=search] {
   width: 48px;
   height: 48px;
   top: 250px;
+  z-index: 1;
   position: absolute;
   background-color: #fff;
   border-width: 1px;
   border-color: #E3DFD7;
-  z-index: 10;
   border-radius: 9999px;
 }
 
@@ -7194,6 +7202,16 @@ input[type=search] {
 
 .glide__arrow--left img {
   transform: rotate(180deg);
+}
+
+.medium-zoom-overlay {
+  opacity: 0.7 !important;
+  z-index: 2;
+}
+
+.medium-zoom-image--opened {
+  z-index: 3;
+  height: auto !important;
 }
 
 .sr-only{

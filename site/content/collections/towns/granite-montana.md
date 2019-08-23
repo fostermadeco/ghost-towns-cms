@@ -1,5 +1,12 @@
 county: Granite
 landmark: false
+images:
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4263.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4259.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4266.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4270.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4274.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/img_4277.jpg'
 website: 'http://stateparks.mt.gov/granite-ghost-town/'
 latitude: '46.31689'
 longitude: '-113.24644'
@@ -25,6 +32,10 @@ narrative_description: |
 history: |
   <p>Granite thrived as a silver mining town in the 1890s with a population of more than 3,000 inhabitants. For the time period, there were many modern amenities, such as the large Miners Union Hall, a library, 18 saloons, brothels, a hospital and school as well as churches. The Sherman Silver Purchase Act was repealed in 1893, drastically lowering the price of silver, and many residents left Granite, leaving only 140 residents a year later. Granite is currently entirely uninhabited.
   </p>
+related_towns:
+  - 4f1c7807-968f-444f-b97c-3f04ae68122e
+  - 2408d8b1-bc64-4282-88f2-6fd0b202641f
+  - 3491b75f-b042-4606-b53b-fc7eada1ce31
 objectID: '23117130'
 title: Granite
 id: b6c2ff4f-daa1-40ba-97d1-13caacb33641

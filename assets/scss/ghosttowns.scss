@@ -46,6 +46,10 @@ input[type="search"] {
     @apply text-orange tracking-widest uppercase mt-2 mb-1 text-xs font-sansserif;
 }
 
+.header-red-xl {
+    @apply pt-4 mb-4 text-red text-xl font-semibold;
+}
+
 // user content
 .page-body ul {
     @apply list-disc  ml-10 mt-2;
@@ -213,7 +217,8 @@ input[type="search"] {
     width: 48px;
     height: 48px;
     top: 250px;
-    @apply absolute bg-white border border-tan-400 z-10 rounded-full;
+    z-index: 1;
+    @apply absolute bg-white border border-tan-400 rounded-full;
     img {
         width: 9px;
         margin-left: 19px;
@@ -232,6 +237,14 @@ input[type="search"] {
     img {
         transform: rotate(180deg);
     }
+}
+.medium-zoom-overlay {
+    opacity: .7 !important;
+    z-index: 2;
+}
+.medium-zoom-image--opened {
+    z-index: 3;
+    height: auto !important;
 }
 
 

@@ -1,6 +1,10 @@
-states: california
 county: Mono
 landmark: true
+images:
+  - 'https://fm-ghosttown.s3.amazonaws.com/states/bodie_ghost_town.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bodie/1440px-bodie_september_2016_031.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bodie/1566px-bodie_september_2016_016.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/bodie/1765px-bodie_california_c1890.jpg'
 website: 'http://www.parks.ca.gov/?page_id=509'
 latitude: '38.211828'
 longitude: '-119.012898'
@@ -24,3 +28,4 @@ description:
       </p>
 title: Bodie
 id: 0114793c-b35d-45fb-82ce-382e0bf2cfab
+states: california
