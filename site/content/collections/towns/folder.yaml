@@ -5,3 +5,11 @@ columns:
   - title
   - slug
   - states
+searchable:
+  - title
+  - slug
+  - county
+  - latitude
+  - longitude
+  - states
+  - access

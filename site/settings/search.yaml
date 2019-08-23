@@ -1,0 +1,8 @@
+driver: algolia
+auto_index: true
+searchable:
+  - title
+default_index: '{env:DEFAULT_SEARCH_INDEX}'
+deafult_index: '{env:DEFAULT_SEARCH_INDEX}'
+algolia_api_key: '{env:ALGOLIA_API_KEY}'
+algolia_app_id: '{env:ALGOLIA_APP_ID}'

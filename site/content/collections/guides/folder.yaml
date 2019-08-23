@@ -1,2 +1,5 @@
 title: Guides
 fieldset: guides
+searchable:
+    - title
+    - towns
