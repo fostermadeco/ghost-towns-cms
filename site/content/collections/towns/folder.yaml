@@ -5,3 +5,7 @@ columns:
   - title
   - slug
   - states
+searchable:
+  - title
+  - state
+  - county

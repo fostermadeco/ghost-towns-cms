@@ -1,0 +1,17 @@
+<form action="/search-statamic" method="GET">
+    <input type="text" name="q" />
+    <button>Search</button>
+</form>
+
+<div>
+    {{ search:results collection="towns" }}
+        {{ if no_results }}
+            <h2>No results.</h2>
+        {{ else }}
+            <a href="{{ url }}" class="result">
+                <h2>{{ title }}</h2>
+                <p>{{ content strip_tags="img|a|p" safe_truncate="180|..." }}</p>
+            </a>
+        {{ /if }}
+    {{ /search:results }}
+</div>
