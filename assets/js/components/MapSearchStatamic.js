@@ -5,17 +5,17 @@ const MapSearchStatamic = () => {
         <div className="flex flex-wrap">
             <div className="w-full md:w-1/2">
                 <div className="mx-2 mt-3">
-                    <form noValidate class="ais-SearchBox-form" action="" role="search">
+                    <form noValidate className="ais-SearchBox-form" action="" role="search">
                         <input
                             className="ais-SearchBox-input"
                             type="search"
                             placeholder="Search here…"
-                            autocomplete="off"
-                            autocorrect="off"
-                            autocapitalize="off"
-                            spellcheck="false"
-                            required=""
-                            maxlength="512"
+                            autoComplete="off"
+                            autoCorrect="off"
+                            autoCapitalize="off"
+                            spellCheck="false"
+                            required
+                            maxLength="512"
                         />
                         <button type="submit" title="Submit your search query." className="ais-SearchBox-submit">
                             <svg className="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">
@@ -28,6 +28,93 @@ const MapSearchStatamic = () => {
                             </svg>
                         </button>
                     </form>
+
+                    <div className="search-results-container">
+                        <h3 className="text-red text-2xl font-semibold mt-3">
+                            X Ghost Towns
+                            {/* {hits.length > 1 && 's'} */}
+                        </h3>
+
+                        <div>
+                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
+                                <div className="flex-col flex-grow">
+                                    <div className="tagline">
+                                        <span className="ais-Highlight">
+                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
+                                        </span> County
+                                    </div>
+                                    <h3>
+                                        <a href="/towns/bodie-california">
+                                            <span className="font-semibold text-lg">
+                                                <span className="ais-Highlight">
+                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
+                                                </span>,
+                                            </span>
+                                            <span className="text-lg"> California</span>
+                                        </a>
+                                    </h3>
+                                    <div className="flex-grow">
+                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
+                                    </div>
+                                </div>
+                                <div className="flex-row mb-3">
+                                    <span className="badge badge-blue">2WD</span>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
+                                <div className="flex-col flex-grow">
+                                    <div className="tagline">
+                                        <span className="ais-Highlight">
+                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
+                                        </span> County
+                                    </div>
+                                    <h3>
+                                        <a href="/towns/bodie-california">
+                                            <span className="font-semibold text-lg">
+                                                <span className="ais-Highlight">
+                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
+                                                </span>,
+                                            </span>
+                                            <span className="text-lg"> California</span>
+                                        </a>
+                                    </h3>
+                                    <div className="flex-grow">
+                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
+                                    </div>
+                                </div>
+                                <div className="flex-row mb-3">
+                                    <span className="badge badge-blue">2WD</span>
+                                </div>
+                            </div>
+
+                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
+                                <div className="flex-col flex-grow">
+                                    <div className="tagline">
+                                        <span className="ais-Highlight">
+                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
+                                        </span> County
+                                    </div>
+                                    <h3>
+                                        <a href="/towns/bodie-california">
+                                            <span className="font-semibold text-lg">
+                                                <span className="ais-Highlight">
+                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
+                                                </span>,
+                                            </span>
+                                            <span className="text-lg"> California</span>
+                                        </a>
+                                    </h3>
+                                    <div className="flex-grow">
+                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
+                                    </div>
+                                </div>
+                                <div className="flex-row mb-3">
+                                    <span className="badge badge-blue">2WD</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -42,28 +129,27 @@ const MapSearchStatamic = () => {
 
 export default MapSearchStatamic;
 
-// import useLocalStorage from 'react-use/lib/useLocalStorage';
-// import algoliasearch from 'algoliasearch/lite';
+        // import useLocalStorage from 'react-use/lib/useLocalStorage';
 // import {InstantSearch, SearchBox, Configure } from 'react-instantsearch-dom';
 // import {Popup} from 'react-map-gl';
-// import get from 'lodash.get';
-// import qs from 'qs';
-// import useTimeout from '@rooks/use-timeout';
+            // import get from 'lodash.get';
+            // import qs from 'qs';
+            // import useTimeout from '@rooks/use-timeout';
 
-// import GeoSearchMapbox from './GeoSearchMapbox';
-// import MapMarker from './MapMarker';
-// import CustomStateResults from './CustomStateResults';
-// import TownHits from './TownHits';
-// import LocationFilters from './LocationFilters';
-// import ToggleRefinement from './ToggleRefinement';
-// import RefinementClearButton from './RefinementClearButton';
-// import RefinementSelect from './RefinementSelect';
-// import useElementSize from './hooks/useElementSize';
-// import useURLSearchState from './hooks/useURLSearchState';
-// import useIsMobile from './hooks/useIsMobile';
+            // import GeoSearchMapbox from './GeoSearchMapbox';
+            // import MapMarker from './MapMarker';
+            // import CustomStateResults from './CustomStateResults';
+            // import TownHits from './TownHits';
+            // import LocationFilters from './LocationFilters';
+            // import ToggleRefinement from './ToggleRefinement';
+            // import RefinementClearButton from './RefinementClearButton';
+            // import RefinementSelect from './RefinementSelect';
+            // import useElementSize from './hooks/useElementSize';
+            // import useURLSearchState from './hooks/useURLSearchState';
+            // import useIsMobile from './hooks/useIsMobile';
 
-// const searchClient = algoliasearch(process.env.REACT_APP_ALGOLIA_APP_ID, process.env.REACT_APP_ALGOLIA_API_KEY);
-// const defaultAroundRadius = '64373';
+            // const searchClient = algoliasearch(process.env.REACT_APP_ALGOLIA_APP_ID, process.env.REACT_APP_ALGOLIA_API_KEY);
+            // const defaultAroundRadius = '64373';
 
 // const MapSearchStatamic = () => {
 //     //----------------------------
