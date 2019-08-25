@@ -46,9 +46,14 @@ const reducers = combineReducers({
     searchResults,
 });
 
+//----------------------------
+// Selectors
+//----------------------------
+
+const getSearchResultsState = state => state.MapSearchStatamic.searchResults;
 
 //----------------------------
 // Exports
 //----------------------------
 
-export { dispatchFetchSearchResults, reducers };
+export { dispatchFetchSearchResults, getSearchResultsState, reducers };

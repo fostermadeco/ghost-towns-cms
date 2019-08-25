@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { dispatchFetchSearchResults, reducers } from './reducers';
+import { dispatchFetchSearchResults, getSearchResultsState, reducers } from './reducers/MapSearchStatamicReducer';
 
 const MapSearchStatamicComponent = ({
+    searchResults,
     fetchSearchResults,
 }) => {
     //----------------------------
@@ -55,8 +56,7 @@ const MapSearchStatamicComponent = ({
 
                     <div className="search-results-container">
                         <h3 className="text-red text-2xl font-semibold mt-3">
-                            X Ghost Towns
-                            {/* {hits.length > 1 && 's'} */}
+                            {searchResults.length} Ghost Town{searchResults.length > 1 && 's'}
                         </h3>
 
                         <div>
@@ -152,7 +152,7 @@ const MapSearchStatamicComponent = ({
 };
 
 const mapStateToProps = state => ({
-    // 
+    searchResults: getSearchResultsState(state),
 });
 
 const mapDispatchToProps = dispatch => ({
