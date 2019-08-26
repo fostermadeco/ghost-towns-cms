@@ -1,6 +1,10 @@
-states: montana
 county: Granite
 landmark: true
+images:
+  - 'https://fm-ghosttown.s3.amazonaws.com/garnet_ghost_town-_montana_(15453533510).jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/1920px-garnet_mt_-_town_center.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/1916px-garnet_ghost_town.jpg'
+  - 'https://fm-ghosttown.s3.amazonaws.com/garnet_ghost_town-_montana_(15018371394).jpg'
 website: 'http://garnetghosttown.org/'
 latitude: '46.82572'
 longitude: '-113.338618'
@@ -26,3 +30,4 @@ related_towns:
 objectID: '23117140'
 title: Garnet
 id: 86849e74-7834-44b6-b704-0c8bf8d8aa40
+states: montana
