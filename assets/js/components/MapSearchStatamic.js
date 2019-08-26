@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+
+// App
+import MapSearchResultStatamic from './MapSearchResultStatamic';
 import { dispatchFetchSearchResults, getSearchResultsState, reducers } from './reducers/MapSearchStatamicReducer';
 
 const MapSearchStatamicComponent = ({
@@ -60,83 +63,9 @@ const MapSearchStatamicComponent = ({
                         </h3>
 
                         <div>
-                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
-                                <div className="flex-col flex-grow">
-                                    <div className="tagline">
-                                        <span className="ais-Highlight">
-                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
-                                        </span> County
-                                    </div>
-                                    <h3>
-                                        <a href="/towns/bodie-california">
-                                            <span className="font-semibold text-lg">
-                                                <span className="ais-Highlight">
-                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
-                                                </span>,
-                                            </span>
-                                            <span className="text-lg"> California</span>
-                                        </a>
-                                    </h3>
-                                    <div className="flex-grow">
-                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
-                                    </div>
-                                </div>
-                                <div className="flex-row mb-3">
-                                    <span className="badge badge-blue">2WD</span>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
-                                <div className="flex-col flex-grow">
-                                    <div className="tagline">
-                                        <span className="ais-Highlight">
-                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
-                                        </span> County
-                                    </div>
-                                    <h3>
-                                        <a href="/towns/bodie-california">
-                                            <span className="font-semibold text-lg">
-                                                <span className="ais-Highlight">
-                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
-                                                </span>,
-                                            </span>
-                                            <span className="text-lg"> California</span>
-                                        </a>
-                                    </h3>
-                                    <div className="flex-grow">
-                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
-                                    </div>
-                                </div>
-                                <div className="flex-row mb-3">
-                                    <span className="badge badge-blue">2WD</span>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
-                                <div className="flex-col flex-grow">
-                                    <div className="tagline">
-                                        <span className="ais-Highlight">
-                                            <span className="ais-Highlight-nonHighlighted">Mono</span>
-                                        </span> County
-                                    </div>
-                                    <h3>
-                                        <a href="/towns/bodie-california">
-                                            <span className="font-semibold text-lg">
-                                                <span className="ais-Highlight">
-                                                    <span className="ais-Highlight-nonHighlighted">Bodie</span>
-                                                </span>,
-                                            </span>
-                                            <span className="text-lg"> California</span>
-                                        </a>
-                                    </h3>
-                                    <div className="flex-grow">
-                                        <p className="text-brown text-xs mt-2">From the original 2,000 buildings, only 110 structures are still standing. This includes one of many once operational gold mills.</p>
-                                    </div>
-                                </div>
-                                <div className="flex-row mb-3">
-                                    <span className="badge badge-blue">2WD</span>
-                                </div>
-                            </div>
+                            {searchResults.map(searchResult => (
+                                <MapSearchResultStatamic key={searchResult.id} searchResult={searchResult} />
+                            ))}
                         </div>
                     </div>
                 </div>
