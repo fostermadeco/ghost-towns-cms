@@ -19,7 +19,9 @@ const MapSeachResultStatamic = ({ searchResult }) => {
                     </a>
                 </h3>
                 <div className="flex-grow">
-                    <p className="text-brown text-xs mt-2">{ReactHtmlParser(truncate(searchResult.summary_description))}</p>
+                    <div className="text-brown text-xs mt-2">
+                        {ReactHtmlParser(truncate(searchResult.summary_description))}
+                    </div>
                 </div>
             </div>
             <div className="flex-row mb-3">
