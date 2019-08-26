@@ -13,9 +13,9 @@ const MapSeachResultStatamic = ({ searchResult }) => {
                 <h3>
                     <a href={searchResult.url}>
                         <span className="font-semibold text-lg">
-                            {searchResult.title},
+                            {searchResult.title}
                         </span>
-                        <span className="text-lg"> {capitalize(searchResult.states)}</span>
+                        {searchResult.states && <span className="text-lg">, {capitalize(searchResult.states)}</span>}
                     </a>
                 </h3>
                 <div className="flex-grow">

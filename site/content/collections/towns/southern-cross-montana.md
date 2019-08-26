@@ -10,6 +10,7 @@ remote: false
 summary_description: |
   <p>The mining buildings and some of the older dwellings are still present. In fact, some are inhabited by people, mostly as summertime residences. Included in these mining buildings are the residences of former mine supervisors, hoist buildings, two boarding houses, and a bunk house.
   </p>
+states: montana
 history: |
   <p>Southern Cross is located on a mountainside at 7000 ft overlooking Georgetown Lake. Mostly Finn and Swedish immigrants mined gold for various companies from the 1870s through 1910. In 1910, the Anaconda Copper Mining Company purchased the property, and ceased operations in 1919. This website has a very interesting account of the history of the town from its origin to today: <a href="\&quot;https://www.ghosttowns.com/states/mt/southerncross.html\&quot;">Southern Cross - Montana Ghost Town</a>
   </p>

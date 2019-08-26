@@ -16,12 +16,21 @@ const finishSearchResultsFetch = createAction('SEARCH_RESULTS_FETCH_FINISH');
 // Action Dispatch
 //----------------------------
 
-const dispatchFetchSearchResults = () => async (dispatch) => {
+const dispatchFetchSearchResults = (query) => async (dispatch) => {
     dispatch(initSearchResultsFetch());
 
     try {
         dispatch(requestSearchResultsFetch());
-        const { data: { data: searchResults } } = await axios.get('/!/Fetch/search?collection=towns&query=lion');
+
+        let searchResults = [];
+        if (query.trim() === '') {
+            const { data: { data: results } } = await axios.get(`/!/Fetch/collection/towns`);
+            searchResults = results;
+        } else {
+            const { data: { data: results } } = await axios.get(`/!/Fetch/search?collection=towns&query=${encodeURI(query)}`);
+            searchResults = results;
+        }
+
         dispatch(receiveSearchResultsFetch(searchResults));
         return searchResults;
     } catch (error) {

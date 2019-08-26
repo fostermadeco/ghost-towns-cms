@@ -22,7 +22,7 @@ const MapSearchStatamicComponent = ({
     //----------------------------
 
     useEffect(() => {
-        fetchSearchResults();
+        fetchSearchResults('');
     }, []);
 
     //----------------------------
