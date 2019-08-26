@@ -51,6 +51,7 @@ php_modules:
     - tokenizer
     - gd
     - dom
+    - curl
 
 # Specify one or more databases to be created
 mysql_databases:
