@@ -10,11 +10,18 @@ const MapSearchStatamicComponent = ({
     fetchSearchResults,
 }) => {
     //----------------------------
+    // State
+    //----------------------------
+
+    const [searchTerm, setSearchTerm] = useState('');
+
+    //----------------------------
     // Helpers
     //----------------------------
 
-    const search = async () => {
-
+    const search = async (e) => {
+        e.preventDefault();
+        fetchSearchResults(searchTerm);
     };
 
     //----------------------------
@@ -33,7 +40,7 @@ const MapSearchStatamicComponent = ({
         <div className="flex flex-wrap">
             <div className="w-full md:w-1/2">
                 <div className="mx-2 mt-3">
-                    <form noValidate className="ais-SearchBox-form" action="" role="search">
+                    <form noValidate className="ais-SearchBox-form" action="" role="search" onSubmit={search}>
                         <input
                             className="ais-SearchBox-input"
                             type="search"
@@ -44,6 +51,8 @@ const MapSearchStatamicComponent = ({
                             spellCheck="false"
                             required
                             maxLength="512"
+                            value={searchTerm}
+                            onChange={(event) => setSearchTerm(event.target.value)}
                         />
                         <button type="submit" title="Submit your search query." className="ais-SearchBox-submit">
                             <svg className="ais-SearchBox-submitIcon" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 40 40">

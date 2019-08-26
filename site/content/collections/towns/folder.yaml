@@ -7,5 +7,5 @@ columns:
   - states
 searchable:
   - title
-  - state
+  - states
   - county
