@@ -27,7 +27,7 @@ const dispatchFetchSearchResults = (query) => async (dispatch) => {
             const { data: { data: results } } = await axios.get(`/!/Fetch/collection/towns`);
             searchResults = results;
         } else {
-            const { data: { data: results } } = await axios.get(`/!/Fetch/search?collection=towns&query=${encodeURI(query)}`);
+            const { data: { data: results } } = await axios.get(`/!/Fetch/search?index=collections/towns&query=${encodeURI(query)}`);
             searchResults = results;
         }
 
