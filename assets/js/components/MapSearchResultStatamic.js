@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ReactHtmlParser from 'react-html-parser';
+import capitalize from 'capitalize';
 import { truncate } from './helpers/strings';
 
 const MapSeachResultStatamic = ({ searchResult }) => {
@@ -12,9 +13,9 @@ const MapSeachResultStatamic = ({ searchResult }) => {
                 <h3>
                     <a href={searchResult.url}>
                         <span className="font-semibold text-lg">
-                            {searchResult.title}
+                            {searchResult.title},
                         </span>
-                        <span className="text-lg"> {searchResult.states}</span>
+                        <span className="text-lg"> {capitalize(searchResult.states)}</span>
                     </a>
                 </h3>
                 <div className="flex-grow">
