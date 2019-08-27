@@ -3,9 +3,14 @@ import { connect } from 'react-redux';
 
 // App
 import StatamicSearchResult from './StatamicSearchResult';
-import StateDropdown from './StateDropdown';
-import { dispatchFetchSearchResults, getSearchResultsState, reducers, dispatchFetchStates, getStatesListState } from './reducers/StatamicSearchExplorePageReducer';
-
+import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
+import {
+    dispatchFetchSearchResults,
+    dispatchFetchStates,
+    getSearchResultsState,
+    getStatesListState,
+    reducers,
+} from './reducers/StatamicSearchExplorePageReducer';
 
 const StatamicSearchExplorePageComponent = ({
     searchResults,
@@ -78,7 +83,11 @@ const StatamicSearchExplorePageComponent = ({
                     <div id="search-filters-container" className="mt-3">
                         <small>
                             <span className="inline-block">State: </span>
-                            <StateDropdown className="inline-block ml-2" statesList={statesList} onChange={state => filterByState(state)} />
+                            <StatamicSearchStateDropdown
+                                className="inline-block ml-2"
+                                statesList={statesList}
+                                onChange={state => filterByState(state)}
+                            />
                         </small>
                     </div>
                     <hr className="my-3" />

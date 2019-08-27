@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-const StateDropdownComponent = ({ statesList, onChange, ...rest }) => {
+const StatamicSearchStateDropdownComponent = ({ statesList, onChange, ...rest }) => {
     return (
         <select onChange={(event) => onChange(event.target.value)} {...rest}>
             <option value="">All</option>
@@ -11,4 +11,4 @@ const StateDropdownComponent = ({ statesList, onChange, ...rest }) => {
     )
 };
 
-export default StateDropdownComponent;
+export default StatamicSearchStateDropdownComponent;
