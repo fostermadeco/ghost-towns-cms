@@ -12,6 +12,12 @@ const receiveSearchResultsFetch = createAction('SEARCH_RESULTS_FETCH_RECEIVE');
 const errorSearchResultsFetch = createAction('SEARCH_RESULTS_FETCH_ERROR');
 const finishSearchResultsFetch = createAction('SEARCH_RESULTS_FETCH_FINISH');
 
+const initStatesFetch = createAction('STATES_FETCH_INIT');
+const requestStatesFetch = createAction('STATES_FETCH_REQUEST');
+const receiveStatesFetch = createAction('STATES_FETCH_RECEIVE');
+const errorStatesFetch = createAction('STATES_FETCH_ERROR');
+const finishStatesFetch = createAction('STATES_FETCH_FINISH');
+
 //----------------------------
 // Action Dispatch
 //----------------------------
@@ -41,18 +47,41 @@ const dispatchFetchSearchResults = (query) => async (dispatch) => {
     }
 };
 
+const dispatchFetchStates = () => async dispatch => {
+    dispatch(initStatesFetch());
+
+    try {
+        dispatch(requestStatesFetch());
+        const { data: states } = await axios.get(`/!/Fetch/taxonomy/states`);
+        dispatch(receiveStatesFetch(states));
+        return states;
+    } catch (error) {
+        dispatch(errorStatesFetch(error));
+        throw new Error(error);
+    } finally {
+        dispatch(finishStatesFetch());
+    }
+};
+
 //----------------------------
 // Reducers
 //----------------------------
 
 const searchResults = handleActions({
-    [receiveSearchResultsFetch](action, { payload }) {
+    [receiveSearchResultsFetch](state, { payload }) {
+        return payload;
+    }
+}, []);
+
+const statesList = handleActions({
+    [receiveStatesFetch](state, { payload }) {
         return payload;
     }
 }, []);
 
 const reducers = combineReducers({
     searchResults,
+    statesList,
 });
 
 //----------------------------
@@ -60,9 +89,10 @@ const reducers = combineReducers({
 //----------------------------
 
 const getSearchResultsState = state => state.MapSearchStatamic.searchResults;
+const getStatesListState = state => state.MapSearchStatamic.statesList;
 
 //----------------------------
 // Exports
 //----------------------------
 
-export { dispatchFetchSearchResults, getSearchResultsState, reducers };
+export { dispatchFetchSearchResults, dispatchFetchStates, getSearchResultsState, getStatesListState, reducers };

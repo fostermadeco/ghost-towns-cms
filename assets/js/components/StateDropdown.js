@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const StateDropdown = (props) => {
+const StateDropdownComponent = (props) => {
+    const { statesList, ...rest } = props;
+
+    //----------------------------
+    // Render
+    //----------------------------
+
     return (
-        <select {...props}>
+        <select {...rest}>
             <option>Test 1</option>
             <option>Test 2</option>
             <option>Test 3</option>
-        </select>
+        </select >
     )
 };
 
-export default StateDropdown;
+export default StateDropdownComponent;
