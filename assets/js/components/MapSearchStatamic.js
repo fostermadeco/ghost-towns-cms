@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 // App
 import MapSearchResultStatamic from './MapSearchResultStatamic';
 import StateDropdown from './StateDropdown';
-import { dispatchFetchSearchResults, getSearchResultsState, reducers, dispatchFetchStates } from './reducers/MapSearchStatamicReducer';
+import { dispatchFetchSearchResults, getSearchResultsState, reducers, dispatchFetchStates, getStatesListState } from './reducers/MapSearchStatamicReducer';
 
 
 const MapSearchStatamicComponent = ({
@@ -103,6 +103,7 @@ const MapSearchStatamicComponent = ({
 
 const mapStateToProps = state => ({
     searchResults: getSearchResultsState(state),
+    statesList: getStatesListState(state),
 });
 
 const mapDispatchToProps = dispatch => ({
