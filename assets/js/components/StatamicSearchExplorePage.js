@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 // App
+import StatamicSearchMap from './StatamicSearchMap';
 import StatamicSearchResult from './StatamicSearchResult';
 import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
+import useElementSize from './hooks/useElementSize';
 import {
     dispatchFetchSearchResults,
     dispatchFetchStates,
@@ -23,6 +25,7 @@ const StatamicSearchExplorePageComponent = ({
     //----------------------------
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
 
     //----------------------------
     // Helpers
@@ -107,8 +110,8 @@ const StatamicSearchExplorePageComponent = ({
             </div>
 
             <div className="w-full md:w-1/2">
-                <div className="mx-2 md:ml-5" style={{ height: '100%' }}>
-                    Map
+                <div className="mx-2 md:ml-5" style={{ height: '100%' }} ref={mapWrapRef}>
+                    <StatamicSearchMap searchResults={searchResults} width={mapWidth} height={mapHeight} />
                 </div>
             </div>
         </div>
