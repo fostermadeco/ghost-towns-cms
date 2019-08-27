@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 // App
 import MapSearchResultStatamic from './MapSearchResultStatamic';
+import StateDropdown from './StateDropdown';
 import { dispatchFetchSearchResults, getSearchResultsState, reducers } from './reducers/MapSearchStatamicReducer';
 
 const MapSearchStatamicComponent = ({
@@ -65,6 +66,13 @@ const MapSearchStatamicComponent = ({
                             </svg>
                         </button>
                     </form>
+
+                    <div id="search-filters-container" className="mt-3">
+                        <small>
+                            <span className="inline-block">State: </span> <StateDropdown className="inline-block ml-2" />
+                        </small>
+                    </div>
+                    <hr className="my-3" />
 
                     <div className="search-results-container">
                         <h3 className="text-red text-2xl font-semibold mt-3">
