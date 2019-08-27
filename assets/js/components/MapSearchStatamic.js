@@ -28,6 +28,10 @@ const MapSearchStatamicComponent = ({
         fetchSearchResults(searchTerm);
     };
 
+    const filterByState = state => {
+        fetchSearchResults(searchTerm, state ? `states/${state}` : '');
+    };
+
     //----------------------------
     // Effects
     //----------------------------
@@ -73,7 +77,8 @@ const MapSearchStatamicComponent = ({
 
                     <div id="search-filters-container" className="mt-3">
                         <small>
-                            <span className="inline-block">State: </span> <StateDropdown className="inline-block ml-2" statesList={statesList} />
+                            <span className="inline-block">State: </span>
+                            <StateDropdown className="inline-block ml-2" statesList={statesList} onChange={state => filterByState(state)} />
                         </small>
                     </div>
                     <hr className="my-3" />

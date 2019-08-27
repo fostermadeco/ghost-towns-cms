@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 
 const StateDropdownComponent = ({ statesList, onChange, ...rest }) => {
     return (
-        <select onChange={() => onChange(state.slug)} {...rest}>
+        <select onChange={(event) => onChange(event.target.value)} {...rest}>
             <option value="">All</option>
             {statesList.map(state => (
-                <option value={state.slug}>{state.title}</option>
+                <option key={state.id} value={state.slug}>{state.title}</option>
             ))}
         </select >
     )
