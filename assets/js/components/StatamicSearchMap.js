@@ -1,9 +1,11 @@
 import React, { useReducer } from 'react';
-import ReactMapGL, { NavigationControl } from 'react-map-gl';
+import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
 import mapStyle from './style.json';
+import HitIcon from './HitIcon';
 import viewportReducer from './reducers/viewportReducer';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
+const classNames = require('classnames');
 
 const StatamicSearchMap = ({ searchResults, height, width }) => {
     const [viewport, dispatch] = useReducer(viewportReducer, {
@@ -19,6 +21,22 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
     return (
         <ReactMapGL {...viewport} mapStyle={mapStyle} mapboxApiAccessToken={token} onViewportChange={onUpdateViewport}>
             <NavigationControl onViewportChange={onUpdateViewport} />
+            <div>
+                {searchResults.map(searchResult => (
+                    <div key={searchResult.id}>
+                        <Marker
+                            latitude={Number(searchResult.latitude)}
+                            longitude={Number(searchResult.longitude)}
+                            offsetLeft={-16}
+                            offsetTop={-20}
+                        >
+                            <button type="button">
+                                <HitIcon />
+                            </button>
+                        </Marker>
+                    </div>
+                ))}
+            </div>
         </ReactMapGL>
     )
 };
