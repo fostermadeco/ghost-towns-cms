@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 
 // App
-import MapSearchResultStatamic from './MapSearchResultStatamic';
+import StatamicSearchResult from './StatamicSearchResult';
 import StateDropdown from './StateDropdown';
-import { dispatchFetchSearchResults, getSearchResultsState, reducers, dispatchFetchStates, getStatesListState } from './reducers/MapSearchStatamicReducer';
+import { dispatchFetchSearchResults, getSearchResultsState, reducers, dispatchFetchStates, getStatesListState } from './reducers/StatamicSearchExplorePageReducer';
 
 
-const MapSearchStatamicComponent = ({
+const StatamicSearchExplorePageComponent = ({
     searchResults,
     statesList,
     fetchSearchResults,
@@ -90,7 +90,7 @@ const MapSearchStatamicComponent = ({
 
                         <div>
                             {searchResults.map(searchResult => (
-                                <MapSearchResultStatamic key={searchResult.id} searchResult={searchResult} />
+                                <StatamicSearchResult key={searchResult.id} searchResult={searchResult} />
                             ))}
                         </div>
                     </div>
@@ -116,9 +116,9 @@ const mapDispatchToProps = dispatch => ({
     fetchStates: (...args) => dispatchFetchStates(...args)(dispatch),
 });
 
-const MapSearchStatamic = connect(mapStateToProps, mapDispatchToProps)(MapSearchStatamicComponent);
-MapSearchStatamic.reducers = {
-    MapSearchStatamic: reducers,
+const StatamicSearchExplorePage = connect(mapStateToProps, mapDispatchToProps)(StatamicSearchExplorePageComponent);
+StatamicSearchExplorePage.reducers = {
+    StatamicSearchExplorePage: reducers,
 };
 
-export default MapSearchStatamic;
+export default StatamicSearchExplorePage;

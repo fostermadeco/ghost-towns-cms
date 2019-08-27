@@ -98,8 +98,8 @@ const reducers = combineReducers({
 // Selectors
 //----------------------------
 
-const getSearchResultsState = state => state.MapSearchStatamic.searchResults;
-const getStatesListState = state => state.MapSearchStatamic.statesList;
+const getSearchResultsState = state => state.StatamicSearchExplorePage.searchResults;
+const getStatesListState = state => state.StatamicSearchExplorePage.statesList;
 
 //----------------------------
 // Exports
