@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
+import useTimeout from '@rooks/use-timeout';
 import PropTypes from 'prop-types';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import WebMercatorViewport from 'viewport-mercator-project';
@@ -25,7 +26,11 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
         zoom: 1,
     });
 
-    const [renderPopup, setPopupSearchResult] = useMapboxPopup();
+    const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
+        setPopupSearchResult(null);
+    }, 300);
+
+    const [renderPopup, setPopupSearchResult] = useMapboxPopup(startPopupHideTimeout, clearPopupHideTimeout);
 
     //----------------------------
     // Helpers
@@ -103,8 +108,11 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
                     <div
                         key={searchResult.id}
                         onMouseEnter={() => {
-                            // clearPopupHideTimeout();
+                            clearPopupHideTimeout();
                             setPopupSearchResult(searchResult);
+                        }}
+                        onMouseLeave={() => {
+                            startPopupHideTimeout();
                         }}
                     >
                         <Marker
