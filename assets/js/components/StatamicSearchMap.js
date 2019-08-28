@@ -3,8 +3,11 @@ import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
 import PropTypes from 'prop-types';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import WebMercatorViewport from 'viewport-mercator-project';
+
+// App
 import mapStyle from './style.json';
 import HitIcon from './HitIcon';
+import useMapboxPopup from './hooks/useMapboxPopup';
 import viewportReducer from './reducers/viewportReducer';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -21,6 +24,8 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
         longitude: 0,
         zoom: 1,
     });
+
+    const [renderPopup, setPopupSearchResult] = useMapboxPopup();
 
     //----------------------------
     // Helpers
@@ -93,8 +98,15 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
         <ReactMapGL {...viewport} mapStyle={mapStyle} mapboxApiAccessToken={token} onViewportChange={onUpdateViewport}>
             <NavigationControl onViewportChange={onUpdateViewport} />
             <div>
+                {renderPopup()}
                 {searchResults.map(searchResult => (
-                    <div key={searchResult.id}>
+                    <div
+                        key={searchResult.id}
+                        onMouseEnter={() => {
+                            // clearPopupHideTimeout();
+                            setPopupSearchResult(searchResult);
+                        }}
+                    >
                         <Marker
                             latitude={Number(searchResult.latitude)}
                             longitude={Number(searchResult.longitude)}
