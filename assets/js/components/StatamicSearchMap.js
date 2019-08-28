@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
 import PropTypes from 'prop-types';
 import useDeepCompareEffect from 'use-deep-compare-effect';
@@ -59,6 +59,15 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
     //----------------------------
     // Effects
     //----------------------------
+
+    useEffect(() => {
+        dispatch({
+            type: 'UPDATE',
+            params: {
+                width,
+            },
+        });
+    }, [width]);
 
     useDeepCompareEffect(() => {
         if (searchResults.length === 0) {
