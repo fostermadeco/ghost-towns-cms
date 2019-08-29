@@ -1,0 +1,20 @@
+<div class="w-full mb-8 md:w-1/4 md:float-left">
+    <div class="md:pr-8">
+        <a href="/towns/{{ slug }}">
+            {{ if images }}
+            {{ asset:images }}
+            <img src="{{ glide:url width="500" }}" alt="{{ alt }}" class="rounded w-full object-cover" style="height:200px" />
+            {{ /asset:images }}
+            {{ else }}
+            nada
+            {{ /if }}
+            <h5 class="tagline pt-2 mb-0">{{ county }} County</h5>
+            <h4>
+                <span class="font-semibold text-lg">
+                    {{ title }}, 
+                </span>
+                <span className="text-lg">{{ states }}{{ title }} {{ /states }}</span>
+            </h4>
+        </a>
+    </div>
+</div>

@@ -18,7 +18,7 @@ directions: |
   </p>
 when_to_visit: 'June-September, road closed in the winter.'
 remote: false
-access: 4wd
+access: '4WD Recommended'
 summary_description: |
   <p>The state of Montana maintains the mine superintendent's house and the ruins of the union hall as Granite Ghost Town State Park. There are various other remains of buildings scattered around the mountainside including the bank and home of Mrs. \"Ma\" Waring, the last resident. The remnants of the hospital and other shacks are on private property, but the crumbling ruins of a 100-stamp mill is not to be missed.
   </p>

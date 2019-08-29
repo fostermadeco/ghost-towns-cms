@@ -3,7 +3,7 @@ landmark: false
 latitude: '37.6273498'
 longitude: '-79.9983845'
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>Lignite is a former iron ore mining town owned by Allegheny Ore and Iron Company. It was abandoned by the company in the 1920s. It has very few remains and is now a part of the Jefferson National Forest.
   </p>

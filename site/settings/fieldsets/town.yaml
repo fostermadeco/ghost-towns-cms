@@ -52,9 +52,9 @@ sections:
         display: Remote
       access:
         options:
-          easy: 'Easy Access'
-          4wd: '4WD Recommended'
-          atv: 'ATV Recommended'
+          'Paved or Maintained Gravel Road': 'Paved or Maintained Gravel Road'
+          '4WD Recommended': '4WD Recommended'
+          '4WD Required': '4WD Required'
         type: select
         display: Access
       summary_description:

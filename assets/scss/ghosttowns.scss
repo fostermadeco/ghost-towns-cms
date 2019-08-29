@@ -7,7 +7,7 @@
     font-style: normal;
 }
 
-$fa-font-path: "/assets/fonts/@fortawesome/fontawesome-free";
+$fa-font-path: "/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free";
 
 @import "~@fortawesome/fontawesome-free/scss/fontawesome";
 @import "~@fortawesome/fontawesome-free/scss/regular";
@@ -40,6 +40,10 @@ hr {
 input[type="text"],
 input[type="search"] {
     @apply border border-tan-400;
+}
+
+.fa-orange {
+    @apply text-orange;
 }
 
 .tagline {
@@ -128,6 +132,7 @@ input[type="search"] {
 .mapboxgl-ctrl {
     position: absolute;
     right: 10px;
+    top: 10px;
 }
 .mapboxgl-popup-close-button {
     right: 5px;

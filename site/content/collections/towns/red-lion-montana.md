@@ -7,7 +7,7 @@ directions: |
   <p>Take Discovery Basin road from Georgetown Lake. Continue about one mile from where the road crosses the North Fork of Flint Creek. Turn right on the road past the Cable Campground and continue up the North Fork of Flint Creek for about four miles. The site sits near the curve of the road as it starts up the grade to reach the ridge of the nearby mountains.
   </p>
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>There still stand the remains of the old tram line and old foundations of past buildings (a mill, a saloon, a restaurant, a blacksmith shop, and a boarding house).
   </p>

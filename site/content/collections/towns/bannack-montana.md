@@ -19,7 +19,7 @@ directions: |
   </p>
 when_to_visit: 'Open all year. Check website for hours.'
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>Today, about 60 intact structures remain. The town is a National Historic Landmark. Every year, during the third weekend of July, this abandoned town witnesses a historical reconstitution known as "Bannack Days".
   </p>
