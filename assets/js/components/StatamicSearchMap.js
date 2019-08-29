@@ -8,6 +8,7 @@ import WebMercatorViewport from 'viewport-mercator-project';
 // App
 import mapStyle from './style.json';
 import HitIcon from './HitIcon';
+import { getBoundingBoxFromSearchResults } from './helpers/map';
 import useMapboxPopup from './hooks/useMapboxPopup';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
@@ -28,34 +29,6 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) 
     //----------------------------
 
     const onUpdateViewport = updatedViewport => dispatchViewportAction({ type: 'UPDATE', params: updatedViewport });
-    const getBoundingBoxFromSearchResult = result => ({
-        longitude: Number(result.longitude),
-        latitude: Number(result.latitude),
-        zoom: 9,
-    });
-
-    const getBoundingBoxFromSearchResults = results => {
-        if (results.length === 1) {
-            return getBoundingBoxFromSearchResult(results[0]);
-        }
-
-        const lats = results.map(result => result.latitude);
-        const lngs = results.map(result => result.longitude);
-        const maxLng = lngs.reduce((a, b) => Math.max(a, b));
-        const minLng = lngs.reduce((a, b) => Math.min(a, b));
-        const maxLat = lats.reduce((a, b) => Math.max(a, b));
-        const minLat = lats.reduce((a, b) => Math.min(a, b));
-        const bounds = [[minLng, minLat], [maxLng, maxLat]];
-
-        try {
-            return new WebMercatorViewport(viewport).fitBounds(bounds, {
-                padding: 20,
-                offset: [-100, -100],
-            });
-        } catch (error) {
-            console.log(error);
-        }
-    };
 
     //----------------------------
     // Effects
@@ -66,7 +39,7 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) 
             return;
         }
 
-        const { longitude, latitude, zoom } = getBoundingBoxFromSearchResults(searchResults);
+        const { longitude, latitude, zoom } = getBoundingBoxFromSearchResults(viewport, searchResults);
 
         dispatchViewportAction({
             type: 'UPDATE',

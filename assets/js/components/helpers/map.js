@@ -29,3 +29,32 @@ export const getBoundingBoxFromHits = (viewport, hits) => {
         console.log(error);
     }
 };
+
+export const getBoundingBoxFromSearchResult = result => ({
+    longitude: Number(result.longitude),
+    latitude: Number(result.latitude),
+    zoom: 9,
+});
+
+export const getBoundingBoxFromSearchResults = (viewport, results) => {
+    if (results.length === 1) {
+        return getBoundingBoxFromSearchResult(results[0]);
+    }
+
+    const lats = results.map(result => result.latitude);
+    const lngs = results.map(result => result.longitude);
+    const maxLng = lngs.reduce((a, b) => Math.max(a, b));
+    const minLng = lngs.reduce((a, b) => Math.min(a, b));
+    const maxLat = lats.reduce((a, b) => Math.max(a, b));
+    const minLat = lats.reduce((a, b) => Math.min(a, b));
+    const bounds = [[minLng, minLat], [maxLng, maxLat]];
+
+    try {
+        return new WebMercatorViewport(viewport).fitBounds(bounds, {
+            padding: 20,
+            offset: [-100, -100],
+        });
+    } catch (error) {
+        console.log(error);
+    }
+};
