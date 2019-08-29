@@ -9,22 +9,13 @@ import WebMercatorViewport from 'viewport-mercator-project';
 import mapStyle from './style.json';
 import HitIcon from './HitIcon';
 import useMapboxPopup from './hooks/useMapboxPopup';
-import viewportReducer from './reducers/viewportReducer';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const StatamicSearchMap = ({ searchResults, height, width }) => {
+const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) => {
     //----------------------------
     // State
     //----------------------------
-
-    const [viewport, dispatch] = useReducer(viewportReducer, {
-        width,
-        height,
-        latitude: 0,
-        longitude: 0,
-        zoom: 1,
-    });
 
     const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
         setPopupSearchResult(null);
@@ -36,7 +27,7 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
     // Helpers
     //----------------------------
 
-    const onUpdateViewport = updatedViewport => dispatch({ type: 'UPDATE', params: updatedViewport });
+    const onUpdateViewport = updatedViewport => dispatchViewportAction({ type: 'UPDATE', params: updatedViewport });
     const getBoundingBoxFromSearchResult = result => ({
         longitude: Number(result.longitude),
         latitude: Number(result.latitude),
@@ -70,22 +61,14 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
     // Effects
     //----------------------------
 
-    useEffect(() => {
-        dispatch({
-            type: 'UPDATE',
-            params: {
-                width,
-            },
-        });
-    }, [width]);
-
     useDeepCompareEffect(() => {
         if (searchResults.length === 0) {
             return;
         }
 
         const { longitude, latitude, zoom } = getBoundingBoxFromSearchResults(searchResults);
-        dispatch({
+
+        dispatchViewportAction({
             type: 'UPDATE',
             params: {
                 longitude,
@@ -134,8 +117,6 @@ const StatamicSearchMap = ({ searchResults, height, width }) => {
 
 StatamicSearchMap.propTypes = {
     searchResults: PropTypes.array.isRequired,
-    height: PropTypes.number.isRequired,
-    width: PropTypes.number.isRequired,
 };
 
 export default StatamicSearchMap;

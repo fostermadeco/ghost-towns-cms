@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -15,6 +15,8 @@ import {
     reducers,
 } from './reducers/StatamicSearchExplorePageReducer';
 
+import viewportReducer from './reducers/viewportReducer';
+
 const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSearchResults, fetchStates }) => {
     //----------------------------
     // State
@@ -22,6 +24,13 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const [searchTerm, setSearchTerm] = useState('');
     const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
+    const [viewport, dispatchViewportAction] = useReducer(viewportReducer, {
+        width: mapWidth,
+        height: mapHeight,
+        latitude: 0,
+        longitude: 0,
+        zoom: 1,
+    });
 
     //----------------------------
     // Helpers
@@ -50,28 +59,18 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         fetchStates();
     }, [fetchSearchResults, fetchStates]);
 
+    useEffect(() => {
+        dispatchViewportAction({
+            type: 'UPDATE',
+            params: {
+                width: mapWidth,
+            },
+        });
+    }, [mapWidth]);
+
     //----------------------------
     // Render
     //----------------------------
-
-    const renderPopup = () =>
-        popupHit && (
-            <div onMouseEnter={clearPopupHideTimeout} onMouseLeave={startPopupHideTimeout}>
-                <Popup
-                    latitude={popupHit._geoloc.lat}
-                    longitude={popupHit._geoloc.lng}
-                    closeButton={false}
-                    anchor="bottom"
-                    tipSize={5}
-                    closeOnClick={false}
-                    offsetTop={-20}
-                >
-                    <a href={`/towns/${popupHit.slug}`}>
-                        <span className="mt-2">{popupHit.name}</span>
-                    </a>
-                </Popup>
-            </div>
-        );
 
     return (
         <div className="flex flex-wrap">
@@ -147,7 +146,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
             <div className="w-full md:w-1/2">
                 <div className="mx-2 md:ml-5 pt-3" style={{ height: '100%' }} ref={mapWrapRef}>
-                    <StatamicSearchMap searchResults={searchResults} width={mapWidth} height={mapHeight} />
+                    <StatamicSearchMap
+                        searchResults={searchResults}
+                        viewport={viewport}
+                        dispatchViewportAction={dispatchViewportAction}
+                    />
                 </div>
             </div>
         </div>
