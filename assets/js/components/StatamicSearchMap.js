@@ -1,9 +1,8 @@
-import React, { useEffect, useReducer } from 'react';
+import React from 'react';
 import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
 import useTimeout from '@rooks/use-timeout';
 import PropTypes from 'prop-types';
 import useDeepCompareEffect from 'use-deep-compare-effect';
-import WebMercatorViewport from 'viewport-mercator-project';
 
 // App
 import mapStyle from './style.json';
@@ -90,6 +89,8 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) 
 
 StatamicSearchMap.propTypes = {
     searchResults: PropTypes.array.isRequired,
+    viewport: PropTypes.object,
+    dispatchViewportAction: PropTypes.func,
 };
 
 export default StatamicSearchMap;

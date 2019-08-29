@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import StatamicSearchMap from './StatamicSearchMap';
 import StatamicSearchResult from './StatamicSearchResult';
 import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
+import { getBoundingBoxFromSearchResult } from './helpers/map';
 import useElementSize from './hooks/useElementSize';
 import {
     dispatchFetchSearchResults,
@@ -46,8 +47,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
     };
 
     const zoomInOnMarker = searchResult => {
-        debugger;
-        //
+        const boundingBox = getBoundingBoxFromSearchResult(searchResult);
+        dispatchViewportAction({
+            type: 'UPDATE',
+            params: boundingBox,
+        });
     };
 
     //----------------------------
