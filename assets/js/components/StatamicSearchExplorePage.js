@@ -22,7 +22,6 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const [searchTerm, setSearchTerm] = useState('');
     const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
-    const [popupForSearchResult, setPopupForSearchResult] = useState(null);
 
     //----------------------------
     // Helpers
@@ -35,6 +34,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const filterByState = state => {
         fetchSearchResults(searchTerm, state ? `states/${state}` : '');
+    };
+
+    const zoomInOnMarker = searchResult => {
+        debugger;
+        //
     };
 
     //----------------------------
@@ -130,7 +134,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
                         <div>
                             {searchResults.map(searchResult => (
-                                <StatamicSearchResult key={searchResult.id} searchResult={searchResult} />
+                                <StatamicSearchResult
+                                    key={searchResult.id}
+                                    searchResult={searchResult}
+                                    onMarkerClick={() => zoomInOnMarker(searchResult)}
+                                />
                             ))}
                         </div>
                     </div>
