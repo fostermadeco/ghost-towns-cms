@@ -6,13 +6,20 @@ import capitalize from 'capitalize';
 import PropTypes from 'prop-types';
 import { truncate } from './helpers/strings';
 
-const MapSeachResultStatamic = ({ searchResult, onMarkerClick }) => {
+const classNames = require('classnames');
+
+const MapSeachResultStatamic = ({ searchResult, highlighted = false, onMarkerClick }) => {
+    const searchResultClasses = classNames({
+        'search-result flex flex-col flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card': true,
+        highlighted,
+    });
+
     const onMarkerKeyPress = () => {
         //
     };
 
     return (
-        <div className="flex flex-col flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card">
+        <div className={searchResultClasses}>
             <div className="flex-col flex-grow">
                 <div className="tagline">{searchResult.county} County</div>
                 <h3>
@@ -57,6 +64,7 @@ MapSeachResultStatamic.propTypes = {
         latitude: PropTypes.string,
         longitude: PropTypes.string,
     }).isRequired,
+    highlighted: PropTypes.bool,
     onMarkerClick: PropTypes.func,
 };
 

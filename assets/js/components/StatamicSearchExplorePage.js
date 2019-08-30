@@ -25,6 +25,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
     //----------------------------
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [highlightedSearchResult, setHighlightedSearchResult] = useState(null);
     const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
     const [viewport, dispatchViewportAction] = useReducer(viewportReducer, {
         width: mapWidth,
@@ -49,7 +50,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         fetchSearchResults(searchTerm, state ? `states/${state}` : '');
     };
 
-    const zoomInOnMarker = searchResult => {
+    const highlightSearchResult = searchResult => {
         setHighlightedSearchResult(searchResult);
 
         // const boundingBox = getBoundingBoxFromSearchResult(searchResult);
@@ -147,7 +148,10 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                                 <StatamicSearchResult
                                     key={searchResult.id}
                                     searchResult={searchResult}
-                                    onMarkerClick={() => zoomInOnMarker(searchResult)}
+                                    highlighted={
+                                        highlightedSearchResult && searchResult.id === highlightedSearchResult.id
+                                    }
+                                    onMarkerClick={() => highlightSearchResult(searchResult)}
                                 />
                             ))}
                         </div>
@@ -162,7 +166,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                         viewport={viewport}
                         dispatchViewportAction={dispatchViewportAction}
                         renderPopup={renderPopup}
-                        setPopupSearchResult={setPopupSearchResult}
+                        onMarkerClick={highlightSearchResult}
                     />
                 </div>
             </div>

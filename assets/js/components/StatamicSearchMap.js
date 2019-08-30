@@ -10,7 +10,7 @@ import { getBoundingBoxFromSearchResults } from './helpers/map';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction, renderPopup, setPopupSearchResult }) => {
+const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction, renderPopup, onMarkerClick }) => {
     //----------------------------
     // Helpers
     //----------------------------
@@ -58,7 +58,7 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction, re
                             <button
                                 type="button"
                                 onClick={() => {
-                                    setPopupSearchResult(searchResult);
+                                    onMarkerClick(searchResult);
                                 }}
                             >
                                 <HitIcon />

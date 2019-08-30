@@ -7008,6 +7008,10 @@ input[type=search] {
   color: #CA8643;
 }
 
+.search-result.highlighted {
+  border-color: #D55F36;
+}
+
 .bg-dark {
   background-color: #3A3A3C;
 }
