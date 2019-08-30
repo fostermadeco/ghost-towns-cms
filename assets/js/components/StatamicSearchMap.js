@@ -77,6 +77,7 @@ StatamicSearchMap.propTypes = {
     dispatchViewportAction: PropTypes.func.isRequired,
     renderPopup: PropTypes.func.isRequired,
     setPopupSearchResult: PropTypes.func.isRequired,
+    onMarkerClick: PropTypes.func,
 };
 
 export default StatamicSearchMap;
