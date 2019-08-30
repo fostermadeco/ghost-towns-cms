@@ -21,7 +21,7 @@ const Guide = props => {
 
     return (
         <>
-            {/* {isMobile && <GuideMobile slug={guide.slug} name={guide.name} />} */}
+            {isMobile && <GuideMobile guide={guide} />}
             {!isMobile && <GuideWide guide={guide} />}
         </>
     );
