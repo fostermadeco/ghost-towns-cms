@@ -20,7 +20,6 @@ related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
   - 2408d8b1-bc64-4282-88f2-6fd0b202641f
 objectID: '23117160'
-state: states/montana
 title: 'Southern Cross'
 id: 3491b75f-b042-4606-b53b-fc7eada1ce31
 states: montana

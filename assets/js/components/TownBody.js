@@ -10,31 +10,25 @@ const TownBody = ({ town }) => {
         <>
             {town.narrative_description && (
                 <>
-                    <h2 className="mt-4 mb-2">Narrative Description</h2>
+                    <h3 className="text-2xl pt-4 mb-4">Narrative Description</h3>
                     <SanitizeHtml html={town.narrative_description} />
                 </>
             )}
             {town.history && (
                 <>
-                    <h2 className="mt-4 mb-2">History</h2>
+                    <h3 className="text-2xl pt-4 mb-4">History</h3>
                     <SanitizeHtml html={town.history} />
                 </>
             )}
             {town.legacy && (
                 <>
-                    <h2 className="mt-4 mb-2">Legacy</h2>
+                    <h3 className="text-2xl pt-4 mb-4">Legacy</h3>
                     <SanitizeHtml html={town.legacy} />
-                </>
-            )}
-            {town.when_to_visit && (
-                <>
-                    <h2 className="mt-4 mb-2">When to Visit</h2>
-                    <SanitizeHtml html={town.when_to_visit} />
                 </>
             )}
             {town.directions && (
                 <>
-                    <h2 className="mt-4 mb-2">Directions</h2>
+                    <h3 className="text-2xl pt-4 mb-4">Directions</h3>
                     <SanitizeHtml html={town.directions} />
                 </>
             )}
@@ -45,7 +39,7 @@ const TownBody = ({ town }) => {
                     className="flex items-center"
                     href={`https://www.google.com/maps/search/?api=1&query=${locationQuery}`}
                 >
-                    <Icon className="mr-1" name="map-marker-alt" size="xs" /> View in Google Maps
+                    <img className="mr-2" src="/site/themes/ghosttowns/img/pin.svg" width="13" /> View in Google Maps
                 </a>
             </p>
         </>

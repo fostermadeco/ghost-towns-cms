@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from 'react';
-import { connectHits } from 'react-instantsearch-dom';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 import { PropTypes } from 'prop-types';
 import Map from './Map';
@@ -8,7 +7,7 @@ import { getBoundingBoxFromHits } from './helpers/map';
 import { hitType } from './types';
 import viewportReducer from './reducers/viewportReducer';
 
-const Hits = ({
+const GeoSearchMapBox = ({
     hits,
     children,
     width = 600,
@@ -59,8 +58,8 @@ const Hits = ({
     );
 };
 
-Hits.propTypes = {
-    hits: PropTypes.arrayOf(hitType),
+GeoSearchMapBox.propTypes = {
+    // hits: PropTypes.arrayOf(hitType),
     children: PropTypes.func.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
@@ -68,7 +67,5 @@ Hits.propTypes = {
     initialLongitude: PropTypes.number,
     initialZoom: PropTypes.number,
 };
-
-const GeoSearchMapBox = connectHits(Hits);
 
 export default GeoSearchMapBox;
