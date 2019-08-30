@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
+import useTimeout from '@rooks/use-timeout';
 import PropTypes from 'prop-types';
 
 // App
@@ -8,6 +9,7 @@ import StatamicSearchResult from './StatamicSearchResult';
 import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
 import { getBoundingBoxFromSearchResult } from './helpers/map';
 import useElementSize from './hooks/useElementSize';
+import useMapboxPopup from './hooks/useMapboxPopup';
 import {
     dispatchFetchSearchResults,
     dispatchFetchStates,
@@ -32,6 +34,12 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         longitude: 0,
         zoom: 1,
     });
+
+    const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
+        setPopupSearchResult(null);
+    }, 300);
+
+    const [renderPopup, setPopupSearchResult] = useMapboxPopup(startPopupHideTimeout, clearPopupHideTimeout);
 
     //----------------------------
     // Helpers
@@ -154,6 +162,10 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                         searchResults={searchResults}
                         viewport={viewport}
                         dispatchViewportAction={dispatchViewportAction}
+                        renderPopup={renderPopup}
+                        setPopupSearchResult={setPopupSearchResult}
+                        startPopupHideTimeout={startPopupHideTimeout}
+                        clearPopupHideTimeout={clearPopupHideTimeout}
                     />
                 </div>
             </div>

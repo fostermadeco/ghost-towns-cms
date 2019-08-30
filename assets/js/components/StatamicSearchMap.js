@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactMapGL, { Marker, NavigationControl } from 'react-map-gl';
-import useTimeout from '@rooks/use-timeout';
 import PropTypes from 'prop-types';
 import useDeepCompareEffect from 'use-deep-compare-effect';
 
@@ -8,20 +7,21 @@ import useDeepCompareEffect from 'use-deep-compare-effect';
 import mapStyle from './style.json';
 import HitIcon from './HitIcon';
 import { getBoundingBoxFromSearchResults } from './helpers/map';
-import useMapboxPopup from './hooks/useMapboxPopup';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) => {
+const StatamicSearchMap = ({
+    searchResults,
+    viewport,
+    dispatchViewportAction,
+    renderPopup,
+    setPopupSearchResult,
+    startPopupHideTimeout,
+    clearPopupHideTimeout,
+}) => {
     //----------------------------
     // State
     //----------------------------
-
-    const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
-        setPopupSearchResult(null);
-    }, 300);
-
-    const [renderPopup, setPopupSearchResult] = useMapboxPopup(startPopupHideTimeout, clearPopupHideTimeout);
 
     //----------------------------
     // Helpers
@@ -89,8 +89,12 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction }) 
 
 StatamicSearchMap.propTypes = {
     searchResults: PropTypes.array.isRequired,
-    viewport: PropTypes.object,
-    dispatchViewportAction: PropTypes.func,
+    viewport: PropTypes.object.isRequired,
+    dispatchViewportAction: PropTypes.func.isRequired,
+    renderPopup: PropTypes.func.isRequired,
+    setPopupSearchResult: PropTypes.func.isRequired,
+    startPopupHideTimeout: PropTypes.func.isRequired,
+    clearPopupHideTimeout: PropTypes.func.isRequired,
 };
 
 export default StatamicSearchMap;
