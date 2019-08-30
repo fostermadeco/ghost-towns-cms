@@ -149,7 +149,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
             </div>
 
             <div className="w-full md:w-1/2">
-                <div className="mx-2 md:ml-5 pt-3" style={{ height: '100%' }} ref={mapWrapRef}>
+                <div className="fixed mx-2 md:ml-5 pt-3" style={{ height: '100%' }} ref={mapWrapRef}>
                     <StatamicSearchMap
                         searchResults={searchResults}
                         viewport={viewport}
