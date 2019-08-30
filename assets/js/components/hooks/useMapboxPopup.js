@@ -2,12 +2,12 @@ import React, { useCallback, useState } from 'react';
 import { Popup } from 'react-map-gl';
 import capitalize from 'capitalize';
 
-const useMapboxPopup = (startPopupHideTimeout, clearPopupHideTimeout) => {
+const useMapboxPopup = () => {
     const [searchResult, setSearchResult] = useState(null);
     const renderPopup = useCallback(
         () =>
             searchResult && (
-                <div onMouseEnter={clearPopupHideTimeout} onMouseLeave={startPopupHideTimeout}>
+                <div>
                     <Popup
                         latitude={Number(searchResult.latitude)}
                         longitude={Number(searchResult.longitude)}
@@ -23,7 +23,7 @@ const useMapboxPopup = (startPopupHideTimeout, clearPopupHideTimeout) => {
                     </Popup>
                 </div>
             ),
-        [searchResult, clearPopupHideTimeout, startPopupHideTimeout]
+        [searchResult]
     );
 
     return [renderPopup, setSearchResult];

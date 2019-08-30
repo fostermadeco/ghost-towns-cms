@@ -1,6 +1,5 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
-import useTimeout from '@rooks/use-timeout';
 import PropTypes from 'prop-types';
 
 // App
@@ -35,11 +34,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         zoom: 1,
     });
 
-    const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
-        setPopupSearchResult(null);
-    }, 300);
-
-    const [renderPopup, setPopupSearchResult] = useMapboxPopup(startPopupHideTimeout, clearPopupHideTimeout);
+    const [renderPopup, setPopupSearchResult] = useMapboxPopup();
 
     //----------------------------
     // Helpers
@@ -55,11 +50,13 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
     };
 
     const zoomInOnMarker = searchResult => {
-        const boundingBox = getBoundingBoxFromSearchResult(searchResult);
-        dispatchViewportAction({
-            type: 'UPDATE',
-            params: boundingBox,
-        });
+        setHighlightedSearchResult(searchResult);
+
+        // const boundingBox = getBoundingBoxFromSearchResult(searchResult);
+        // dispatchViewportAction({
+        //     type: 'UPDATE',
+        //     params: boundingBox,
+        // });
 
         setPopupSearchResult(searchResult);
     };
@@ -166,8 +163,6 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                         dispatchViewportAction={dispatchViewportAction}
                         renderPopup={renderPopup}
                         setPopupSearchResult={setPopupSearchResult}
-                        startPopupHideTimeout={startPopupHideTimeout}
-                        clearPopupHideTimeout={clearPopupHideTimeout}
                     />
                 </div>
             </div>

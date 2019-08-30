@@ -10,19 +10,7 @@ import { getBoundingBoxFromSearchResults } from './helpers/map';
 
 const token = process.env.REACT_APP_MAPBOX_TOKEN;
 
-const StatamicSearchMap = ({
-    searchResults,
-    viewport,
-    dispatchViewportAction,
-    renderPopup,
-    setPopupSearchResult,
-    startPopupHideTimeout,
-    clearPopupHideTimeout,
-}) => {
-    //----------------------------
-    // State
-    //----------------------------
-
+const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction, renderPopup, setPopupSearchResult }) => {
     //----------------------------
     // Helpers
     //----------------------------
@@ -60,23 +48,19 @@ const StatamicSearchMap = ({
             <div>
                 {renderPopup()}
                 {searchResults.map(searchResult => (
-                    <div
-                        key={searchResult.id}
-                        onMouseEnter={() => {
-                            clearPopupHideTimeout();
-                            setPopupSearchResult(searchResult);
-                        }}
-                        onMouseLeave={() => {
-                            startPopupHideTimeout();
-                        }}
-                    >
+                    <div key={searchResult.id}>
                         <Marker
                             latitude={Number(searchResult.latitude)}
                             longitude={Number(searchResult.longitude)}
                             offsetLeft={-16}
                             offsetTop={-20}
                         >
-                            <button type="button">
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setPopupSearchResult(searchResult);
+                                }}
+                            >
                                 <HitIcon />
                             </button>
                         </Marker>
@@ -93,8 +77,6 @@ StatamicSearchMap.propTypes = {
     dispatchViewportAction: PropTypes.func.isRequired,
     renderPopup: PropTypes.func.isRequired,
     setPopupSearchResult: PropTypes.func.isRequired,
-    startPopupHideTimeout: PropTypes.func.isRequired,
-    clearPopupHideTimeout: PropTypes.func.isRequired,
 };
 
 export default StatamicSearchMap;
