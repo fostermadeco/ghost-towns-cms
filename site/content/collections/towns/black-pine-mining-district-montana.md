@@ -1,8 +1,6 @@
 states: montana
 county: Granite
 landmark: false
-latitude: '46.447567'
-longitude: '-113.366048'
 directions: |
   <p>Go from Philipsburg toward Drummond on Montana Highway 1 for two miles. A highway sign reads Black Pine Road. Turn left on this road and continue for eight miles to top of the hill. Cross the cattle guard and continue straight ahead on Black Pine Road. Continue another two miles to the top of the ridge. The Black Pine community was located where the road splits in four directions. Take the left road where you will see the head frames of the Harper Shaft near the road on the left hand side. Continue downhill and straight ahead; only a short distance is the head frame of the Lewis Shaft. Continue on the road downhill. Middle Town was located about one-half mile down the grade and Combination was located on the bottom on Lower Willow Creek itself. Here one can see the old remains of the mill, foundations of dwellings, offices, and mine buildings. The tailings pond (settling pond) can also be observed in a flat area near Willow Creek.
   </p>
@@ -20,5 +18,8 @@ legacy: |
 related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
 objectID: '23117180'
+_geoloc:
+  lat: '46.447567'
+  lng: '-113.366048'
 title: 'Black Pine Mining District'
 id: 4f1c7807-968f-444f-b97c-3f04ae68122e

@@ -1,8 +1,6 @@
 state: states/montana
 county: Granite
 landmark: false
-latitude: '46.211666'
-longitude: '-113.240176'
 directions: |
   <p>From Philipsburg, take Montana Highway 1 (Pintler Scenic Route) for approximately twelve miles to the turn off of Discovery Basin Ski Area. Enter this road and continue one mile to a three-way split in the road. Take the middle road to St. Timothy's Chapel.
   </p>
@@ -18,5 +16,8 @@ related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
   - 2408d8b1-bc64-4282-88f2-6fd0b202641f
 objectID: '23117160'
+_geoloc:
+  lat: '46.211666'
+  lng: '-113.240176'
 title: 'Southern Cross'
 id: 3491b75f-b042-4606-b53b-fc7eada1ce31

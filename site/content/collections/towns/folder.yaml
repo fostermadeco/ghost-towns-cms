@@ -9,7 +9,6 @@ searchable:
   - title
   - slug
   - county
-  - latitude
-  - longitude
+  - _geoloc
   - states
   - access

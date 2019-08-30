@@ -8,8 +8,6 @@ images:
   - 'https://fm-ghosttown.s3.amazonaws.com/img_4274.jpg'
   - 'https://fm-ghosttown.s3.amazonaws.com/img_4277.jpg'
 website: 'http://stateparks.mt.gov/granite-ghost-town/'
-latitude: '46.31689'
-longitude: '-113.24644'
 google_location_query: 'Granite Ghost Town State Park'
 managed_by: 'State of Montana'
 proximity: '4 miles outside of Philipsburg, MT'
@@ -37,6 +35,9 @@ related_towns:
   - 2408d8b1-bc64-4282-88f2-6fd0b202641f
   - 3491b75f-b042-4606-b53b-fc7eada1ce31
 objectID: '23117130'
+_geoloc:
+  lat: '46.31689'
+  lng: '-113.24644'
 title: Granite
 id: b6c2ff4f-daa1-40ba-97d1-13caacb33641
 states: montana

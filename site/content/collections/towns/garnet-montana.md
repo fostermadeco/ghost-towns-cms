@@ -6,8 +6,6 @@ images:
   - 'https://fm-ghosttown.s3.amazonaws.com/1916px-garnet_ghost_town.jpg'
   - 'https://fm-ghosttown.s3.amazonaws.com/garnet_ghost_town-_montana_(15018371394).jpg'
 website: 'http://garnetghosttown.org/'
-latitude: '46.82572'
-longitude: '-113.338618'
 managed_by: BLM
 directions: |
   <p>Wheeled vehicles are allowed on the road from May 1 through December 15, depending on snow conditions. Please note that visitors in the spring and fall may want/need to park in the designated parking lots and ski or snowmobile to the town instead of driving on snow-bound roads. In winter, Garnet is only accessible by snowmobile and cross-country ski trip.
@@ -28,6 +26,9 @@ related_towns:
   - 2408d8b1-bc64-4282-88f2-6fd0b202641f
   - 3491b75f-b042-4606-b53b-fc7eada1ce31
 objectID: '23117140'
+_geoloc:
+  lat: '46.82572'
+  lng: '-113.338618'
 title: Garnet
 id: 86849e74-7834-44b6-b704-0c8bf8d8aa40
 states: montana

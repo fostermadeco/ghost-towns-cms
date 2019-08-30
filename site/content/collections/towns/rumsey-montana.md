@@ -1,8 +1,6 @@
 states: montana
 county: Granite
 landmark: false
-latitude: '46.292002'
-longitude: '-113.249777'
 google_location_query: 'Rumsey, Philipsburg, MT'
 directions: |
   <p>Drive out the south entrance to Philipsburg past the U.S. Forest Service to Highway 1. Head towards Anaconda. Turn left at the first road (Rumsey Road), which is about an eighth of a mile on Highway 1. Follow this road for five miles and you will pass a sign for Mountain Valley Ranch. The old mill site is located a half mile from this point.
@@ -22,5 +20,8 @@ related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
   - 4f1c7807-968f-444f-b97c-3f04ae68122e
 objectID: '23117170'
+_geoloc:
+  lat: '46.292002'
+  lng: '-113.249777'
 title: Rumsey
 id: 2408d8b1-bc64-4282-88f2-6fd0b202641f

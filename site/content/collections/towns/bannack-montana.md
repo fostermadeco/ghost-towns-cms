@@ -9,8 +9,6 @@ images:
   - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-13.16.36.jpg'
   - 'https://fm-ghosttown.s3.amazonaws.com/bannack/2016-07-16-14.23.25.jpg'
 website: 'http://stateparks.mt.gov/bannack/'
-latitude: '45.162233'
-longitude: '-112.999537'
 google_location_query: 'Bannock State Park'
 managed_by: 'The state of Montana as Bannack State Park'
 proximity: '37 min drive from Dillon, MT'
@@ -30,6 +28,9 @@ related_towns:
   - 86849e74-7834-44b6-b704-0c8bf8d8aa40
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
 objectID: '23117190'
+_geoloc:
+  lat: '45.162233'
+  lng: '-112.999537'
 title: Bannack
 id: 96befc0e-174e-4d16-88d2-56074ff8a4c4
 states: montana

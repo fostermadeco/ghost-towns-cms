@@ -24,12 +24,6 @@ sections:
       website:
         type: text
         display: Website
-      latitude:
-        type: text
-        display: Latitude
-      longitude:
-        type: text
-        display: Longitude
       google_location_query:
         type: text
         display: 'Google Location Query'
@@ -86,6 +80,12 @@ sections:
         type: text
         instructions: 'From Algolia'
         display: ObjectID
+      _geoloc:
+        keys:
+          lat: Latitiude
+          lng: Longitude
+        type: array
+        display: Gelocation
 taxonomies: false
 title: Town
 hide: true

@@ -36,7 +36,7 @@
             <div class="clearfix">
                 <div class="float-left w-2/5">
                     <h1 class="text-gray-200 text-3xl font-normal font-sansserif"><strong>{{ title }},</strong> {{ states }}{{ title }}{{ /states }}</h1>
-                    <div class="text-gray-500 text-sm mb-5">{{ latitude }} / {{ longitude }}</div>
+                    <div class="text-gray-500 text-sm mb-5">{{ _geoloc.lat }} / {{ _geoloc.lng }}</div>
                     <div class="flex">
                         {{ if landmark }}<div class="badge badge-blue">Landmark</div>{{ /if }}
                         {{ if managed_by }}<div class="badge badge-blue">Managed</div>{{ /if }}
@@ -102,8 +102,8 @@
                 data-react-props='{"town": {
                     "name": "{{ title }}",
                     "_geoloc": {
-                        "lat": {{ latitude }},
-                        "lng": {{ longitude }}
+                        "lat": {{ _geoloc.lat }},
+                        "lng": {{ _geoloc.lng }}
                     }
                 }}'
                 ></div>
