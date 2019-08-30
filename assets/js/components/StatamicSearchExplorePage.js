@@ -60,6 +60,8 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
             type: 'UPDATE',
             params: boundingBox,
         });
+
+        setPopupSearchResult(searchResult);
     };
 
     //----------------------------
