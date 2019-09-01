@@ -49,7 +49,9 @@ const StatamicSearchBar = ({ fetchSearchResults, searchTerm, setSearchTerm }) =>
 };
 
 StatamicSearchBar.propTypes = {
-    fetchSearchResults: , searchTerm, setSearchTerm
-}
+    fetchSearchResults: PropTypes.func.isRequired,
+    searchTerm: PropTypes.string.isRequired,
+    setSearchTerm: PropTypes.func.isRequired,
+};
 
 export default StatamicSearchBar;
