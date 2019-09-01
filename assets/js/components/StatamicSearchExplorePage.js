@@ -42,9 +42,9 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
     // Helpers
     //----------------------------
 
-    const search = async e => {
-        e.preventDefault();
-        fetchSearchResults(searchTerm);
+    const search = value => {
+        setSearchTerm(value);
+        fetchSearchResults(value);
     };
 
     const filterByState = state => {
@@ -89,7 +89,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         <div className="flex flex-wrap">
             <div className="w-full md:w-1/2">
                 <div className="mx-2 mt-3">
-                    <StatamicSearchBar onTextChange={setSearchTerm} onSearch={search} />
+                    <StatamicSearchBar onSearch={search} />
 
                     <div id="search-filters-container" className="mt-3">
                         <small>
@@ -105,7 +105,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
                     <div className="search-results-container">
                         <h3 className="text-red text-2xl font-semibold mt-3">
-                            {searchResults.length} Ghost Town{searchResults.length > 1 && 's'}
+                            {searchResults.length} Ghost Town{searchResults.length !== 1 && 's'}
                         </h3>
 
                         <div>

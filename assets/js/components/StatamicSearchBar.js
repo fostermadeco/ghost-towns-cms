@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import useDebouncedCallback from 'use-debounce/lib/callback';
 
-const StatamicSearchBar = ({ onTextChange, onSearch }) => {
+const StatamicSearchBar = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
+    const [search] = useDebouncedCallback(async searchTerm => {
+        onSearch(searchTerm);
+    }, 250);
 
     return (
         <form noValidate className="ais-SearchBox-form" action="" role="search" onSubmit={onSearch}>
@@ -20,7 +24,7 @@ const StatamicSearchBar = ({ onTextChange, onSearch }) => {
                 onChange={event => {
                     const { value } = event.target;
                     setSearchTerm(value);
-                    onTextChange(value);
+                    search(value);
                 }}
             />
             <button type="submit" title="Submit your search query." className="ais-SearchBox-submit">
@@ -50,7 +54,6 @@ const StatamicSearchBar = ({ onTextChange, onSearch }) => {
 };
 
 StatamicSearchBar.propTypes = {
-    onTextChange: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired,
 };
 
