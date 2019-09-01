@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const StatamicSearchBar = ({ fetchSearchResults, searchTerm, setSearchTerm }) => {
-    const search = async e => {
-        e.preventDefault();
-        fetchSearchResults(searchTerm);
-    };
+const StatamicSearchBar = ({ onTextChange, onSearch }) => {
+    const [searchTerm, setSearchTerm] = useState('');
 
     return (
-        <form noValidate className="ais-SearchBox-form" action="" role="search" onSubmit={search}>
+        <form noValidate className="ais-SearchBox-form" action="" role="search" onSubmit={onSearch}>
             <input
                 className="ais-SearchBox-input"
                 type="search"
@@ -20,7 +17,11 @@ const StatamicSearchBar = ({ fetchSearchResults, searchTerm, setSearchTerm }) =>
                 required
                 maxLength="512"
                 value={searchTerm}
-                onChange={event => setSearchTerm(event.target.value)}
+                onChange={event => {
+                    const { value } = event.target;
+                    setSearchTerm(value);
+                    onTextChange(value);
+                }}
             />
             <button type="submit" title="Submit your search query." className="ais-SearchBox-submit">
                 <svg
@@ -49,9 +50,8 @@ const StatamicSearchBar = ({ fetchSearchResults, searchTerm, setSearchTerm }) =>
 };
 
 StatamicSearchBar.propTypes = {
-    fetchSearchResults: PropTypes.func.isRequired,
-    searchTerm: PropTypes.string.isRequired,
-    setSearchTerm: PropTypes.func.isRequired,
+    onTextChange: PropTypes.func.isRequired,
+    onSearch: PropTypes.func.isRequired,
 };
 
 export default StatamicSearchBar;
