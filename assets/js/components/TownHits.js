@@ -15,7 +15,7 @@ const Hit = ({ hit, onMouseEnter = () => {}, onMouseLeave = () => {} }) => (
         onMouseLeave={onMouseLeave}
     >
         <div className="flex-col flex-grow">
-            <div className="tagline">
+            <div className="tagline text-xs">
                 <Highlight hit={hit} attribute="county" /> County
             </div>
             <h3>

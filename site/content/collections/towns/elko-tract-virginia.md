@@ -2,7 +2,7 @@ county: Henrico
 landmark: false
 website: 'http://www.abandonedcountry.com/2013/10/28/the-elko-tract-a-lost-city-thats-too-well-known/'
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>During World War II, the area was converted into a false city, its structure closely resembling that of Richmond. All that's left is little bits and pieces of the town that was never technically real.
   </p>

@@ -5,7 +5,7 @@ images:
 website: 'http://parks.nv.gov/parks/berlin-ichthyosaur'
 google_location_query: 'Berlin-Ichthyosaur State Park, State route 844, Austin, NV'
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>Today, the ore mill still stands, and the stamps and mercury float tables can be viewed. Other buildings still standing include homes, blacksmith shop, stage coach shop and stable, machine shop, and assay office. Some buildings are open to enter, while others offer interior views of their contents through the windows. There are also headworks on some of the mine shafts. The structures are now part of Berlin-Ichthyosaur State Park. Ichthyosaur fossils were found in the area in 1928. Ichthyosaurs were large prehistoric marine reptiles. Some of the fossils were left where they were found and can be viewed onsite.
   </p>

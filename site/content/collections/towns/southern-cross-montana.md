@@ -1,10 +1,12 @@
-state: states/montana
 county: Granite
 landmark: false
+google_location_query: '2285 Southern Cross Rd, Anaconda, MT 59711'
+managed_by: '25 minutes from Philipsburg, MT'
 directions: |
   <p>From Philipsburg, take Montana Highway 1 (Pintler Scenic Route) for approximately twelve miles to the turn off of Discovery Basin Ski Area. Enter this road and continue one mile to a three-way split in the road. Take the middle road to St. Timothy's Chapel.
   </p>
 remote: false
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>The mining buildings and some of the older dwellings are still present. In fact, some are inhabited by people, mostly as summertime residences. Included in these mining buildings are the residences of former mine supervisors, hoist buildings, two boarding houses, and a bunk house.
   </p>
@@ -21,3 +23,4 @@ _geoloc:
   lng: '-113.240176'
 title: 'Southern Cross'
 id: 3491b75f-b042-4606-b53b-fc7eada1ce31
+states: montana

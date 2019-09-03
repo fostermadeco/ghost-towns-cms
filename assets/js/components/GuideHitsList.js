@@ -1,5 +1,4 @@
 import React, { useRef } from 'react';
-import { connectHits } from 'react-instantsearch-dom';
 import useWindowScroll from 'react-use/lib/useWindowScroll';
 
 import { PropTypes } from 'prop-types';
@@ -9,7 +8,7 @@ import TownBody from './TownBody';
 import TownHeader from './TownHeader';
 import { hitType } from './types';
 
-const Hit = ({ hit, index, setCurrentTown, chosenTown }) => {
+const GuideHit = ({ hit, index, setCurrentTown, chosenTown }) => {
     const hitRef = useRef(null);
     const { y } = useWindowScroll();
 
@@ -19,15 +18,21 @@ const Hit = ({ hit, index, setCurrentTown, chosenTown }) => {
     useRefScrollTo(hitRef, isTownChosen);
 
     return (
-        <div>
-            <div className="my-5 py-2" style={{ minHeight: '500px' }}>
-                <div ref={hitRef} className="flex content-start items-baseline">
-                    <h3>
-                        {index + 1}. {hit.name}
-                    </h3>
+        <div style={{ minHeight: '500px' }}>
+            <div className="my-5 py-2">
+                <div ref={hitRef}>
+                    <h3 className="tagline text-xs mb-0">{hit.county} county</h3>
+                    <h2 className="text-3xl font-normal font-sansserif mr-5 capitalize">
+                        {index + 1}. {hit.title}, {hit.state}
+                    </h2>
                 </div>
                 <TownHeader town={hit} />
-                <p className="text-sm mt-2">{hit.structure_description}</p>
+                {hit.images && hit.images.length > 0 && (
+                    <div className="mt-10">
+                        {' '}
+                        <img src={hit.images[0]} />
+                    </div>
+                )}
                 <TownBody town={hit} />
             </div>
             <hr className="mt-2" />
@@ -35,27 +40,25 @@ const Hit = ({ hit, index, setCurrentTown, chosenTown }) => {
     );
 };
 
-Hit.propTypes = {
+GuideHit.propTypes = {
     hit: hitType,
     index: PropTypes.number,
     setCurrentTown: PropTypes.func,
     chosenTown: hitType,
 };
 
-const Hits = ({ hits, setCurrentTown, chosenTown }) => (
+const GuideHitsList = ({ hits, setCurrentTown, chosenTown }) => (
     <>
         {hits.map((hit, i) => (
-            <Hit key={hit.name} hit={hit} index={i} setCurrentTown={setCurrentTown} chosenTown={chosenTown} />
+            <GuideHit key={hit.name} hit={hit} index={i} setCurrentTown={setCurrentTown} chosenTown={chosenTown} />
         ))}
     </>
 );
 
-Hits.propTypes = {
+GuideHitsList.propTypes = {
     hits: PropTypes.arrayOf(hitType),
     setCurrentTown: PropTypes.func,
     chosenTown: hitType,
 };
-
-const GuideHitsList = connectHits(Hits);
 
 export default GuideHitsList;

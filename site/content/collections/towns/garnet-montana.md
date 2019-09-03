@@ -12,7 +12,7 @@ directions: |
   </p>
 when_to_visit: '​Garnet is open year-round, daily from 9:30am-4:30pm, however access is limited in the winter.'
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>Garnet has the Wells hotels, Kelly Saloon, Daveys Store and many outer buildings, preserved and intact.
   </p>

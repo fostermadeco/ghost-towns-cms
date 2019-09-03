@@ -1,7 +1,7 @@
 county: Botetourt
 landmark: false
 remote: false
-access: easy
+access: 'Paved or Maintained Gravel Road'
 summary_description: |
   <p>Lignite is a former iron ore mining town owned by Allegheny Ore and Iron Company. It was abandoned by the company in the 1920s. It has very few remains and is now a part of the Jefferson National Forest.
   </p>

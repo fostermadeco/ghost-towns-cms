@@ -3,3 +3,4 @@ fieldset: guides
 searchable:
     - title
     - towns
+template: guide

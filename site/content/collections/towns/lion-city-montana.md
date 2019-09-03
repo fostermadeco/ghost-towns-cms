@@ -5,7 +5,7 @@ directions: |
   <p>It is located about 12 miles west of Melrose at the head of the Trapper Creek drainage, adjacent to Hecla. On your way, you will pass through the old townsite of Glendale, which housed the smelting facilities for the mining district. The road is very primitive and accessible with a 4WD or ATV.
   </p>
 remote: true
-access: atv
+access: '4WD Required'
 summary_description: |
   <p>About 15 structures remain in the Lion City area. At its peak, Lion City had a population of five to six hundred. It is located in a remote area 12 miles west of Melrose.
   </p>

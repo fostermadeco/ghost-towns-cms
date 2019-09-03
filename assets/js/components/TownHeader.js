@@ -1,29 +1,47 @@
 import React from 'react';
 import Icon from './Icon';
 import { hitType } from './types';
+import SanitizeHtml from './SanitizeHtml';
 
 const TownHeader = ({ town }) => (
     <>
-        <div className="text-sm mt-1">
-            <span className="text-xs uppercase">County:</span> {town.county}
+        <div className="text-brown text-sm mb-2">
+            {town.latitude} / {town.longitude}
         </div>
-        <div className="text-sm">
-            <span className="text-xs uppercase">Road:</span> {town.road_condition}
-        </div>
-        {town.managed_by && (
-            <div className="text-sm">
-                <span className="text-xs uppercase">Managed by:</span> {town.managed_by}
+        {town.website && (
+            <div className="text-brown text-sm mb-6">
+                <a href={town.website} target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <i className="fas fa-external-link-alt fa-sm fa-orange mr-1" /> Website
+                </a>
             </div>
         )}
-        {town.url && (
-            <div className="text-sm">
-                <span className="text-xs underline">
-                    <a href={town.url} target="_blank" rel="noopener noreferrer">
-                        <Icon name="link" size="xs" /> Website
-                    </a>
-                </span>
-            </div>
-        )}
+        <div className="text-brown text-lg mb-4">
+            <SanitizeHtml html={town.summary_description} />
+        </div>
+        <div>
+            {town.when_to_visit && (
+                <div className="mr-10 flex items-center">
+                    <img className="mr-3" src="/site/themes/ghosttowns/img/time-clock-circle.svg" width="17" />
+                    <div className="text-brown text-sm ml-1">{town.when_to_visit}</div>
+                </div>
+            )}
+            {town.proximity && (
+                <div className="flex items-center mt-3 ml-1 mx-3">
+                    <img className="mr-4" src="/site/themes/ghosttowns/img/pin.svg" width="13" />
+                    <div className="text-brown text-sm">{town.proximity}</div>
+                </div>
+            )}
+            {town.access && (
+                <div className="flex items-center mt-3">
+                    <img className="mr-1" src="/site/themes/ghosttowns/img/adventure-car-convertible.svg" width="25" />
+                    <div className="text-brown text-sm capitalize ml-1">{town.access}</div>
+                </div>
+            )}
+        </div>
+        <div className="flex mt-4">
+            {town.landmark && <div className="badge badge-blue">Landmark</div>}
+            {town.managed_by && <div className="badge badge-blue">Managed</div>}
+        </div>
     </>
 );
 
