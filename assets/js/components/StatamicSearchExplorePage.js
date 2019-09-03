@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
 import { animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import StatamicSearchBar from './StatamicSearchBar';
 import StatamicSearchMap from './StatamicSearchMap';
 import StatamicSearchResult from './StatamicSearchResult';
 import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
-import { getBoundingBoxFromSearchResult } from './helpers/map';
+import { getBoundingBoxCenteredAroundSearchResult } from './helpers/map';
 import useElementSize from './hooks/useElementSize';
 import useMapboxPopup from './hooks/useMapboxPopup';
 import {
@@ -54,10 +54,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const centerInOnMapMarker = searchResult => {
         // const boundingBox = getBoundingBoxFromSearchResult(searchResult);
-        // dispatchViewportAction({
-        //     type: 'UPDATE',
-        //     params: boundingBox,
-        // });
+        const boundingBox = getBoundingBoxCenteredAroundSearchResult(viewport, searchResults, searchResult);
+        dispatchViewportAction({
+            type: 'UPDATE',
+            params: boundingBox,
+        });
     };
 
     const scrollToSelectedSearchResult = (searchResult) => {
