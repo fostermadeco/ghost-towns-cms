@@ -8,7 +8,7 @@ import StatamicSearchBar from './StatamicSearchBar';
 import StatamicSearchMap from './StatamicSearchMap';
 import StatamicSearchResult from './StatamicSearchResult';
 import StatamicSearchStateDropdown from './StatamicSearchStateDropdown';
-import { getBoundingBoxCenteredAroundSearchResult } from './helpers/map';
+import { getViewportWithNewCenter } from './helpers/map';
 import useElementSize from './hooks/useElementSize';
 import useMapboxPopup from './hooks/useMapboxPopup';
 import {
@@ -53,8 +53,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
     };
 
     const centerInOnMapMarker = searchResult => {
-        // const boundingBox = getBoundingBoxFromSearchResult(searchResult);
-        const boundingBox = getBoundingBoxCenteredAroundSearchResult(viewport, searchResults, searchResult);
+        const boundingBox = getViewportWithNewCenter(viewport, searchResult);
         dispatchViewportAction({
             type: 'UPDATE',
             params: boundingBox,

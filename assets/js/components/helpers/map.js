@@ -108,3 +108,14 @@ export const getBoundingBoxCenteredAroundSearchResult = (viewport, results, cent
         console.log(error);
     }
 };
+
+export const getViewportWithNewCenter = (viewport, center) => {
+    try {
+        viewport.longitude = Number(center.longitude);
+        viewport.latitude = Number(center.latitude);
+
+        return (new WebMercatorViewport(viewport));
+    } catch (error) {
+        console.log(error);
+    }
+};
