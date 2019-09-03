@@ -1,5 +1,6 @@
 import React, { useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
+import { animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import PropTypes from 'prop-types';
 
 // App
@@ -51,17 +52,21 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         fetchSearchResults(searchTerm, state ? `states/${state}` : '');
     };
 
-    const highlightSearchResult = searchResult => {
-        setHighlightedSearchResult(searchResult);
-
+    const centerInOnMapMarker = searchResult => {
         // const boundingBox = getBoundingBoxFromSearchResult(searchResult);
         // dispatchViewportAction({
         //     type: 'UPDATE',
         //     params: boundingBox,
         // });
-
-        setPopupSearchResult(searchResult);
     };
+
+    const scrollToSelectedSearchResult = (searchResult) => {
+        scroller.scrollTo(searchResult.id, {
+            duration: 500,
+            smooth: true,
+            offset: -10,
+        });
+    }
 
     //----------------------------
     // Effects
@@ -116,7 +121,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                                     highlighted={
                                         highlightedSearchResult && searchResult.id === highlightedSearchResult.id
                                     }
-                                    onMarkerClick={() => highlightSearchResult(searchResult)}
+                                    onMarkerClick={() => {
+                                        setHighlightedSearchResult(searchResult);
+                                        setPopupSearchResult(searchResult);
+                                        centerInOnMapMarker(searchResult);
+                                    }}
                                 />
                             ))}
                         </div>
@@ -131,7 +140,11 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                         viewport={viewport}
                         dispatchViewportAction={dispatchViewportAction}
                         renderPopup={renderPopup}
-                        onMarkerClick={highlightSearchResult}
+                        onMarkerClick={searchResult => {
+                            setHighlightedSearchResult(searchResult);
+                            setPopupSearchResult(searchResult);
+                            scrollToSelectedSearchResult(searchResult);
+                        }}
                     />
                 </div>
             </div>

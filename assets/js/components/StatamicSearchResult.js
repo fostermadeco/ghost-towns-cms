@@ -19,7 +19,7 @@ const MapSeachResultStatamic = ({ searchResult, highlighted = false, onMarkerCli
     };
 
     return (
-        <div className={searchResultClasses}>
+        <div className={searchResultClasses} name={searchResult.id}>
             <div className="flex-col flex-grow">
                 <div className="tagline">{searchResult.county} County</div>
                 <h3>
