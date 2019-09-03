@@ -76,16 +76,12 @@ sections:
         type: collection
         display: 'Related towns'
         mode: panes
-      objectID:
-        type: text
-        instructions: 'From Algolia'
-        display: ObjectID
       _geoloc:
+        type: array
+        display: Gelocation
         keys:
           lat: Latitiude
           lng: Longitude
-        type: array
-        display: Gelocation
 taxonomies: false
 title: Town
 hide: true

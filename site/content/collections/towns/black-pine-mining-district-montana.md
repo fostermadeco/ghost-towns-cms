@@ -17,7 +17,6 @@ legacy: |
   </p>
 related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
-objectID: '23117180'
 _geoloc:
   lat: '46.447567'
   lng: '-113.366048'

@@ -17,7 +17,6 @@ related_towns:
   - b6c2ff4f-daa1-40ba-97d1-13caacb33641
   - 2408d8b1-bc64-4282-88f2-6fd0b202641f
   - 3491b75f-b042-4606-b53b-fc7eada1ce31
-objectID: '23117150'
 _geoloc:
   lat: '46.269724'
   lng: '-113.192481'

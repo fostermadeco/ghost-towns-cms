@@ -18,7 +18,6 @@ summary_description: |
 history: 'Bodie began as a mining camp of little note following the discovery of gold in 1859. By 1879, Bodie had a population of approximately 5,000–7,000 people and about 2,000 buildings. The first signs of decline appeared in 1880 when other boom towns lured residents away. The newspaper ceased publication in 1912 and the railway was abandoned in 1918. The last mine closed in 1942 as dynamite and other resources were redirected towards the war effort. The town was designated a National Historic Landmark in 1961.'
 related_towns:
   - 5fc3678a-e377-47d8-bf6f-e1ed1ca1596a
-objectID: '23117210'
 description:
   -
     type: section

@@ -12,3 +12,7 @@ searchable:
   - _geoloc
   - states
   - access
+  - summary_description
+  - history
+  - legacy
+  - narrative_description

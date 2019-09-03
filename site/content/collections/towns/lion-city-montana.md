@@ -12,7 +12,6 @@ summary_description: |
 history: |
   <p>Lion City is located in the Bryant or Hecla Mining District, a remote area with four towns dotting ten miles of gluches. The district consisted of ten miles of gluches and four towns. The The other towns in the district are Trapper City, Glendale and Hecla. At its peak, Lion City had a population of five to six hundred. It boasted saloons, brothels, a school house and two hotels.
   </p>
-objectID: '23117200'
 _geoloc:
   lat: '45.603609'
   lng: '-112.929679'
