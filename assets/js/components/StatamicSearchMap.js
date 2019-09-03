@@ -43,7 +43,7 @@ const StatamicSearchMap = ({ searchResults, viewport, dispatchViewportAction, re
     //----------------------------
 
     return (
-        <ReactMapGL {...viewport} mapStyle={mapStyle} mapboxApiAccessToken={token} onViewportChange={onUpdateViewport}>
+        <ReactMapGL {...viewport} mapStyle={mapStyle} mapboxApiAccessToken={token} scrollZoom={false} onViewportChange={onUpdateViewport} >
             <NavigationControl onViewportChange={onUpdateViewport} />
             <div>
                 {renderPopup()}
