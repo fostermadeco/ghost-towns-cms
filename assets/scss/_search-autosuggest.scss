@@ -1,16 +1,25 @@
+.react-autosuggest__parent {
+    display: block;
+    position: relative;
+}
+
 .react-autosuggest__container {
     position: relative;
 }
 
 .react-autosuggest__input {
-    width: 240px;
-    height: 30px;
-    padding: 10px 20px;
-    font-family: Helvetica, sans-serif;
-    font-weight: 300;
-    font-size: 16px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-width: 1px;
+    border-color: #E3DFD7;
+    padding: 0.3rem 1.2rem;
+    width: 100%;
+    position: relative;
+    border-radius: 0.25rem;
+    background-color: #fff;
+    height: 50px;
+    line-height: 50px;
 }
 
 .react-autosuggest__input--focused {
@@ -20,6 +29,53 @@
 .react-autosuggest__input--open {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+}
+
+.react-autosuggest__submit-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #D55F36;
+    border-bottom-right-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    height: 100%;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    z-index: 1;
+}
+
+.react-autosuggest__submit-button-icon {
+    fill: #fff;
+    height: 20px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    width: 20px;
+}
+
+.react-autosuggest__clear-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 20px;
+    position: absolute;
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    z-index: 1;
+}
+
+.react-autosuggest__clear-button-icon {
+    fill: #716652;
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }
 
 .react-autosuggest__suggestions-container {
