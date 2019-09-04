@@ -1,6 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
+import capitalize from 'capitalize';
 import PropTypes from 'prop-types';
 import useDebouncedCallback from 'use-debounce/lib/callback';
 
@@ -36,7 +37,21 @@ const StatamicSearchAutoSuggestPageComponent = ({ searchAutoSuggestions, fetchSe
     // Render
     //----------------------------
 
-    const renderSuggestion = suggestion => <span>{suggestion.title}</span>;
+    const renderSuggestion = suggestion => (
+        <div className="flex flex-col flex-wrap content-between rounded border-tan-400 px-4 py-2" name={suggestion.id}>
+            <div className="tagline">{suggestion.county} County</div>
+            <h3 className="mb-1">
+                <a href={suggestion.url}>
+                    <span className="font-semibold text-lg">{suggestion.title}</span>
+                    {suggestion.states && <span className="text-lg">, {capitalize(suggestion.states)}</span>}
+                </a>
+            </h3>
+
+            <div className="flex-row mb-3">
+                {suggestion.access && <span className="badge badge-blue">{suggestion.access}</span>}
+            </div>
+        </div>
+    );
 
     const inputProps = {
         value: searchText,
