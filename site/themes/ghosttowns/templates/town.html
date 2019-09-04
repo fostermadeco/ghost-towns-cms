@@ -140,16 +140,19 @@
         <div class="px-4 md:px-0 w-full border-t border-tan-400 pb-10">
             <h3 class="mt-8 header-red-xl">More Ghost Towns to Explore</h3>
             <div class="clearfix">
-                {{ relate:related_towns }}
+                {{ relate:related_towns scope="more_towns" }}
                 <div class="w-full mb-8 md:w-1/4 md:float-left">
-                    <div class="md:pr-8">
-                        <a href="/towns/{{ slug }}">
-                            {{ if images }}
-                            {{ asset:images }}
-                            <img src="{{ glide:url width="500" }}" alt="{{ alt }}" class="rounded w-full object-cover" style="height:200px" />
-                            {{ /asset:images }}
+                    <div class="md:pr-8" style="min-height:300px;">
+                        <a href="/towns/{{ slug }}" class="relative block">
+                            {{ if more_towns:images }}
+                            {{ more_towns:images }}
+                            {{if first}}
+                            <img src="{{ glide src="{{ value }}" height="300" }}" alt="{{ title }}" class="rounded w-full object-cover" style="height:200px" />
+                            {{ /if }}
+                            {{ /more_towns:images }}
                             {{ else }}
-                            nada
+                            <p class="absolute text-white text-2xl text-center" style="top: 0; left: 0; right: 0; z-index: 1;margin-top: 30%;" >No Images Yet</p>
+                            <img src="{{ theme:img src="default-town.jpg" }}" alt="" class="rounded w-full object-cover" style="height:200px" />
                             {{ /if }}
                             <h5 class="tagline text-xs pt-2 mb-0">{{ county }} County</h5>
                             <h4>
