@@ -8,7 +8,7 @@ import get from 'lodash.get';
 import qs from 'qs';
 import useTimeout from '@rooks/use-timeout';
 
-import GeoSearchMapbox from './GeoSearchMapbox';
+import GeoSearchMapboxAlgolia from './GeoSearchMapboxAlgolia';
 import MapMarker from './MapMarker';
 import CustomStateResults from './CustomStateResults';
 import TownHits from './TownHits';
@@ -195,7 +195,7 @@ const MapSearch = () => {
                 {(!isMobile || mobileViewMode === 'map') && (
                     <div className="w-full md:w-1/2">
                         <div className="mx-2 md:ml-5" style={{ height: '100%' }} ref={mapWrapRef}>
-                            <GeoSearchMapbox width={mapWidth} height={mapHeight}>
+                            <GeoSearchMapboxAlgolia width={mapWidth} height={mapHeight}>
                                 {({ hits }) => (
                                     <div>
                                         {renderPopup()}
@@ -221,7 +221,7 @@ const MapSearch = () => {
                                         ))}
                                     </div>
                                 )}
-                            </GeoSearchMapbox>
+                            </GeoSearchMapboxAlgolia>
                         </div>
                     </div>
                 )}

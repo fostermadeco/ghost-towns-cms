@@ -18,5 +18,6 @@ routes:
     content_type: atom
 collections:
   towns: '/towns/{slug}'
+  guides: '/guides/{slug}'
 taxonomies:
   states: '/towns/states/{slug}'

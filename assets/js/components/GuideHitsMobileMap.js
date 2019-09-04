@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { connectHits } from 'react-instantsearch-dom';
 import get from 'lodash.get';
 
 import { PropTypes } from 'prop-types';
@@ -10,13 +9,17 @@ import { hitType } from './types';
 const Hit = ({ hit, index, chosenTown, isTownOpen }) => (
     <div className={`md:block ${chosenTown && chosenTown.name !== hit.name ? 'hidden' : ''}`}>
         <div className="my-3 pt-2 pb-10 mx-1">
-            <div className="flex content-start items-baseline">
-                <h3>
-                    {index + 1}. {hit.name}
-                </h3>
-            </div>
+            <h3 className="tagline text-xs mb-0">{hit.county} county</h3>
+            <h2 className="text-3xl font-normal font-sansserif mr-5 capitalize">
+                {index + 1}. {hit.title}, {hit.state}
+            </h2>
             <TownHeader town={hit} />
-            <p className="text-sm mt-2">{hit.structure_description}</p>
+            {hit.images && hit.images.length > 0 && (
+                <div className="mt-10">
+                    {' '}
+                    <img src={hit.images[0]} />
+                </div>
+            )}
             {isTownOpen && (
                 <>
                     <TownBody town={hit} />
@@ -34,7 +37,7 @@ Hit.propTypes = {
     isTownOpen: PropTypes.bool,
 };
 
-const Hits = ({ hits, setChosenTown, currentTown, chosenTown, isTownOpen }) => {
+const GuideHitsMobileMap = ({ hits, setChosenTown, currentTown, chosenTown, isTownOpen }) => {
     // currentTown is already set via the list view, syncs to chosen for map
     useEffect(() => {
         if (hits.length > 0 && !chosenTown) {
@@ -59,14 +62,12 @@ const Hits = ({ hits, setChosenTown, currentTown, chosenTown, isTownOpen }) => {
     );
 };
 
-Hits.propTypes = {
+GuideHitsMobileMap.propTypes = {
     hits: PropTypes.arrayOf(hitType),
     setChosenTown: PropTypes.func,
     currentTown: hitType,
     chosenTown: hitType,
     isTownOpen: PropTypes.bool,
 };
-
-const GuideHitsMobileMap = connectHits(Hits);
 
 export default GuideHitsMobileMap;

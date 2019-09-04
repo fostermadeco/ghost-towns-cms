@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { InstantSearch, Configure } from 'react-instantsearch-dom';
-import algoliasearch from 'algoliasearch/lite';
 import get from 'lodash.get';
 import { Popup } from 'react-map-gl';
 import { Link } from 'react-router-dom';
@@ -14,8 +12,6 @@ import MapMarker from './MapMarker';
 import GuideNavMobile from './GuideNavMobile';
 import Icon from './Icon';
 import GuideHitsList from './GuideHitsList';
-
-const searchClient = algoliasearch(process.env.REACT_APP_ALGOLIA_APP_ID, process.env.REACT_APP_ALGOLIA_API_KEY);
 
 const GuideMobileHitsWrapper = styled.div`
     background-color: #fff;
@@ -34,7 +30,7 @@ const GuideMobileHitsWrapper = styled.div`
     }
 `;
 
-const GuideMobile = ({ slug, name }) => {
+const GuideMobile = ({ guide }) => {
     // sets popup, marker as active - used on click of marker or when hit is scrolled to
     const [currentTown, setCurrentTown] = useState(null);
     // on click of marker
@@ -45,8 +41,6 @@ const GuideMobile = ({ slug, name }) => {
     const [mobileViewMode, setMobileViewMode] = useState('list');
 
     const { width, height } = useWindowSize();
-
-    const filter = `guides:${slug}`;
 
     const renderPopup = () =>
         chosenTown && (
@@ -77,13 +71,7 @@ const GuideMobile = ({ slug, name }) => {
                     className="flex border-b border-gray-300 bg-white justify-between px-3 content-center items-center"
                     style={{ height: 50 }}
                 >
-                    <Link to="/" className="no-underline">
-                        <Icon name="angle-left" />{' '}
-                        <span role="img" aria-label="derelict house">
-                            🏚️
-                        </span>
-                    </Link>
-                    <h1 className="text-lg">Guide: {name}</h1>
+                    <h1 className="text-lg">Guide: {guide.name}</h1>
                     <button
                         type="button"
                         className="text-sm"
@@ -93,62 +81,61 @@ const GuideMobile = ({ slug, name }) => {
                     </button>
                 </div>
             </div>
-            <InstantSearch searchClient={searchClient} indexName={process.env.REACT_APP_ALGOLIA_INDEX}>
-                <Configure filters={filter} />
-                {mobileViewMode === 'list' && (
-                    <div className="mx-3">
-                        <GuideHitsList chosenTown={chosenTown} setCurrentTown={setCurrentTown} />
+            {mobileViewMode === 'list' && (
+                <div className="mx-3">
+                    <GuideHitsList chosenTown={chosenTown} setCurrentTown={setCurrentTown} hits={guide.towns} />
+                </div>
+            )}
+            {mobileViewMode === 'map' && (
+                <>
+                    <div className="fixed" style={{ bottom: '250px', top: '50px' }}>
+                        <GuideMap width={mapWidth} height={mapHeight} currentTown={chosenTown} hits={guide.towns}>
+                            {({ hits }) => (
+                                <div>
+                                    {renderPopup()}
+                                    {hits.map(hit => (
+                                        <div key={hit.name}>
+                                            <MapMarker
+                                                latitude={hit._geoloc.lat}
+                                                longitude={hit._geoloc.lng}
+                                                name={hit.name}
+                                                onClick={() => {
+                                                    setCurrentTown(hit);
+                                                    setChosenTown(hit);
+                                                }}
+                                                isSelected={chosenTown !== null && chosenTown.name === hit.name}
+                                            />
+                                        </div>
+                                    ))}
+                                </div>
+                            )}
+                        </GuideMap>
                     </div>
-                )}
-                {mobileViewMode === 'map' && (
-                    <>
-                        <div className="fixed" style={{ bottom: '250px', top: '50px' }}>
-                            <GuideMap width={mapWidth} height={mapHeight} currentTown={chosenTown}>
-                                {({ hits }) => (
-                                    <div>
-                                        {renderPopup()}
-                                        {hits.map(hit => (
-                                            <div key={hit.name}>
-                                                <MapMarker
-                                                    latitude={hit._geoloc.lat}
-                                                    longitude={hit._geoloc.lng}
-                                                    name={hit.name}
-                                                    onClick={() => {
-                                                        setCurrentTown(hit);
-                                                        setChosenTown(hit);
-                                                    }}
-                                                    isSelected={chosenTown !== null && chosenTown.name === hit.name}
-                                                />
-                                            </div>
-                                        ))}
-                                    </div>
-                                )}
-                            </GuideMap>
-                        </div>
-                        <GuideMobileHitsWrapper className="fixed px-3" isOpen={isTownOpen}>
-                            <GuideHitsMobileMap
-                                setChosenTown={setChosenTown}
-                                currentTown={currentTown}
-                                chosenTown={chosenTown}
-                                isTownOpen={isTownOpen}
-                            />
-                        </GuideMobileHitsWrapper>
-                        <GuideNavMobile
-                            isTownOpen={isTownOpen}
-                            setIsTownOpen={setIsTownOpen}
-                            chosenTown={chosenTown}
+                    <GuideMobileHitsWrapper className="fixed px-3" isOpen={isTownOpen}>
+                        <GuideHitsMobileMap
+                            hits={guide.towns}
                             setChosenTown={setChosenTown}
+                            currentTown={currentTown}
+                            chosenTown={chosenTown}
+                            isTownOpen={isTownOpen}
                         />
-                    </>
-                )}
-            </InstantSearch>
+                    </GuideMobileHitsWrapper>
+                    <GuideNavMobile
+                        hits={guide.towns}
+                        isTownOpen={isTownOpen}
+                        setIsTownOpen={setIsTownOpen}
+                        chosenTown={chosenTown}
+                        setChosenTown={setChosenTown}
+                    />
+                </>
+            )}
         </>
     );
 };
 
-GuideMobile.propTypes = {
-    slug: PropTypes.string,
-    name: PropTypes.string,
-};
+// GuideMobile.propTypes = {
+//     slug: PropTypes.string,
+//     name: PropTypes.string,
+// };
 
 export default GuideMobile;

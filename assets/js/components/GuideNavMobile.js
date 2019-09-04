@@ -1,9 +1,8 @@
 import React from 'react';
-import { connectHits } from 'react-instantsearch-dom';
 import { PropTypes } from 'prop-types';
 import { hitType } from './types';
 
-const HitsNav = ({ hits, setIsTownOpen, isTownOpen, chosenTown, setChosenTown }) => {
+const GuideNavMobile = ({ hits, setIsTownOpen, isTownOpen, chosenTown, setChosenTown }) => {
     const getChosenHitIndex = currentTownName => {
         const currentHit = hits.find(hit => hit.name === currentTownName);
         return hits.indexOf(currentHit);
@@ -30,7 +29,7 @@ const HitsNav = ({ hits, setIsTownOpen, isTownOpen, chosenTown, setChosenTown })
     };
 
     return (
-        <div className="w-full fixed border border-gray-300 bg-gray-100" style={{ bottom: 0 }}>
+        <div className="w-full fixed border border-tan-400 bg-white" style={{ bottom: 0 }}>
             <div className="flex justify-between items-center mx-3" style={{ height: '50px' }}>
                 <button type="button" onClick={handlePrev}>
                     Prev
@@ -51,14 +50,12 @@ const HitsNav = ({ hits, setIsTownOpen, isTownOpen, chosenTown, setChosenTown })
     );
 };
 
-HitsNav.propTypes = {
+GuideNavMobile.propTypes = {
     hits: PropTypes.arrayOf(hitType),
     setIsTownOpen: PropTypes.func,
     isTownOpen: PropTypes.bool,
     chosenTown: hitType,
     setChosenTown: PropTypes.func,
 };
-
-const GuideNavMobile = connectHits(HitsNav);
 
 export default GuideNavMobile;

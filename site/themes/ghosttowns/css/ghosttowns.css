@@ -6129,9 +6129,9 @@ readers do not read off random characters that represent icons */
 
   font-display: auto;
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot");
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-regular-400.svg#fontawesome") format("svg");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff2") format("woff2"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.woff") format("woff"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.ttf") format("truetype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-regular-400.svg#fontawesome") format("svg");
 }
 
 .far {
@@ -6153,9 +6153,9 @@ readers do not read off random characters that represent icons */
 
   font-display: auto;
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot");
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-brands-400.svg#fontawesome") format("svg");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff2") format("woff2"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.woff") format("woff"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.ttf") format("truetype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-brands-400.svg#fontawesome") format("svg");
 }
 
 .fab {
@@ -6176,9 +6176,9 @@ readers do not read off random characters that represent icons */
 
   font-display: auto;
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot");
 
-  src: url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff2") format("woff2"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff") format("woff"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.ttf") format("truetype"), url("/assets/fonts/@fortawesome/fontawesome-free/fa-solid-900.svg#fontawesome") format("svg");
+  src: url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff2") format("woff2"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.woff") format("woff"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.ttf") format("truetype"), url("/site/themes/ghosttowns/fonts/@fortawesome/fontawesome-free/fa-solid-900.svg#fontawesome") format("svg");
 }
 
 .fa,
@@ -6927,13 +6927,25 @@ input[type=search] {
   border-color: #E3DFD7;
 }
 
+.fa-orange {
+  color: #CA8643;
+}
+
 .tagline {
   color: #CA8643;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
-  font-size: 0.75rem;
+  font-family: Open Sans, sans-serif;
+}
+
+.tagline-md {
+  color: #D55F36;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  margin-bottom: 0.25rem;
   font-family: Open Sans, sans-serif;
 }
 
@@ -7127,6 +7139,7 @@ input[type=search] {
 .mapboxgl-ctrl {
   position: absolute;
   right: 10px;
+  top: 10px;
 }
 
 .mapboxgl-popup-close-button {

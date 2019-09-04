@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect } from 'react';
-import { connectHits } from 'react-instantsearch-dom';
 import { PropTypes } from 'prop-types';
 import Map from './Map';
 import { getBoundingBoxFromHit } from './helpers/map';
@@ -19,7 +18,7 @@ function reducer(state, action) {
     }
 }
 
-const Hits = ({
+const GuideMap = ({
     hits,
     children,
     width = 600,
@@ -73,8 +72,8 @@ const Hits = ({
     );
 };
 
-Hits.propTypes = {
-    hits: PropTypes.arrayOf(hitType),
+GuideMap.propTypes = {
+    // hits: PropTypes.arrayOf(hitType),
     children: PropTypes.func.isRequired,
     width: PropTypes.number,
     height: PropTypes.number,
@@ -83,7 +82,5 @@ Hits.propTypes = {
     initialZoom: PropTypes.number,
     currentTown: hitType,
 };
-
-const GuideMap = connectHits(Hits);
 
 export default GuideMap;
