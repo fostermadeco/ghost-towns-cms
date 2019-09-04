@@ -43,9 +43,11 @@ const GuideMobile = ({ guide }) => {
 
     const { width, height } = useWindowSize();
 
+    // town info can be opened in map view and scrolled. Reset scroll when closed or when town changes
     const townScrollEl = useRef(null);
-    // town info can be opened in map view and scrolled. Reset scroll when closed.
-    useRefScrollTop(townScrollEl, !isTownOpen);
+    const townHasChanged = get(currentTown, 'name') !== get(chosenTown, 'name');
+    const shouldScrollTownTop = !isTownOpen || townHasChanged;
+    useRefScrollTop(townScrollEl, shouldScrollTownTop);
 
     const renderPopup = () =>
         chosenTown && (
