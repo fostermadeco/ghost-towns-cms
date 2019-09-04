@@ -6908,7 +6908,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Faustina, serif;
 }
 
-p, a, li, span, div {
+p, a, li, span, div, button {
   font-family: Open Sans, sans-serif;
 }
 
@@ -6947,6 +6947,10 @@ input[type=search] {
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
   font-family: Open Sans, sans-serif;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
 }
 
 .header-red-xl {

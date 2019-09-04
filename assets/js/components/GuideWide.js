@@ -38,47 +38,59 @@ const GuideWide = ({ guide }) => {
     }
 
     return (
-        <div>
-            <div className="flex">
-                <div className="w-1/2">
-                    <div className="pt-6">
-                        <h2 className="tagline text-red">Ghost Town Guide</h2>
-                        <h1 className="font-bold text-3xl pb-6">{guide.title}</h1>
-                    </div>
-                    <div className="ml-3 sm:ml-0 mr-3 mb-10 pb-20">
-                        <p className="md:hidden">View as Map</p>
-                        <GuideHitsList setCurrentTown={setCurrentTown} chosenTown={chosenTown} hits={guide.towns} />
-                    </div>
-                </div>
-                <div className="w-1/2" id="test" ref={mapWrapRef}>
-                    <div className="fixed" style={{ top: '70px' }}>
-                        <GeoSearchMapBox width={mapWidth} height={500} hits={guide.towns}>
-                            {({ hits }) => (
-                                <div>
-                                    {renderPopup()}
-                                    {hits.map(hit => (
-                                        <div key={hit.name}>
-                                            <MapMarker
-                                                latitude={hit._geoloc.lat}
-                                                longitude={hit._geoloc.lng}
-                                                name={hit.name}
-                                                onClick={() => {
-                                                    setCurrentTown(hit);
-                                                    setChosenTown(hit);
-                                                }}
-                                                isSelected={currentTown !== null && currentTown.name === hit.name}
-                                            />
-                                        </div>
-                                    ))}
+        <div className="bg-tan-200 bg-topo pb-10">
+            <div className="container mx-auto">
+                <div className="max-w-3/4">
+                    <div className="page-body">
+                        <div className="flex">
+                            <div className="w-1/2">
+                                <div className="pt-6">
+                                    <h2 className="tagline text-red">Ghost Town Guide</h2>
+                                    <h1 className="font-bold text-3xl pb-6">{guide.title}</h1>
                                 </div>
-                            )}
-                        </GeoSearchMapBox>
+                                <div className="ml-3 sm:ml-0 mr-3 mb-10 pb-20">
+                                    <p className="md:hidden">View as Map</p>
+                                    <GuideHitsList
+                                        setCurrentTown={setCurrentTown}
+                                        chosenTown={chosenTown}
+                                        hits={guide.towns}
+                                    />
+                                </div>
+                            </div>
+                            <div className="w-1/2" id="test" ref={mapWrapRef}>
+                                <div className="fixed" style={{ top: '70px' }}>
+                                    <GeoSearchMapBox width={mapWidth} height={500} hits={guide.towns}>
+                                        {({ hits }) => (
+                                            <div>
+                                                {renderPopup()}
+                                                {hits.map(hit => (
+                                                    <div key={hit.name}>
+                                                        <MapMarker
+                                                            latitude={hit._geoloc.lat}
+                                                            longitude={hit._geoloc.lng}
+                                                            name={hit.name}
+                                                            onClick={() => {
+                                                                setCurrentTown(hit);
+                                                                setChosenTown(hit);
+                                                            }}
+                                                            isSelected={
+                                                                currentTown !== null && currentTown.name === hit.name
+                                                            }
+                                                        />
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+                                    </GeoSearchMapBox>
+                                </div>
+                            </div>
+                        </div>
+                        <div style={{ marginBottom: '40rem' }}>
+                            <h2>More Content</h2>
+                            <p>To buffer hits so they can be scrolled with map on larger screens</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div style={{ marginBottom: '40rem' }}>
-                <h2>More Content</h2>
-                <p>To buffer hits so they can be scrolled with map on larger screens</p>
             </div>
         </div>
     );

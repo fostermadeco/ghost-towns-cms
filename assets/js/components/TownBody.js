@@ -1,6 +1,5 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import Icon from './Icon';
 import { hitType } from './types';
 import SanitizeHtml from './SanitizeHtml';
 

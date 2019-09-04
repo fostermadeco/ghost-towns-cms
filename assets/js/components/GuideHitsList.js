@@ -19,7 +19,7 @@ const GuideHit = ({ hit, index, setCurrentTown, chosenTown }) => {
 
     return (
         <div style={{ minHeight: '500px' }}>
-            <div className="my-5 py-2">
+            <div className="py-6">
                 <div ref={hitRef}>
                     <h3 className="tagline text-xs mb-0">{hit.county} county</h3>
                     <h2 className="text-3xl font-normal font-sansserif mr-5 capitalize">

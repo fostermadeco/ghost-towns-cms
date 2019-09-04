@@ -3,7 +3,6 @@ import { PropTypes } from 'prop-types';
 import { Popup } from 'react-map-gl';
 import Map from './Map';
 import MapMarker from './MapMarker';
-import Icon from './Icon';
 import useElementSize from './hooks/useElementSize';
 import viewportReducer from './reducers/viewportReducer';
 
