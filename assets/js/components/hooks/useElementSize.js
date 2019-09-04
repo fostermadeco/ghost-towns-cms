@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 
-const useElementSize = () => {
-    const [width, setWidth] = useState(500);
-    const [height, setHeight] = useState(500);
+const useElementSize = (initialWidth = 500, initialHeight = 500) => {
+    const [width, setWidth] = useState(initialWidth);
+    const [height, setHeight] = useState(initialHeight);
 
     const ref = useCallback(node => {
         if (node !== null) {

@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { connect } from 'react-redux';
-import { animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
 import PropTypes from 'prop-types';
 
 // App
@@ -21,6 +21,12 @@ import {
 
 import viewportReducer from './reducers/viewportReducer';
 
+const mapInitialHeight = (() => {
+    const headerHeight = document.getElementById('nav').offsetHeight;
+    const paddingHeight = 0.75 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+    return window.innerHeight - headerHeight - paddingHeight * 2;
+})();
+
 const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSearchResults, fetchStates }) => {
     //----------------------------
     // State
@@ -28,7 +34,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const [searchTerm, setSearchTerm] = useState('');
     const [highlightedSearchResult, setHighlightedSearchResult] = useState(null);
-    const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
+    const [mapWrapRef, mapWidth, mapHeight] = useElementSize(500, mapInitialHeight);
     const [viewport, dispatchViewportAction] = useReducer(viewportReducer, {
         width: mapWidth,
         height: mapHeight,
@@ -60,13 +66,13 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
         });
     };
 
-    const scrollToSelectedSearchResult = (searchResult) => {
+    const scrollToSelectedSearchResult = searchResult => {
         scroller.scrollTo(searchResult.id, {
             duration: 500,
             smooth: true,
             offset: -10,
         });
-    }
+    };
 
     //----------------------------
     // Effects
