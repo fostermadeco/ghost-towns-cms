@@ -22,7 +22,7 @@ const finishStatesFetch = createAction('STATES_FETCH_FINISH');
 // Action Dispatch
 //----------------------------
 
-const dispatchFetchSearchResults = (query, taxonomy) => async (dispatch) => {
+const dispatchFetchSearchResults = (query, taxonomy) => async dispatch => {
     dispatch(initSearchResultsFetch());
 
     try {
@@ -36,14 +36,18 @@ const dispatchFetchSearchResults = (query, taxonomy) => async (dispatch) => {
                 taxonomyQuery = `?taxonomy=${encodeURI(taxonomy)}`;
             }
 
-            const { data: { data: results } } = await axios.get(`/!/Fetch/collection/towns${taxonomyQuery}`);
+            const {
+                data: { data: results },
+            } = await axios.get(`/!/Fetch/collection/towns${taxonomyQuery}`);
             searchResults = results;
         } else {
             if (taxonomy) {
                 taxonomyQuery = `&taxonomy=${encodeURI(taxonomy)}`;
             }
 
-            const { data: { data: results } } = await axios.get(`/!/Fetch/search?index=collections/towns&query=${encodeURI(query)}${taxonomyQuery}`);
+            const {
+                data: { data: results },
+            } = await axios.get(`/!/Fetch/search?index=collections/towns&query=${encodeURI(query)}${taxonomyQuery}`);
             searchResults = results;
         }
 
@@ -77,17 +81,23 @@ const dispatchFetchStates = () => async dispatch => {
 // Reducers
 //----------------------------
 
-const searchResults = handleActions({
-    [receiveSearchResultsFetch](state, { payload }) {
-        return payload;
-    }
-}, []);
+const searchResults = handleActions(
+    {
+        [receiveSearchResultsFetch](state, { payload }) {
+            return payload;
+        },
+    },
+    []
+);
 
-const statesList = handleActions({
-    [receiveStatesFetch](state, { payload }) {
-        return payload;
-    }
-}, []);
+const statesList = handleActions(
+    {
+        [receiveStatesFetch](state, { payload }) {
+            return payload;
+        },
+    },
+    []
+);
 
 const reducers = combineReducers({
     searchResults,

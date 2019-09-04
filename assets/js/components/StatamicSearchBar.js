@@ -4,8 +4,8 @@ import useDebouncedCallback from 'use-debounce/lib/callback';
 
 const StatamicSearchBar = ({ onSearch }) => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [search] = useDebouncedCallback(async searchTerm => {
-        onSearch(searchTerm);
+    const [search] = useDebouncedCallback(async query => {
+        onSearch(query);
     }, 250);
 
     return (

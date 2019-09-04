@@ -1,22 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import Autosuggest from 'react-autosuggest';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import useDebouncedCallback from 'use-debounce/lib/callback';
 
 // App
-import { reducers } from './reducers/StatamicSearchAutoSuggestPageReducer';
+import {
+    dispatchFetchSearchAutoSuggest,
+    getSearchAutoSuggestionsState,
+    reducers,
+} from './reducers/StatamicSearchAutoSuggestPageReducer';
 
-const languages = [
-    {
-        name: 'C',
-        year: 1972,
-    },
-    {
-        name: 'Elm',
-        year: 2012,
-    },
-];
-
-const StatamicSearchAutoSuggestPageComponent = () => {
+const StatamicSearchAutoSuggestPageComponent = ({ searchAutoSuggestions, fetchSearchAutoSuggest }) => {
     //----------------------------
     // State
     //----------------------------
@@ -27,25 +22,31 @@ const StatamicSearchAutoSuggestPageComponent = () => {
     // Functions
     //----------------------------
 
-    const onSuggestionsFetchRequested = () => {
-        //
-    };
+    const [onSuggestionsFetchRequested] = useDebouncedCallback(async event => {
+        fetchSearchAutoSuggest(event.value);
+    }, 100);
 
     const onSuggestionsClearRequested = () => {
         //
     };
 
-    const getSuggestionValue = () => {
-        //
-    };
+    const getSuggestionValue = suggestion => suggestion.title;
 
     //----------------------------
     // Render
     //----------------------------
 
+    const renderSuggestion = suggestion => <span>{suggestion.title}</span>;
+
     const inputProps = {
         value: searchText,
-        onChange: (event) => setSearchText(event.target.value),
+        onChange: event => {
+            if (event.target.tagName === 'INPUT') {
+                setSearchText(event.target.value);
+            } else if (event.target.tagName === 'LI') {
+                setSearchText(event.target.innerText);
+            }
+        },
     };
 
     return (
@@ -53,11 +54,11 @@ const StatamicSearchAutoSuggestPageComponent = () => {
             <div className="w-full md:w-1/2">
                 <div className="mx-2 mt-3">
                     <Autosuggest
-                        suggestions={languages}
+                        suggestions={searchAutoSuggestions}
                         onSuggestionsFetchRequested={onSuggestionsFetchRequested}
                         onSuggestionsClearRequested={onSuggestionsClearRequested}
                         getSuggestionValue={getSuggestionValue}
-                        renderSuggestion={suggestion => <span>{suggestion.name}</span>}
+                        renderSuggestion={renderSuggestion}
                         inputProps={inputProps}
                     />
                 </div>
@@ -68,12 +69,21 @@ const StatamicSearchAutoSuggestPageComponent = () => {
     );
 };
 
+StatamicSearchAutoSuggestPageComponent.propTypes = {
+    searchAutoSuggestions: PropTypes.array.isRequired,
+    fetchSearchAutoSuggest: PropTypes.func.isRequired,
+};
+
+//----------------------------
+// Redux
+//----------------------------
+
 const mapStateToProps = state => ({
-    //
+    searchAutoSuggestions: getSearchAutoSuggestionsState(state),
 });
 
 const mapDispatchToProps = dispatch => ({
-    //
+    fetchSearchAutoSuggest: (...args) => dispatchFetchSearchAutoSuggest(...args)(dispatch),
 });
 
 const StatamicSearchAutoSuggestPage = connect(
