@@ -6961,13 +6961,25 @@ input[type=search] {
   font-weight: 600;
 }
 
+.page-body {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .page-body {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .page-body ul {
   list-style-type: disc;
   margin-left: 2.5rem;
   margin-top: 0.5rem;
 }
 
-.page-body ul li {
+.page-body li {
   margin-bottom: 0.5rem;
 }
 

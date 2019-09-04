@@ -62,8 +62,14 @@ input[type="search"] {
 }
 
 // user content
-.page-body ul {
-    @apply list-disc  ml-10 mt-2;
+.page-body {
+    @apply px-4;
+    @screen md {
+        @apply px-0;
+    }
+    ul {
+        @apply list-disc  ml-10 mt-2;
+    }
     li {
         @apply mb-2;
     }
