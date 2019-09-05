@@ -2,14 +2,16 @@ import React from 'react';
 import { MenuSelect } from 'react-instantsearch-dom';
 import { PropTypes } from 'prop-types';
 
-const RefinementSelect = ({ attribute, label }) => (
+const RefinementSelect = ({ attribute, label, defaultLabel = 'See All' }) => (
     <label>
-        <span className="inline-block">
-            <small>{label}:</small>
-        </span>
-        <div className="inline-block ml-2">
+        <div className="inline-block mr-3">
             <small>
-                <MenuSelect attribute={attribute} />
+                <MenuSelect
+                    attribute={attribute}
+                    translations={{
+                        seeAllOption: defaultLabel,
+                    }}
+                />
             </small>
         </div>
     </label>
@@ -18,6 +20,7 @@ const RefinementSelect = ({ attribute, label }) => (
 RefinementSelect.propTypes = {
     attribute: PropTypes.string.isRequired,
     label: PropTypes.string.isRequired,
+    defaultLabel: PropTypes.string,
 };
 
 export default RefinementSelect;

@@ -15,7 +15,7 @@ const StateResults = ({ searchResults }) => {
     }
 
     return (
-        <h3 className="text-red text-2xl font-semibold mt-3">
+        <h3 className="text-brown text-lg font-sansserif font-bold">
             {nbHits} Ghost Town{hits.length > 1 && 's'}
         </h3>
     );

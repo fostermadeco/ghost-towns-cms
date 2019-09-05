@@ -39,7 +39,7 @@ hr {
 }
 input[type="text"],
 input[type="search"] {
-    @apply border border-tan-400;
+    @apply border-2 border-tan-400;
 }
 
 .fa-orange {
@@ -140,6 +140,17 @@ input[type="search"] {
 .ap-footer a svg {
   vertical-align: middle;
 }
+// Aloglia places overrides for Explore
+.section-explore {
+    .ap-input {
+        height: 40px;
+        line-height: 40px;
+        @apply text-xs;
+    }
+    .ap-input-icon {
+        @apply hidden;
+    }
+}
 
 // Mapbox
 .mapboxgl-ctrl {
@@ -189,7 +200,7 @@ input[type="search"] {
     right: 0;
     height: 100%;
     width: 50px;
-    @apply rounded-r bg-red;
+    @apply rounded-r bg-orange;
 }
 .ais-SearchBox-submitIcon {
     width: 20px;

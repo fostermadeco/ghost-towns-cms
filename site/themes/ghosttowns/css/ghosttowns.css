@@ -6923,7 +6923,7 @@ hr {
 
 input[type=text],
 input[type=search] {
-  border-width: 1px;
+  border-width: 2px;
   border-color: #E3DFD7;
 }
 
@@ -7090,6 +7090,16 @@ input[type=search] {
   vertical-align: middle;
 }
 
+.section-explore .ap-input {
+  height: 40px;
+  line-height: 40px;
+  font-size: 0.75rem;
+}
+
+.section-explore .ap-input-icon {
+  display: none;
+}
+
 .mapboxgl-ctrl {
   position: absolute;
   right: 10px;
@@ -7149,7 +7159,7 @@ input[type=search] {
   width: 50px;
   border-top-right-radius: 0.25rem;
   border-bottom-right-radius: 0.25rem;
-  background-color: #D55F36;
+  background-color: #CA8643;
 }
 
 .ais-SearchBox-submitIcon {

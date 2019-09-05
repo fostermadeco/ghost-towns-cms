@@ -40,16 +40,6 @@ const MapSearch = () => {
     const [aroundLatLng, setAroundLatLng] = useState(initialAroundLatLng);
     const [aroundLatLngViaIP, setAroundLatLngViaIP] = useState(initialAroundLatLngViaIP);
 
-    // Set initial location filter tab
-    let initialTab = 1;
-    if (initialAroundLatLngViaIP) {
-        initialTab = 2;
-    } else if (!initialAroundLatLngViaIP && initialAroundLatLng) {
-        initialTab = 3;
-    }
-
-    const [selectedLocationFilterTab, setSelectedLocationFilterTab] = useState(initialTab);
-
     const onSearchStateChange = searchState => {
         setURLSearchState(searchState);
     };
@@ -62,7 +52,6 @@ const MapSearch = () => {
         setAroundRadius(defaultAroundRadius);
         setAroundLatLng(null);
         setAroundLatLngViaIP(false);
-        setSelectedLocationFilterTab(1);
         setURLSearchState({});
         setURLSearchLocation('');
     };
@@ -118,7 +107,7 @@ const MapSearch = () => {
     };
 
     const isMobile = useIsMobile();
-    console.log(mapHeight);
+
     return (
         <InstantSearch
             searchClient={searchClient}
@@ -130,59 +119,54 @@ const MapSearch = () => {
             <div className="flex flex-wrap">
                 <div className="w-full md:w-1/2">
                     <div className="mx-2 mt-3">
-                        <SearchBox />
-                        <LocationFilters
-                            aroundRadius={aroundRadius}
-                            aroundLocationName={searchLocation}
-                            selectedTab={selectedLocationFilterTab}
-                            onChangeViaIP={setAroundLatLngViaIP}
-                            onChangeRadius={setAroundRadius}
-                            onChangeAroundLatLng={setAroundLatLng}
-                            onChangeLocationName={onSearchLocationChange}
-                            onTabChange={setSelectedLocationFilterTab}
+                        <SearchBox
+                            translations={{
+                                placeholder: 'Search ghost towns',
+                            }}
                         />
-                        <hr className="my-3" />
-                        <div className="mt-2 mb-4">
-                            <div className="inline-block mr-5">
-                                <ToggleRefinement attribute="featured" label="Featured" value />
+                        <div>
+                            <LocationFilters
+                                aroundRadius={aroundRadius}
+                                aroundLocationName={searchLocation}
+                                onChangeViaIP={setAroundLatLngViaIP}
+                                onChangeRadius={setAroundRadius}
+                                onChangeAroundLatLng={setAroundLatLng}
+                                onChangeLocationName={onSearchLocationChange}
+                                aroundLatLngViaIP={aroundLatLngViaIP}
+                            />
+                        </div>
+                        <div className="flex justify-between items-center my-2">
+                            <div>
+                                <RefinementSelect attribute="road_condition" label="Road" defaultLabel="All Roads" />
+                                <ToggleRefinement attribute="featured" label="Landmarks" value />
                             </div>
-
-                            <div className="inline-block ml-5">
-                                <RefinementSelect attribute="road_condition" label="Road" />
-                            </div>
+                            {areFiltersApplied() && <RefinementClearButton onClick={() => clearFilters()} />}
                         </div>
 
-                        {areFiltersApplied() && (
-                            <div className="mb-4">
-                                <RefinementClearButton onClick={() => clearFilters()} />
-                            </div>
-                        )}
-
-                        <div className="md:hidden text-right mr-1">
+                        <div className="flex justify-between items-center my-4">
+                            <CustomStateResults />
                             {mobileViewMode === 'map' && (
                                 <button
                                     type="button"
-                                    className="underline text-xs"
+                                    className="underline text-sm"
                                     onClick={() => setMobileViewMode('list')}
                                 >
-                                    List
+                                    View List
                                 </button>
                             )}
                             {mobileViewMode === 'list' && (
                                 <button
                                     type="button"
-                                    className="underline text-xs"
+                                    className="underline text-sm"
                                     onClick={() => setMobileViewMode('map')}
                                 >
-                                    Map
+                                    View Map
                                 </button>
                             )}
                         </div>
-                        <hr />
 
                         {(!isMobile || mobileViewMode === 'list') && (
                             <div>
-                                <CustomStateResults />
                                 <TownHits
                                     onMouseEnter={hit => setPopupHit(hit)}
                                     onMouseLeave={() => setPopupHit(null)}
