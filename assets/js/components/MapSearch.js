@@ -161,9 +161,9 @@ const MapSearch = () => {
                             {areFiltersApplied() && <RefinementClearButton onClick={() => clearFilters()} />}
                         </div>
 
-                        <div className="flex justify-between items-center my-4">
+                        <div className="flex justify-between items-center my-4 mx-2">
                             <CustomStateResults />
-                            {mobileViewMode === 'map' && (
+                            {isMobile && mobileViewMode === 'map' && (
                                 <button
                                     type="button"
                                     className="underline text-sm"
@@ -172,7 +172,7 @@ const MapSearch = () => {
                                     View List
                                 </button>
                             )}
-                            {mobileViewMode === 'list' && (
+                            {isMobile && mobileViewMode === 'list' && (
                                 <button
                                     type="button"
                                     className="underline text-sm"

@@ -5,7 +5,8 @@ import PlacesInput from './PlacesInput';
 const PlacesRedirectToExplore = () => {
     const handlePlaceSelection = ({ suggestion }) => {
         if (suggestion.value) {
-            window.location.href = `/explore?query=${suggestion.value}`;
+            const url = `/explore?configure[aroundRadius]=64373&configure[aroundLatLng]=${suggestion.latlng.lat},${suggestion.latlng.lng}&data[location]=${suggestion.value}`;
+            window.location.href = url;
         }
     };
 
