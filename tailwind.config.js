@@ -14,6 +14,7 @@ module.exports = {
                 yellow: '#C7A360',
                 blue: '#799AB1',
                 tan: {
+                    '100': '#F7F7F5',
                     '200': '#f4f4f2',
                     '400': '#E3DFD7',
                     '500': '#CCC9C2',

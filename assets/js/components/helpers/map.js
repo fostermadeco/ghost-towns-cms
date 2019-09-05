@@ -11,6 +11,8 @@ export const getBoundingBoxFromHits = (viewport, hits) => {
         return getBoundingBoxFromHit(hits[0]);
     }
 
+    const viewportCopy = { ...viewport };
+
     const coords = hits.map(hit => hit._geoloc);
     const lats = coords.map(coord => coord.lat);
     const lngs = coords.map(coord => coord.lng);
@@ -21,11 +23,12 @@ export const getBoundingBoxFromHits = (viewport, hits) => {
     const bounds = [[minLng, minLat], [maxLng, maxLat]];
 
     try {
-        return new WebMercatorViewport(viewport).fitBounds(bounds, {
+        return new WebMercatorViewport(viewportCopy).fitBounds(bounds, {
             padding: 20,
             offset: [-100, -100],
         });
     } catch (error) {
         console.log(error);
+        console.log('Maybe the map height is 0?');
     }
 };

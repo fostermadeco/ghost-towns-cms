@@ -23,6 +23,24 @@ import useIsMobile from './hooks/useIsMobile';
 const searchClient = algoliasearch(process.env.REACT_APP_ALGOLIA_APP_ID, process.env.REACT_APP_ALGOLIA_API_KEY);
 const defaultAroundRadius = '64373';
 
+const getSearchStateFromURL = () => {
+    const state = qs.parse(window.location.search.slice(1));
+
+    if (state.configure) {
+        const { aroundLatLngViaIP } = state.configure;
+
+        if (aroundLatLngViaIP) {
+            state.configure.aroundLatLngViaIP = aroundLatLngViaIP === 'true';
+        }
+    }
+
+    for (const key in state.toggle) {
+        state.toggle[key] = state.toggle[key] === 'true';
+    }
+
+    return state;
+};
+
 const MapSearch = () => {
     //----------------------------
     // Filters
@@ -178,7 +196,7 @@ const MapSearch = () => {
 
                 {(!isMobile || mobileViewMode === 'map') && (
                     <div className="w-full md:w-1/2">
-                        <div className="mx-2 md:ml-5" style={{ height: '100%' }} ref={mapWrapRef}>
+                        <div className="mx-2 md:ml-5" style={{ height: '100%', minHeight: '500px' }} ref={mapWrapRef}>
                             <GeoSearchMapboxAlgolia width={mapWidth} height={mapHeight}>
                                 {({ hits }) => (
                                     <div>
@@ -213,23 +231,5 @@ const MapSearch = () => {
         </InstantSearch>
     );
 };
-
-function getSearchStateFromURL() {
-    const state = qs.parse(window.location.search.slice(1));
-
-    if (state.configure) {
-        const { aroundLatLngViaIP } = state.configure;
-
-        if (aroundLatLngViaIP) {
-            state.configure.aroundLatLngViaIP = aroundLatLngViaIP === 'true';
-        }
-    }
-
-    for (const key in state.toggle) {
-        state.toggle[key] = state.toggle[key] === 'true';
-    }
-
-    return state;
-}
 
 export default MapSearch;
