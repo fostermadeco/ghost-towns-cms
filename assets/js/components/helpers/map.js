@@ -33,7 +33,7 @@ export const getBoundingBoxFromHits = (viewport, hits) => {
     }
 };
 
-const getLatLngBoundsFromSearchResults = (results) => {
+const getLatLngBoundsFromSearchResults = results => {
     const lats = results.map(result => result.latitude);
     const lngs = results.map(result => result.longitude);
     const maxLng = lngs.reduce((a, b) => Math.max(a, b));
@@ -41,7 +41,7 @@ const getLatLngBoundsFromSearchResults = (results) => {
     const maxLat = lats.reduce((a, b) => Math.max(a, b));
     const minLat = lats.reduce((a, b) => Math.min(a, b));
     return [[minLng, minLat], [maxLng, maxLat]];
-}
+};
 
 export const getBoundingBoxFromSearchResult = result => ({
     longitude: Number(result.longitude),
@@ -103,7 +103,7 @@ export const getBoundingBoxCenteredAroundSearchResult = (viewport, results, cent
     const bounds = [[minLng, minLat], [maxLng, maxLat]];
 
     try {
-        return (new WebMercatorViewport(viewport)).fitBounds(bounds, {
+        return new WebMercatorViewport(viewport).fitBounds(bounds, {
             padding: 20,
             offset: [-100, -100],
         });
@@ -117,7 +117,7 @@ export const getViewportWithNewCenter = (viewport, center) => {
         viewport.longitude = Number(center.longitude);
         viewport.latitude = Number(center.latitude);
 
-        return (new WebMercatorViewport(viewport));
+        return new WebMercatorViewport(viewport);
     } catch (error) {
         console.log(error);
     }

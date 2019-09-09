@@ -34,7 +34,7 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
 
     const [searchTerm, setSearchTerm] = useState('');
     const [highlightedSearchResult, setHighlightedSearchResult] = useState(null);
-    const [mapWrapRef, mapWidth, mapHeight] = useElementSize(500, mapInitialHeight);
+    const [mapContainerRef, mapWidth, mapHeight] = useElementSize(500, mapInitialHeight);
     const [viewport, dispatchViewportAction] = useReducer(viewportReducer, {
         width: mapWidth,
         height: mapHeight,
@@ -139,8 +139,8 @@ const StatamicSearchExplorePageComponent = ({ searchResults, statesList, fetchSe
                 </div>
             </div>
 
-            <div className="w-full md:w-1/2">
-                <div className="fixed mx-2 md:ml-5 pt-3" style={{ height: '100%' }} ref={mapWrapRef}>
+            <div className="w-full md:w-1/2" id="map-container" ref={mapContainerRef}>
+                <div className="fixed mx-2 md:ml-5 pt-3" style={{ height: '100%' }}>
                     <StatamicSearchMap
                         searchResults={searchResults}
                         viewport={viewport}
