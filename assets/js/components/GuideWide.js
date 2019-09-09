@@ -23,12 +23,14 @@ const GuideWide = ({ guide }) => {
                     latitude={currentTown._geoloc.lat}
                     longitude={currentTown._geoloc.lng}
                     closeButton={false}
-                    anchor="bottom"
-                    offsetTop={-20}
-                    tipSize={5}
                     closeOnClick={false}
+                    offsetTop={-30}
+                    offsetLeft={-1}
                 >
-                    <div className="mt-2">{currentTown.name}</div>
+                    <div className="mr-2">
+                        <h3 className="tagline text-xs">{currentTown.county} county</h3>
+                        <strong>{currentTown.name}</strong>, {currentTown.state}
+                    </div>
                 </Popup>
             </div>
         );

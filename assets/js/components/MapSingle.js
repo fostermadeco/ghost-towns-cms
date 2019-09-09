@@ -41,13 +41,13 @@ const MapSingle = ({ town }) => {
                 latitude={town._geoloc.lat}
                 longitude={town._geoloc.lng}
                 closeButton
-                anchor="bottom"
                 onClose={() => setShowPopup(false)}
-                tipSize={5}
                 closeOnClick={false}
-                offsetTop={-20}
+                offsetTop={-30}
+                offsetLeft={-1}
             >
-                <div className="mt-2">{town.name}</div>
+                <h3 className="tagline text-xs">{town.county} county</h3>
+                <strong>{town.name}</strong>, {town.state}
             </Popup>
         );
 
