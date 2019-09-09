@@ -28,7 +28,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: theme('fontFamily.serif');
 }
-p, a, li, span, div {
+p, a, li, span, div, button {
     font-family: theme('fontFamily.sansserif');
 }
 p {
@@ -39,7 +39,7 @@ hr {
 }
 input[type="text"],
 input[type="search"] {
-    @apply border border-tan-400;
+    @apply border-2 border-tan-400;
 }
 
 .fa-orange {
@@ -53,13 +53,23 @@ input[type="search"] {
     @apply text-red tracking-widest uppercase mt-2 mb-1 font-sansserif;
 }
 
+.rotate-180 {
+    transform: rotate(180deg);
+}
+
 .header-red-xl {
     @apply pt-4 mb-4 text-red text-xl font-semibold;
 }
 
 // user content
-.page-body ul {
-    @apply list-disc  ml-10 mt-2;
+.page-body {
+    @apply px-4;
+    @screen md {
+        @apply px-0;
+    }
+    ul {
+        @apply list-disc  ml-10 mt-2;
+    }
     li {
         @apply mb-2;
     }
@@ -132,6 +142,17 @@ input[type="search"] {
 .ap-footer a svg {
   vertical-align: middle;
 }
+// Aloglia places overrides for Explore
+.section-explore {
+    .ap-input {
+        height: 40px;
+        line-height: 40px;
+        @apply text-xs;
+    }
+    .ap-input-icon {
+        @apply hidden;
+    }
+}
 
 // Mapbox
 .mapboxgl-ctrl {
@@ -181,7 +202,7 @@ input[type="search"] {
     right: 0;
     height: 100%;
     width: 50px;
-    @apply rounded-r bg-red;
+    @apply rounded-r bg-orange;
 }
 .ais-SearchBox-submitIcon {
     width: 20px;

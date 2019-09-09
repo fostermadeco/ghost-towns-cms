@@ -6,7 +6,7 @@ import { ButtonSmall } from './StyledComponents';
 const RefinementClearButton = ({ refine, items, onClick }) => (
     <button
         type="button"
-        className="button button-white button-sm hover:bg-tan-200"
+        className="button button-white button-sm hover:bg-tan-100 text-xs"
         onClick={() => {
             refine(items);
             onClick();

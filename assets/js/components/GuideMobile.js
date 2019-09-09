@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import get from 'lodash.get';
 import { Popup } from 'react-map-gl';
 import { Link } from 'react-router-dom';
@@ -12,6 +12,7 @@ import MapMarker from './MapMarker';
 import GuideNavMobile from './GuideNavMobile';
 import Icon from './Icon';
 import GuideHitsList from './GuideHitsList';
+import useRefScrollTop from './hooks/useRefScrollTop';
 
 const GuideMobileHitsWrapper = styled.div`
     background-color: #fff;
@@ -42,6 +43,12 @@ const GuideMobile = ({ guide }) => {
 
     const { width, height } = useWindowSize();
 
+    // town info can be opened in map view and scrolled. Reset scroll when closed or when town changes
+    const townScrollEl = useRef(null);
+    const townHasChanged = get(currentTown, 'name') !== get(chosenTown, 'name');
+    const shouldScrollTownTop = !isTownOpen || townHasChanged;
+    useRefScrollTop(townScrollEl, shouldScrollTownTop);
+
     const renderPopup = () =>
         chosenTown && (
             <div>
@@ -61,6 +68,7 @@ const GuideMobile = ({ guide }) => {
     // account for header, hit and bottom nav
     const mapHeight = height - 300;
     const mapWidth = width;
+    const headerHeight = 58;
 
     console.log('current', get(currentTown, 'name'), 'chosen', get(chosenTown, 'name'));
 
@@ -68,10 +76,16 @@ const GuideMobile = ({ guide }) => {
         <>
             <div className="fixed" style={{ width: '100%', top: 0 }}>
                 <div
-                    className="flex border-b border-gray-300 bg-white justify-between px-3 content-center items-center"
-                    style={{ height: 50 }}
+                    className="flex border-b-2 border-tan-400 bg-white justify-between px-3 content-center items-center"
+                    style={{ height: headerHeight }}
                 >
-                    <h1 className="text-lg">Guide: {guide.name}</h1>
+                    <a className="text-sm" href="/guides">
+                        All Guides
+                    </a>
+                    <div className="no-flex text-center">
+                        <h2 className="tagline text-red text-xs mt-0 mb-0">Ghost Town Guide</h2>
+                        <h1 className="text-lg">{guide.title}</h1>
+                    </div>
                     <button
                         type="button"
                         className="text-sm"
@@ -81,54 +95,63 @@ const GuideMobile = ({ guide }) => {
                     </button>
                 </div>
             </div>
-            {mobileViewMode === 'list' && (
-                <div className="mx-3">
-                    <GuideHitsList chosenTown={chosenTown} setCurrentTown={setCurrentTown} hits={guide.towns} />
-                </div>
-            )}
-            {mobileViewMode === 'map' && (
-                <>
-                    <div className="fixed" style={{ bottom: '250px', top: '50px' }}>
-                        <GuideMap width={mapWidth} height={mapHeight} currentTown={chosenTown} hits={guide.towns}>
-                            {({ hits }) => (
-                                <div>
-                                    {renderPopup()}
-                                    {hits.map(hit => (
-                                        <div key={hit.name}>
-                                            <MapMarker
-                                                latitude={hit._geoloc.lat}
-                                                longitude={hit._geoloc.lng}
-                                                name={hit.name}
-                                                onClick={() => {
-                                                    setCurrentTown(hit);
-                                                    setChosenTown(hit);
-                                                }}
-                                                isSelected={chosenTown !== null && chosenTown.name === hit.name}
-                                            />
+            <div className="bg-tan-200 bg-topo pb-10">
+                <div className="page-body">
+                    {mobileViewMode === 'list' && (
+                        <div className="mx-3">
+                            <GuideHitsList chosenTown={chosenTown} setCurrentTown={setCurrentTown} hits={guide.towns} />
+                        </div>
+                    )}
+                    {mobileViewMode === 'map' && (
+                        <>
+                            <div className="fixed" style={{ bottom: '250px', top: `${headerHeight}px` }}>
+                                <GuideMap
+                                    width={mapWidth}
+                                    height={mapHeight}
+                                    currentTown={chosenTown}
+                                    hits={guide.towns}
+                                >
+                                    {({ hits }) => (
+                                        <div>
+                                            {renderPopup()}
+                                            {hits.map(hit => (
+                                                <div key={hit.name}>
+                                                    <MapMarker
+                                                        latitude={hit._geoloc.lat}
+                                                        longitude={hit._geoloc.lng}
+                                                        name={hit.name}
+                                                        onClick={() => {
+                                                            setCurrentTown(hit);
+                                                            setChosenTown(hit);
+                                                        }}
+                                                        isSelected={chosenTown !== null && chosenTown.name === hit.name}
+                                                    />
+                                                </div>
+                                            ))}
                                         </div>
-                                    ))}
-                                </div>
-                            )}
-                        </GuideMap>
-                    </div>
-                    <GuideMobileHitsWrapper className="fixed px-3" isOpen={isTownOpen}>
-                        <GuideHitsMobileMap
-                            hits={guide.towns}
-                            setChosenTown={setChosenTown}
-                            currentTown={currentTown}
-                            chosenTown={chosenTown}
-                            isTownOpen={isTownOpen}
-                        />
-                    </GuideMobileHitsWrapper>
-                    <GuideNavMobile
-                        hits={guide.towns}
-                        isTownOpen={isTownOpen}
-                        setIsTownOpen={setIsTownOpen}
-                        chosenTown={chosenTown}
-                        setChosenTown={setChosenTown}
-                    />
-                </>
-            )}
+                                    )}
+                                </GuideMap>
+                            </div>
+                            <GuideMobileHitsWrapper ref={townScrollEl} className="fixed px-3" isOpen={isTownOpen}>
+                                <GuideHitsMobileMap
+                                    hits={guide.towns}
+                                    setChosenTown={setChosenTown}
+                                    currentTown={currentTown}
+                                    chosenTown={chosenTown}
+                                    isTownOpen={isTownOpen}
+                                />
+                            </GuideMobileHitsWrapper>
+                            <GuideNavMobile
+                                hits={guide.towns}
+                                isTownOpen={isTownOpen}
+                                setIsTownOpen={setIsTownOpen}
+                                chosenTown={chosenTown}
+                                setChosenTown={setChosenTown}
+                            />
+                        </>
+                    )}
+                </div>
+            </div>
         </>
     );
 };

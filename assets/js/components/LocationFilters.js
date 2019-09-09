@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import AlgoliaPlaces from 'algolia-places-react';
 import PropTypes from 'prop-types';
 import RadiusSelect from './RadiusSelect';
@@ -8,87 +8,86 @@ const classNames = require('classnames');
 const LocationFilters = ({
     aroundRadius,
     aroundLocationName,
-    selectedTab,
     onChangeViaIP,
     onChangeRadius,
     onChangeAroundLatLng,
     onChangeLocationName,
-    onTabChange,
+    aroundLatLngViaIP,
 }) => {
-    const getButtonClasses = tabNumber => {
-        const buttonClassesNormal = 'mt-2 inline mx-2';
-        const buttonClassesSelected = 'underline';
+    const placesRef = useRef(null);
+    const currentLocationText = 'Current Location';
 
-        return classNames({
-            [buttonClassesNormal]: true,
-            [buttonClassesSelected]: selectedTab === tabNumber,
-        });
+    useEffect(() => {
+        if (!placesRef || !placesRef.current) return;
+
+        const placesInput = placesRef.current.autocompleteElem;
+
+        if (aroundLatLngViaIP) {
+            // since AlgoliaPlaces is a 3rd-party, not sure there is a better way?
+            placesInput.value = currentLocationText;
+        }
+
+        if (!aroundLatLngViaIP && aroundLocationName === '') {
+            placesInput.value = '';
+        }
+    }, [aroundLatLngViaIP, placesRef, aroundLocationName, currentLocationText]);
+
+    const handlePlacesFocus = event => {
+        if (aroundLatLngViaIP) {
+            event.target.value = '';
+            onChangeViaIP(false);
+        }
     };
 
-    const openFilterByAllTab = () => {
-        onTabChange(1);
-        onChangeAroundLatLng('');
-        onChangeLocationName('');
-        onChangeViaIP(false);
+    const handlePlaceSelection = ({ suggestion }) => {
+        onChangeAroundLatLng(`${suggestion.latlng.lat},${suggestion.latlng.lng}`);
+        console.log(suggestion);
+        onChangeLocationName(suggestion.value);
     };
 
-    const openFilterByMyLocationTab = () => {
-        onTabChange(2);
+    const searchByMyLocation = () => {
         onChangeAroundLatLng('');
         onChangeLocationName('');
         onChangeViaIP(true);
     };
 
-    const openFilterByAnyLocationTab = () => {
-        onTabChange(3);
-        onChangeViaIP(false);
-    };
-
-    const handlePlaceSelection = ({ suggestion }) => {
-        onChangeAroundLatLng(`${suggestion.latlng.lat},${suggestion.latlng.lng}`);
-        onChangeLocationName(suggestion.value);
-    };
+    console.log('aroundLocationName', aroundLocationName, 'aroundLatLngViaIP', aroundLatLngViaIP);
 
     return (
-        <div>
-            <div>
-                <small className="mr-3">Search by:</small>
-                <button type="button" className={getButtonClasses(1)} onClick={openFilterByAllTab}>
-                    all
-                </button>
-
-                <button type="button" className={getButtonClasses(2)} onClick={openFilterByMyLocationTab}>
-                    my location
-                </button>
-
-                <button type="button" className={getButtonClasses(3)} onClick={openFilterByAnyLocationTab}>
-                    a location
+        <div className="clearfix my-2">
+            <div className="w-1/3 float-left flex justify-around items-center" style={{ minHeight: '40px' }}>
+                <RadiusSelect onChange={onChangeRadius} currentValue={aroundRadius} />
+                <div className="mx-3 text-sm">from</div>
+            </div>
+            <div className="w-2/3 float-left relative">
+                <AlgoliaPlaces
+                    ref={placesRef}
+                    placeholder="Search by city"
+                    defaultValue={aroundLocationName}
+                    options={{
+                        appId: process.env.REACT_APP_ALGOLIA_PLACES_APP_ID,
+                        apiKey: process.env.REACT_APP_ALGOLIA_PLACES_API_KEY,
+                        countries: ['us'],
+                        type: 'city',
+                        aroundLatLngViaIP: false,
+                    }}
+                    onFocus={handlePlacesFocus}
+                    onChange={handlePlaceSelection}
+                />
+                <button
+                    type="button"
+                    className="absolute"
+                    style={{ top: '10px', right: '15px' }}
+                    onClick={searchByMyLocation}
+                >
+                    <img
+                        alt="Use current location"
+                        src="/site/themes/ghosttowns/img/target.svg"
+                        width="20"
+                        height="20"
+                    />
                 </button>
             </div>
-            {selectedTab === 2 && (
-                <div className="mt-2 mb-6">
-                    <RadiusSelect onChange={onChangeRadius} currentValue={aroundRadius} />
-                </div>
-            )}
-            {selectedTab === 3 && (
-                <div className="mt-3 mb-6">
-                    <div className="mb-2">
-                        <AlgoliaPlaces
-                            defaultValue={aroundLocationName}
-                            options={{
-                                appId: process.env.REACT_APP_ALGOLIA_PLACES_APP_ID,
-                                apiKey: process.env.REACT_APP_ALGOLIA_PLACES_API_KEY,
-                                countries: ['us'],
-                                type: 'city',
-                                aroundLatLngViaIP: false,
-                            }}
-                            onChange={handlePlaceSelection}
-                        />
-                    </div>
-
-                    <RadiusSelect onChange={onChangeRadius} currentValue={aroundRadius} />
-                </div>
-            )}
         </div>
     );
 };
@@ -97,13 +96,11 @@ LocationFilters.propTypes = {
     aroundRadius: PropTypes.string,
     // e.g. Philipsburg, Montana, United States of America
     aroundLocationName: PropTypes.string,
-    // e.g. 1, 2, 3
-    selectedTab: PropTypes.number,
     onChangeViaIP: PropTypes.func,
     onChangeRadius: PropTypes.func,
     onChangeAroundLatLng: PropTypes.func,
     onChangeLocationName: PropTypes.func,
-    onTabChange: PropTypes.func,
+    aroundLatLngViaIP: PropTypes.bool,
 };
 
 export default LocationFilters;

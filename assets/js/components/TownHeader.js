@@ -1,5 +1,4 @@
 import React from 'react';
-import Icon from './Icon';
 import { hitType } from './types';
 import SanitizeHtml from './SanitizeHtml';
 

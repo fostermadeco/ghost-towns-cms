@@ -1,10 +1,7 @@
 import React from 'react';
 import { connectHits, Highlight } from 'react-instantsearch-dom';
-import { Link } from 'react-router-dom';
 import { PropTypes } from 'prop-types';
 import CustomPagination from './CustomPagination';
-import HitIcon from './HitIcon';
-import Icon from './Icon';
 import { hitType } from './types';
 import { truncate } from './helpers/strings';
 
