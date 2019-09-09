@@ -22,7 +22,11 @@ const items = [
 
 const RadiusSelect = ({ currentValue, onChange }) => (
     <>
-        <select value={currentValue || ''} onChange={event => onChange(event.currentTarget.value)}>
+        <select
+            className="select-css"
+            value={currentValue || ''}
+            onChange={event => onChange(event.currentTarget.value)}
+        >
             <option value="">Select Miles</option>
             {items.map(item => (
                 <option key={item.label} value={item.isRefined ? currentValue : item.value}>

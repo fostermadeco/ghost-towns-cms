@@ -111,7 +111,10 @@ const MapSearch = () => {
                     offsetTop={-20}
                 >
                     <a href={`/towns/${popupHit.slug}`}>
-                        <span className="mt-2">{popupHit.name}</span>
+                        <span className="mt-2">
+                            <h3 className="tagline text-xs">{popupHit.county} county</h3>
+                            <strong>{popupHit.name}</strong>, {popupHit.state}
+                        </span>
                     </a>
                 </Popup>
             </div>
@@ -155,7 +158,7 @@ const MapSearch = () => {
                         </div>
                         <div className="flex justify-between items-center my-2">
                             <div>
-                                <RefinementSelect attribute="road_condition" label="Road" defaultLabel="All Roads" />
+                                <RefinementSelect attribute="road_condition" defaultLabel="All Roads" />
                                 <ToggleRefinement attribute="featured" label="Landmarks" value />
                             </div>
                             {areFiltersApplied() && <RefinementClearButton onClick={() => clearFilters()} />}

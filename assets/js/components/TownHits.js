@@ -7,7 +7,7 @@ import { truncate } from './helpers/strings';
 
 const Hit = ({ hit, onMouseEnter = () => {}, onMouseLeave = () => {} }) => (
     <div
-        className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card"
+        className="flex flex-wrap my-3 content-between border rounded border-tan-400 bg-white px-4 py-2 min-h-card hover:shadow-full"
         onMouseEnter={() => onMouseEnter(hit)}
         onMouseLeave={onMouseLeave}
     >
