@@ -10,7 +10,6 @@ const MapMarker = ({ latitude, longitude, onClick = () => {}, isSelected = false
     const markerClass = classNames({ 'z-10': isSelected || isSoftSelected });
     useEffect(() => {
         if (!buttonRef.current) return;
-        console.log('blurring');
         buttonRef.current.blur();
         if (isSelected) {
             buttonRef.current.focus();
