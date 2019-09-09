@@ -41,6 +41,13 @@ const getSearchStateFromURL = () => {
     return state;
 };
 
+/*
+ * Markers:
+ *   - default: light blue
+ *   - hovered: dark blue (no infobox)         selected
+ *   - clicked: dark blue & infobox            selected
+ *   - hovered in list: orange (no infobox)    softSelected
+ */
 const MapSearch = () => {
     //----------------------------
     // Filters
@@ -87,12 +94,10 @@ const MapSearch = () => {
     //----------------------------
 
     const [popupHit, setPopupHit] = useState(null);
+    const [selectedHitId, setSelectedHitId] = useState(null);
+    const [softSelectedHitId, setSoftSelectedHitId] = useState(null);
     const [mobileViewMode, setMobileViewMode] = useLocalStorage('mobileViewMode', 'list');
     const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
-
-    const { start: startPopupHideTimeout, clear: clearPopupHideTimeout } = useTimeout(() => {
-        setPopupHit(null);
-    }, 300);
 
     //----------------------------
     // Render
@@ -100,24 +105,21 @@ const MapSearch = () => {
 
     const renderPopup = () =>
         popupHit && (
-            <div onMouseEnter={clearPopupHideTimeout} onMouseLeave={startPopupHideTimeout}>
-                <Popup
-                    latitude={popupHit._geoloc.lat}
-                    longitude={popupHit._geoloc.lng}
-                    closeButton={false}
-                    anchor="bottom"
-                    tipSize={5}
-                    closeOnClick={false}
-                    offsetTop={-20}
-                >
-                    <a href={`/towns/${popupHit.slug}`}>
-                        <span className="mt-2">
-                            <h3 className="tagline text-xs">{popupHit.county} county</h3>
-                            <strong>{popupHit.name}</strong>, {popupHit.state}
-                        </span>
-                    </a>
-                </Popup>
-            </div>
+            <Popup
+                latitude={popupHit._geoloc.lat}
+                longitude={popupHit._geoloc.lng}
+                closeButton={false}
+                closeOnClick={false}
+                offsetTop={-30}
+                offsetLeft={-1}
+            >
+                <a href={`/towns/${popupHit.slug}`}>
+                    <span className="mt-2">
+                        <h3 className="tagline text-xs">{popupHit.county} county</h3>
+                        <strong>{popupHit.name}</strong>, {popupHit.state}
+                    </span>
+                </a>
+            </Popup>
         );
 
     const config = {
@@ -189,8 +191,12 @@ const MapSearch = () => {
                         {(!isMobile || mobileViewMode === 'list') && (
                             <div>
                                 <TownHits
-                                    onMouseEnter={hit => setPopupHit(hit)}
-                                    onMouseLeave={() => setPopupHit(null)}
+                                    onMouseEnter={hit => {
+                                        setSelectedHitId(null);
+                                        setPopupHit(null);
+                                        setSoftSelectedHitId(hit.objectID);
+                                    }}
+                                    onMouseLeave={() => setSoftSelectedHitId(null)}
                                 />
                             </div>
                         )}
@@ -207,20 +213,19 @@ const MapSearch = () => {
                                         {hits.map(hit => (
                                             <div
                                                 key={hit.name}
-                                                onMouseEnter={() => {
-                                                    clearPopupHideTimeout();
+                                                onClick={() => {
                                                     setPopupHit(hit);
                                                 }}
-                                                onMouseLeave={() => {
-                                                    startPopupHideTimeout();
+                                                onMouseEnter={() => {
+                                                    setSelectedHitId(hit.objectID);
                                                 }}
                                             >
                                                 <MapMarker
                                                     latitude={hit._geoloc.lat}
                                                     longitude={hit._geoloc.lng}
                                                     name={hit.name}
-                                                    isFeatured={!!hit.featured}
-                                                    isSelected={popupHit && popupHit.name === hit.name}
+                                                    isSelected={selectedHitId === hit.objectID}
+                                                    isSoftSelected={softSelectedHitId === hit.objectID}
                                                 />
                                             </div>
                                         ))}
