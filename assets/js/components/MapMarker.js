@@ -12,11 +12,14 @@ const MapMarker = ({ latitude, longitude, onClick = () => {}, isSelected = false
         if (!buttonRef.current) return;
         console.log('blurring');
         buttonRef.current.blur();
+        if (isSelected) {
+            buttonRef.current.focus();
+        }
     }, [isSelected, buttonRef]);
     return (
         <div>
             <Marker latitude={latitude} longitude={longitude} offsetLeft={-16} offsetTop={-20} className={markerClass}>
-                <button ref={buttonRef} type="button" onClick={onClick}>
+                <button className="outline-none focus:outline-none" ref={buttonRef} type="button" onClick={onClick}>
                     <HitIcon isSelected={isSelected} isSoftSelected={isSoftSelected} />
                 </button>
             </Marker>

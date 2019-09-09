@@ -36,8 +36,8 @@ const GuideMobile = ({ guide }) => {
     const [currentTown, setCurrentTown] = useState(null);
     // on click of marker
     const [chosenTown, setChosenTown] = useState(null);
-
     const [isTownOpen, setIsTownOpen] = useState(false);
+    const [hoveredHitId, setHoveredHitId] = useState(null);
 
     const [mobileViewMode, setMobileViewMode] = useState('list');
 
@@ -117,7 +117,12 @@ const GuideMobile = ({ guide }) => {
                                         <div>
                                             {renderPopup()}
                                             {hits.map(hit => (
-                                                <div key={hit.name}>
+                                                <div
+                                                    key={hit.name}
+                                                    onMouseEnter={() => {
+                                                        setHoveredHitId(hit.objectID);
+                                                    }}
+                                                >
                                                     <MapMarker
                                                         latitude={hit._geoloc.lat}
                                                         longitude={hit._geoloc.lng}
@@ -126,7 +131,10 @@ const GuideMobile = ({ guide }) => {
                                                             setCurrentTown(hit);
                                                             setChosenTown(hit);
                                                         }}
-                                                        isSelected={chosenTown !== null && chosenTown.name === hit.name}
+                                                        isSelected={
+                                                            (chosenTown !== null && chosenTown.name === hit.name) ||
+                                                            hoveredHitId === hit.objectID
+                                                        }
                                                     />
                                                 </div>
                                             ))}

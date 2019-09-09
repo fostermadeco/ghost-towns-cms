@@ -16,6 +16,8 @@ const GuideWide = ({ guide }) => {
     // on click of marker
     const [chosenTown, setChosenTown] = useState();
 
+    const [hoveredHitId, setHoveredHitId] = useState(null);
+
     const renderPopup = () =>
         currentTown && (
             <div>
@@ -66,7 +68,12 @@ const GuideWide = ({ guide }) => {
                                             <div>
                                                 {renderPopup()}
                                                 {hits.map(hit => (
-                                                    <div key={hit.name}>
+                                                    <div
+                                                        key={hit.name}
+                                                        onMouseEnter={() => {
+                                                            setHoveredHitId(hit.objectID);
+                                                        }}
+                                                    >
                                                         <MapMarker
                                                             latitude={hit._geoloc.lat}
                                                             longitude={hit._geoloc.lng}
@@ -76,7 +83,9 @@ const GuideWide = ({ guide }) => {
                                                                 setChosenTown(hit);
                                                             }}
                                                             isSelected={
-                                                                currentTown !== null && currentTown.name === hit.name
+                                                                (currentTown !== null &&
+                                                                    currentTown.name === hit.name) ||
+                                                                hoveredHitId === hit.objectID
                                                             }
                                                         />
                                                     </div>
