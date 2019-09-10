@@ -16,6 +16,12 @@ sections:
         type: collection
         display: Towns
         mode: panes
+      image:
+        container: towns
+        folder: guides
+        restrict: false
+        type: assets
+        display: Image
 taxonomies: false
 title: Guide
 hide: true
