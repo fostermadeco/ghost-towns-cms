@@ -47,7 +47,7 @@ const GuideWide = ({ guide }) => {
             <div className="page-body">
                 <div className="flex">
                     <div className="w-2/5">
-                        <div className="mx:0 md:mx-4" style={{ paddingTop: '80px' }}>
+                        <div className="mx:0 md:mx-4 mt-2 header-top-padding">
                             <h2 className="tagline text-red">Ghost Town Guide</h2>
                             <h1 className="font-bold text-3xl pb-6">{guide.title}</h1>
                             <div className="mb-10 pb-20">
@@ -61,7 +61,7 @@ const GuideWide = ({ guide }) => {
                         </div>
                     </div>
                     <div className="w-3/5" ref={mapWrapRef}>
-                        <div className="fixed" style={{ height: '100%', top: '70px' }} ref={mapFixedRef}>
+                        <div className="fixed header-top" style={{ height: '100%' }} ref={mapFixedRef}>
                             <GeoSearchMapBox width={mapWidth} height={mapFixedHeight} hits={guide.towns}>
                                 {({ hits }) => (
                                     <div>
