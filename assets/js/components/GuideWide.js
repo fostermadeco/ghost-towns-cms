@@ -16,6 +16,8 @@ const GuideWide = ({ guide }) => {
     // on click of marker
     const [chosenTown, setChosenTown] = useState();
 
+    const [hoveredHitId, setHoveredHitId] = useState(null);
+
     const renderPopup = () =>
         currentTown && (
             <div>
@@ -23,12 +25,14 @@ const GuideWide = ({ guide }) => {
                     latitude={currentTown._geoloc.lat}
                     longitude={currentTown._geoloc.lng}
                     closeButton={false}
-                    anchor="bottom"
-                    offsetTop={-20}
-                    tipSize={5}
                     closeOnClick={false}
+                    offsetTop={-30}
+                    offsetLeft={-1}
                 >
-                    <div className="mt-2">{currentTown.name}</div>
+                    <div className="mr-2">
+                        <h3 className="tagline text-xs">{currentTown.county} county</h3>
+                        <strong>{currentTown.name}</strong>, {currentTown.state}
+                    </div>
                 </Popup>
             </div>
         );
@@ -64,7 +68,12 @@ const GuideWide = ({ guide }) => {
                                             <div>
                                                 {renderPopup()}
                                                 {hits.map(hit => (
-                                                    <div key={hit.name}>
+                                                    <div
+                                                        key={hit.name}
+                                                        onMouseEnter={() => {
+                                                            setHoveredHitId(hit.objectID);
+                                                        }}
+                                                    >
                                                         <MapMarker
                                                             latitude={hit._geoloc.lat}
                                                             longitude={hit._geoloc.lng}
@@ -74,7 +83,9 @@ const GuideWide = ({ guide }) => {
                                                                 setChosenTown(hit);
                                                             }}
                                                             isSelected={
-                                                                currentTown !== null && currentTown.name === hit.name
+                                                                (currentTown !== null &&
+                                                                    currentTown.name === hit.name) ||
+                                                                hoveredHitId === hit.objectID
                                                             }
                                                         />
                                                     </div>

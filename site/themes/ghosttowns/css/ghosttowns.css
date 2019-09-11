@@ -6961,11 +6961,6 @@ input[type=search] {
   font-weight: 600;
 }
 
-.page-body {
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
 @media (min-width: 768px) {
   .page-body {
     padding-left: 0;
@@ -7217,20 +7212,6 @@ input[type=search] {
   display: none;
 }
 
-.mapboxgl-ctrl {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.mapboxgl-popup-close-button {
-  right: 5px;
-}
-
-.mapboxgl-popup {
-  z-index: 1;
-}
-
 .ais-SearchBox-form {
   display: block;
   position: relative;
@@ -7368,6 +7349,100 @@ input[type=search] {
 .medium-zoom-image--opened {
   z-index: 3;
   height: auto !important;
+}
+
+.select-css {
+  display: block;
+  font-size: 0.875rem;
+  border-width: 2px;
+  border-color: #E3DFD7;
+  border-radius: 0.25rem;
+  padding-right: 2rem;
+  padding-left: 0.75rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: #fff;
+  height: 40px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("/site/themes/ghosttowns/img/select-arrows.svg");
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.6em top 50%, 0 0;
+}
+
+.select-css::-ms-expand {
+  display: none;
+}
+
+.select-css:hover {
+  border-color: #888;
+}
+
+.select-css:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+
+.select-css option {
+  font-weight: normal;
+}
+
+.mapboxgl-ctrl {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.mapboxgl-popup-close-button {
+  right: 5px;
+}
+
+.mapboxgl-popup {
+  z-index: 20;
+}
+
+.mapboxgl-popup-tip {
+  display: none;
+}
+
+.mapboxgl-popup-content {
+  position: relative;
+  background: #fff;
+  border: 1px solid #E3DFD7;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+}
+
+.mapboxgl-popup-content:after, .mapboxgl-popup-content:before {
+  top: 100%;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.mapboxgl-popup-content:after {
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #fff;
+  border-width: 10px;
+  margin-left: -10px;
+}
+
+.mapboxgl-popup-content:before {
+  border-color: rgba(227, 223, 215, 0);
+  border-top-color: #E3DFD7;
+  border-width: 11px;
+  margin-left: -11px;
 }
 
 .sr-only{
@@ -14429,6 +14504,10 @@ input[type=search] {
   box-shadow: none;
 }
 
+.shadow-full{
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+}
+
 .hover\:shadow:hover{
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -14461,6 +14540,10 @@ input[type=search] {
   box-shadow: none;
 }
 
+.hover\:shadow-full:hover{
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+}
+
 .focus\:shadow:focus{
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
@@ -14491,6 +14574,10 @@ input[type=search] {
 
 .focus\:shadow-none:focus{
   box-shadow: none;
+}
+
+.focus\:shadow-full:focus{
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
 }
 
 .fill-current{
@@ -22770,6 +22857,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .sm\:shadow-full{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .sm\:hover\:shadow:hover{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -22802,6 +22893,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .sm\:hover\:shadow-full:hover{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .sm\:focus\:shadow:focus{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -22832,6 +22927,10 @@ input[type=search] {
 
   .sm\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .sm\:focus\:shadow-full:focus{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
   }
 
   .sm\:fill-current{
@@ -31112,6 +31211,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .md\:shadow-full{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .md\:hover\:shadow:hover{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -31144,6 +31247,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .md\:hover\:shadow-full:hover{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .md\:focus\:shadow:focus{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -31174,6 +31281,10 @@ input[type=search] {
 
   .md\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .md\:focus\:shadow-full:focus{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
   }
 
   .md\:fill-current{
@@ -39454,6 +39565,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .lg\:shadow-full{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .lg\:hover\:shadow:hover{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -39486,6 +39601,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .lg\:hover\:shadow-full:hover{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .lg\:focus\:shadow:focus{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -39516,6 +39635,10 @@ input[type=search] {
 
   .lg\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .lg\:focus\:shadow-full:focus{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
   }
 
   .lg\:fill-current{
@@ -47796,6 +47919,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .xl\:shadow-full{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .xl\:hover\:shadow:hover{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -47828,6 +47955,10 @@ input[type=search] {
     box-shadow: none;
   }
 
+  .xl\:hover\:shadow-full:hover{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
+  }
+
   .xl\:focus\:shadow:focus{
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
@@ -47858,6 +47989,10 @@ input[type=search] {
 
   .xl\:focus\:shadow-none:focus{
     box-shadow: none;
+  }
+
+  .xl\:focus\:shadow-full:focus{
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.15);
   }
 
   .xl\:fill-current{

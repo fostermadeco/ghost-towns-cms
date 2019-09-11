@@ -36,8 +36,8 @@ const GuideMobile = ({ guide }) => {
     const [currentTown, setCurrentTown] = useState(null);
     // on click of marker
     const [chosenTown, setChosenTown] = useState(null);
-
     const [isTownOpen, setIsTownOpen] = useState(false);
+    const [hoveredHitId, setHoveredHitId] = useState(null);
 
     const [mobileViewMode, setMobileViewMode] = useState('list');
 
@@ -56,12 +56,14 @@ const GuideMobile = ({ guide }) => {
                     latitude={chosenTown._geoloc.lat}
                     longitude={chosenTown._geoloc.lng}
                     closeButton={false}
-                    anchor="bottom"
-                    tipSize={5}
-                    offsetTop={-20}
                     closeOnClick={false}
+                    offsetTop={-30}
+                    offsetLeft={-1}
                 >
-                    <div className="mt-2">{chosenTown.name}</div>
+                    <div className="mt-2">
+                        <h3 className="tagline text-xs">{chosenTown.county} county</h3>
+                        <strong>{chosenTown.name}</strong>, {chosenTown.state}
+                    </div>
                 </Popup>
             </div>
         );
@@ -115,7 +117,12 @@ const GuideMobile = ({ guide }) => {
                                         <div>
                                             {renderPopup()}
                                             {hits.map(hit => (
-                                                <div key={hit.name}>
+                                                <div
+                                                    key={hit.name}
+                                                    onMouseEnter={() => {
+                                                        setHoveredHitId(hit.objectID);
+                                                    }}
+                                                >
                                                     <MapMarker
                                                         latitude={hit._geoloc.lat}
                                                         longitude={hit._geoloc.lng}
@@ -124,7 +131,10 @@ const GuideMobile = ({ guide }) => {
                                                             setCurrentTown(hit);
                                                             setChosenTown(hit);
                                                         }}
-                                                        isSelected={chosenTown !== null && chosenTown.name === hit.name}
+                                                        isSelected={
+                                                            (chosenTown !== null && chosenTown.name === hit.name) ||
+                                                            hoveredHitId === hit.objectID
+                                                        }
                                                     />
                                                 </div>
                                             ))}

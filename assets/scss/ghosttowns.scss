@@ -63,7 +63,6 @@ input[type="search"] {
 
 // user content
 .page-body {
-    @apply px-4;
     @screen md {
         @apply px-0;
     }
@@ -152,19 +151,6 @@ input[type="search"] {
     .ap-input-icon {
         @apply hidden;
     }
-}
-
-// Mapbox
-.mapboxgl-ctrl {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.mapboxgl-popup-close-button {
-    right: 5px;
-}
-.mapboxgl-popup {
-    z-index: 1;
 }
 
 // Algolia instant search
@@ -278,5 +264,79 @@ input[type="search"] {
     height: auto !important;
 }
 
+.select-css {
+    @apply block text-sm border-2 border-tan-400 rounded pr-8 pl-3 py-2 bg-white;
+    height: 40px;
+	width: 100%;
+	max-width: 100%;
+	box-sizing: border-box;
+	margin: 0;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+    appearance: none;
+    background-image: url('/site/themes/ghosttowns/img/select-arrows.svg');
+	background-repeat: no-repeat, repeat;
+	background-position: right .6em top 50%, 0 0;
+}
+.select-css::-ms-expand {
+	display: none;
+}
+.select-css:hover {
+	border-color: #888;
+}
+.select-css:focus {
+	border-color: #aaa;
+	box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+	box-shadow: 0 0 0 3px -moz-mac-focusring;
+	color: #222;
+	outline: none;
+}
+.select-css option {
+	font-weight:normal;
+}
 
+// Mapbox
+.mapboxgl-ctrl {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.mapboxgl-popup-close-button {
+    right: 5px;
+}
+.mapboxgl-popup {
+    @apply z-20;
+}
+.mapboxgl-popup-tip {
+    display: none;
+}
+.mapboxgl-popup-content {
+	position: relative;
+	background: #fff;
+    border: 1px solid #E3DFD7;
+    @apply shadow-full;
+}
+.mapboxgl-popup-content:after, .mapboxgl-popup-content:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.mapboxgl-popup-content:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-top-color: #fff;
+	border-width: 10px;
+	margin-left: -10px;
+}
+.mapboxgl-popup-content:before {
+	border-color: rgba(227, 223, 215, 0);
+	border-top-color: #E3DFD7;
+	border-width: 11px;
+	margin-left: -11px;
+}
 @import "tailwindcss/utilities";

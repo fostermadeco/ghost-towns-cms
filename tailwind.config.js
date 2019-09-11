@@ -35,6 +35,9 @@ module.exports = {
             padding: {
                 '1/2': '.15rem',
             },
+            boxShadow: {
+                full: '0px 1px 15px rgba(0, 0, 0, 0.15)',
+            },
         },
     },
     variants: {},
