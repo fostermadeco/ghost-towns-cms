@@ -97,7 +97,7 @@ const GuideMobile = ({ guide }) => {
                     </button>
                 </div>
             </div>
-            <div className="bg-tan-200 bg-topo pb-10">
+            <div className="bg-tan-200 bg-topo pb-10 md:header-top-padding">
                 <div className="page-body">
                     {mobileViewMode === 'list' && (
                         <div className="mx-3">

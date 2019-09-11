@@ -8,7 +8,8 @@ import MapMarker from './MapMarker';
 import useElementSize from './hooks/useElementSize';
 
 const GuideWide = ({ guide }) => {
-    const [mapWrapRef, mapWidth] = useElementSize();
+    const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
+    const [mapFixedRef, mapFixedWidth, mapFixedHeight] = useElementSize();
     // The difference between current and chosen is current is a passive
     // selection that happens on scroll. Chosen happens on a specific action.
     // sets popup, marker as active - used on click of marker or when hit is scrolled to
@@ -40,68 +41,60 @@ const GuideWide = ({ guide }) => {
     if (!guide) {
         return null;
     }
-
+    console.log(mapFixedWidth, mapFixedHeight);
     return (
         <div className="bg-tan-200 bg-topo pb-10">
-            <div className="container mx-auto">
-                <div className="max-w-3/4">
-                    <div className="page-body">
-                        <div className="flex">
-                            <div className="w-1/2">
-                                <div className="pt-6">
-                                    <h2 className="tagline text-red">Ghost Town Guide</h2>
-                                    <h1 className="font-bold text-3xl pb-6">{guide.title}</h1>
-                                </div>
-                                <div className="ml-3 sm:ml-0 mr-3 mb-10 pb-20">
-                                    <p className="md:hidden">View as Map</p>
-                                    <GuideHitsList
-                                        setCurrentTown={setCurrentTown}
-                                        chosenTown={chosenTown}
-                                        hits={guide.towns}
-                                    />
-                                </div>
-                            </div>
-                            <div className="w-1/2" id="test" ref={mapWrapRef}>
-                                <div className="fixed" style={{ top: '70px' }}>
-                                    <GeoSearchMapBox width={mapWidth} height={500} hits={guide.towns}>
-                                        {({ hits }) => (
-                                            <div>
-                                                {renderPopup()}
-                                                {hits.map(hit => (
-                                                    <div
-                                                        key={hit.name}
-                                                        onMouseEnter={() => {
-                                                            setHoveredHitId(hit.objectID);
-                                                        }}
-                                                    >
-                                                        <MapMarker
-                                                            latitude={hit._geoloc.lat}
-                                                            longitude={hit._geoloc.lng}
-                                                            name={hit.name}
-                                                            onClick={() => {
-                                                                setCurrentTown(hit);
-                                                                setChosenTown(hit);
-                                                            }}
-                                                            isSelected={
-                                                                (currentTown !== null &&
-                                                                    currentTown.name === hit.name) ||
-                                                                hoveredHitId === hit.objectID
-                                                            }
-                                                        />
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                    </GeoSearchMapBox>
-                                </div>
+            <div className="page-body">
+                <div className="flex">
+                    <div className="w-2/5">
+                        <div className="mx:0 md:mx-4" style={{ paddingTop: '80px' }}>
+                            <h2 className="tagline text-red">Ghost Town Guide</h2>
+                            <h1 className="font-bold text-3xl pb-6">{guide.title}</h1>
+                            <div className="mb-10 pb-20">
+                                <p className="md:hidden">View as Map</p>
+                                <GuideHitsList
+                                    setCurrentTown={setCurrentTown}
+                                    chosenTown={chosenTown}
+                                    hits={guide.towns}
+                                />
                             </div>
                         </div>
-                        <div style={{ marginBottom: '40rem' }}>
-                            <h2>More Content</h2>
-                            <p>To buffer hits so they can be scrolled with map on larger screens</p>
+                    </div>
+                    <div className="w-3/5" ref={mapWrapRef}>
+                        <div className="fixed" style={{ height: '100%', top: '70px' }} ref={mapFixedRef}>
+                            <GeoSearchMapBox width={mapWidth} height={mapFixedHeight} hits={guide.towns}>
+                                {({ hits }) => (
+                                    <div>
+                                        {renderPopup()}
+                                        {hits.map(hit => (
+                                            <div
+                                                key={hit.name}
+                                                onMouseEnter={() => {
+                                                    setHoveredHitId(hit.objectID);
+                                                }}
+                                            >
+                                                <MapMarker
+                                                    latitude={hit._geoloc.lat}
+                                                    longitude={hit._geoloc.lng}
+                                                    name={hit.name}
+                                                    onClick={() => {
+                                                        setCurrentTown(hit);
+                                                        setChosenTown(hit);
+                                                    }}
+                                                    isSelected={
+                                                        (currentTown !== null && currentTown.name === hit.name) ||
+                                                        hoveredHitId === hit.objectID
+                                                    }
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </GeoSearchMapBox>
                         </div>
                     </div>
                 </div>
+                <div style={{ marginBottom: '40rem' }} />
             </div>
         </div>
     );

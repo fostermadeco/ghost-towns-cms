@@ -98,6 +98,7 @@ const MapSearch = () => {
     const [softSelectedHitId, setSoftSelectedHitId] = useState(null);
     const [mobileViewMode, setMobileViewMode] = useLocalStorage('mobileViewMode', 'list');
     const [mapWrapRef, mapWidth, mapHeight] = useElementSize();
+    const [mapFixedRef, mapFixedWidth, mapFixedHeight] = useElementSize();
 
     //----------------------------
     // Render
@@ -140,8 +141,8 @@ const MapSearch = () => {
         >
             <Configure {...config} />
             <div className="flex flex-wrap">
-                <div className="w-full md:w-1/2">
-                    <div className="mx-2 mt-3">
+                <div className="w-full md:w-2/5">
+                    <div className="mx-4 md:mx-6 mt-4 md:header-top-padding">
                         <SearchBox
                             translations={{
                                 placeholder: 'Search ghost towns',
@@ -204,9 +205,13 @@ const MapSearch = () => {
                 </div>
 
                 {(!isMobile || mobileViewMode === 'map') && (
-                    <div className="w-full md:w-1/2">
-                        <div className="mx-2 md:ml-5" style={{ height: '100%', minHeight: '500px' }} ref={mapWrapRef}>
-                            <GeoSearchMapboxAlgolia width={mapWidth} height={mapHeight}>
+                    <div className="w-full md:w-3/5" ref={mapWrapRef}>
+                        <div
+                            className="md:fixed md:header-top"
+                            style={{ height: '100%', minHeight: '500px' }}
+                            ref={mapFixedRef}
+                        >
+                            <GeoSearchMapboxAlgolia width={mapWidth} height={mapFixedHeight}>
                                 {({ hits }) => (
                                     <div>
                                         {renderPopup()}

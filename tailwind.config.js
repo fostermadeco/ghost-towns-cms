@@ -41,5 +41,19 @@ module.exports = {
         },
     },
     variants: {},
-    plugins: [],
+    plugins: [
+        function({ addUtilities, addComponents, e, prefix, config }) {
+            const newUtilities = {
+                '.header-top': {
+                    top: '70px',
+                },
+                '.header-top-padding': {
+                    'padding-top': '70px',
+                },
+            };
+            addUtilities(newUtilities, {
+                variants: ['responsive'],
+            });
+        },
+    ],
 };

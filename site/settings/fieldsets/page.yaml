@@ -5,6 +5,7 @@ sections:
       title:
         display: Title
         type: text
+        localizable: true
       body:
         buttons:
           - h2
@@ -27,5 +28,11 @@ sections:
         restrict_assets: false
         type: bard
         display: Body
+      page_layout:
+        options:
+          full: Full
+        type: select
+        instructions: 'Full - A full-screen, fixed layout like the guide page.'
+        display: Layout
 taxonomies: true
 title: Page

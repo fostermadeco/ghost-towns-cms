@@ -29,9 +29,10 @@ const GeoSearchMapBox = ({
             type: 'UPDATE',
             params: {
                 width,
+                height,
             },
         });
-    }, [width]);
+    }, [width, height]);
 
     useDeepCompareEffect(() => {
         if (hits.length === 0) return;
