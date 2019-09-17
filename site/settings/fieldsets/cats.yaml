@@ -1,0 +1,16 @@
+sections:
+  main:
+    display: Main
+    fields:
+      title:
+        display: Title
+        type: text
+        localizable: true
+      color:
+        type: text
+        display: Color
+      age:
+        type: integer
+        display: Age
+taxonomies: true
+title: Cats
